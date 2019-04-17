@@ -11,5 +11,7 @@ Create app:
 ng new my-app
 
 Serve app:
+
 cd my-app
+
 ng serve --open
