@@ -1,0 +1,47 @@
+<form id="contact">
+
+	<h3>New Trip</h3>
+	<h4>Enter new trip info...</h4>
+	
+	<fieldset>
+		<input name="trip-name" type="text" placeholder="Trip Name"/>
+	</fieldset>
+	
+	<fieldset>
+		<label>Trip Duration:</label>
+		
+		<input name="trip-date-start" type="date" min="{{date | date:'yyyy-MM-dd'}}" 
+			value="{{date | date:'yyyy-MM-dd'}}" class="w50"/>
+			
+		<input name="trip-date-end" type="date" min="{{date | date:'yyyy-MM-dd'}}" 
+			value="{{date | date:'yyyy-MM-dd'}}" class="w50"/>
+	</fieldset>
+	<fieldset>
+		<input type="number" class="w95" min="0.00" step="0.01"
+			placeholder="Price" maxlength="3"/> €
+	</fieldset>
+	
+	<fieldset>
+		<label>Choose trip locations:</label>
+		From
+		<select class="w40">
+			<option *ngFor="let i of locations">{{i}}</option>
+		</select>
+		To
+		<select class="w40">
+			<option *ngFor="let i of locations">{{i}}</option>
+		</select>
+	   
+	</fieldset>
+	
+	<fieldset>
+		<label>Ticket Files:</label>
+		<input type='file' (change)='onUploadTicket($event)' #fileInput />
+		<div #files></div>
+	</fieldset>
+	
+	<fieldset>
+		<textarea name="additional-info" placeholder="Additional Info"></textarea>
+	</fieldset>
+</form>
+
