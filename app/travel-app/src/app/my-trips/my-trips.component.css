@@ -2,7 +2,7 @@
     margin: 0 0 2em 0;
     list-style-type: none;
     padding: 0;
-    width: 15em;
+    width: 30em;
   }
   .trips li {
     position: relative;
@@ -25,7 +25,7 @@
     text-decoration: none;
     position: relative;
     display: block;
-    width: 250px;
+    width: 450px;
   }
    
   .trips a:hover {
@@ -63,10 +63,18 @@
     background-color: #cfd8dc;
   }
    
-  button.delete {
-    position: relative;
-    left: 194px;
-    top: -32px;
-    background-color: gray !important;
+  button.refuse {
+    position: absolute;
+    right: 0px;
+    top: 5px;
+    background-color: red !important;
+    color: white;
+  }
+
+  button.confirm {
+    position: absolute;
+    right: 0px;
+    top: 5px;
+    background-color: green !important;
     color: white;
   }

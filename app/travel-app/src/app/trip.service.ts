@@ -82,16 +82,10 @@ deleteTrip (trip: Trip | number): Observable<Trip> {
   );
 }
 
-/* GET trips whose name contains search term */
-searchTrips(term: string): Observable<Trip[]> {
-  if (!term.trim()) {
-    // if not search term, return empty trip array.
-    return of([]);
-  }
-  return this.http.get<Trip[]>(`${this.tripsUrl}/?name=${term}`).pipe(
-    tap(_ => this.log(`found trips matching "${term}"`)),
-    catchError(this.handleError<Trip[]>('searchTrips', []))
+refuseTrip (trip: Trip): Observable<any> {
+  return this.http.put(this.tripsUrl, trip, httpOptions).pipe(
+    tap(_ => this.log(`updated trip id=${trip.id}`)),
+    catchError(this.handleError<any>('updateTrip'))
   );
-}
-
+  }
 }

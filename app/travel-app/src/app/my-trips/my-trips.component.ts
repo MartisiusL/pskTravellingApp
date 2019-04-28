@@ -35,4 +35,14 @@ export class MyTripsComponent implements OnInit {
     this.trips = this.trips.filter(h => h !== trip);
     this.tripService.deleteTrip(trip).subscribe();
   }
+
+  refuse(trip: Trip): void {
+    trip.confirmed = true;
+    this.tripService.refuseTrip(trip).subscribe();
+  }
+
+  confirm(trip: Trip): void {
+    trip.confirmed = false;
+    this.tripService.refuseTrip(trip).subscribe();
+  }
 }

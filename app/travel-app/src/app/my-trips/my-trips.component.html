@@ -5,8 +5,15 @@
       <span class="badge">{{trip.id}}
       </span> {{trip.name}}
     </a>
-    <button class="delete" title="delete trip"
-    (click)="delete(trip)">x</button>
+    <button *ngIf="!trip.confirmed" 
+    class="refuse"
+    title="refuse trip"
+    (click)="refuse(trip)">Refused</button>
+
+    <button *ngIf="trip.confirmed" 
+    class="confirm"
+    title="confirm trip"
+    (click)="confirm(trip)">Confirmed</button>
   </li>
 </ul>
 
