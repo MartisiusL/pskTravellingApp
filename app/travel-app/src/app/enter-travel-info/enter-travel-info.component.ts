@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import {Trip} from '../trip';
 
 @Component({
   selector: 'app-enter-travel-info',
@@ -8,6 +9,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 export class EnterTravelInfoComponent implements OnInit {
 	
   date = new Date();
+  
+  tripInfo = new Trip();
   locations = 
   [
 	"an array",
@@ -31,6 +34,7 @@ export class EnterTravelInfoComponent implements OnInit {
   }
   
   ngAfterViewInit(){
+	  console.log(this.tripInfo);
   }
   
   onUploadTicket(event){
@@ -38,10 +42,14 @@ export class EnterTravelInfoComponent implements OnInit {
 	  console.log(this.fileInput);
 	  if(event.target.files && event.target.files.length > 0) {
 		  let file = event.target.files[0];
-		  this.fileInput.nativeElement.value = null;
-		  this.filesContainer.nativeElement.innerHTML += file.name + "<br>"
+		  //this.fileInput.nativeElement.value = null;
+		  //this.filesContainer.nativeElement.innerHTML += file.name + "<br>"
 	  }
 	  
+  }
+  
+  onClickMe() {
+    console.log(this.tripInfo);
   }
   
 

@@ -4,31 +4,31 @@
 	<h4>Enter new trip info...</h4>
 	
 	<fieldset>
-		<input name="trip-name" type="text" placeholder="Trip Name"/>
+		<input [(ngModel)]="tripInfo.name" name="trip-name" type="text" placeholder="Trip Name"/>
 	</fieldset>
 	
 	<fieldset>
 		<label>Trip Duration:</label>
 		
-		<input name="trip-date-start" type="date" min="{{date | date:'yyyy-MM-dd'}}" 
+		<input [(ngModel)]="tripInfo.startDate" name="trip-date-start" type="date" min="{{date | date:'yyyy-MM-dd'}}" 
 			value="{{date | date:'yyyy-MM-dd'}}" class="w50"/>
 			
-		<input name="trip-date-end" type="date" min="{{date | date:'yyyy-MM-dd'}}" 
+		<input [(ngModel)]="tripInfo.endDate" name="trip-date-end" type="date" min="{{date | date:'yyyy-MM-dd'}}" 
 			value="{{date | date:'yyyy-MM-dd'}}" class="w50"/>
 	</fieldset>
 	<fieldset>
-		<input type="number" class="w95" min="0.00" step="0.01"
-			placeholder="Price" maxlength="3"/> €
+		<input [(ngModel)]="tripInfo.price" type="number" class="w95" min="0.00" step="0.01"
+			placeholder="Price" maxlength="3" name="price"/> €
 	</fieldset>
 	
 	<fieldset>
 		<label>Choose trip locations:</label>
 		From
-		<select class="w40">
+		<select class="w40" [(ngModel)]="tripInfo.startLocation" name="startLocation">
 			<option *ngFor="let i of locations">{{i}}</option>
 		</select>
 		To
-		<select class="w40">
+		<select class="w40" [(ngModel)]="tripInfo.endLocation" name="endLocation">
 			<option *ngFor="let i of locations">{{i}}</option>
 		</select>
 	   
@@ -41,7 +41,10 @@
 	</fieldset>
 	
 	<fieldset>
-		<textarea name="additional-info" placeholder="Additional Info"></textarea>
+		<textarea [(ngModel)]="tripInfo.miscInfo" name="additional-info" placeholder="Additional Info"></textarea>
 	</fieldset>
+	
 </form>
+
+<button (click)="onClickMe()">Click me!</button>
 
