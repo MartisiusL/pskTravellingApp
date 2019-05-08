@@ -8,11 +8,13 @@ import { EnterTravelInfoComponent } from './enter-travel-info/enter-travel-info.
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 @NgModule({
   declarations: [
     AppComponent,
     EnterTravelInfoComponent,
-    HeaderComponent
+    HeaderComponent,
+    SidebarComponent
   ],
   imports: [
 	FormsModule,
