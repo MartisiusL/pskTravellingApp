@@ -1,5 +1,6 @@
 export class Trip {
-	
+	id: number;
+  confirmed: boolean;
 	name: string;
 	startDate: Date;
 	endDate: Date;

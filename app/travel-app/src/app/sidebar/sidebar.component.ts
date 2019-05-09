@@ -10,11 +10,8 @@ export class SidebarComponent implements OnInit {
 
   // An array, that is used to create the sidebar links
   links = [
-	{ href: "travel", text:"Enter TravelInfo" },
-	{ href: "travel", text:"a" },
-	{ href: "travel", text:"b" },
-	{ href: "travel", text:"c" },
-	{ href: "travel", text:"d" },
+	{ href: "trips", text:"Trip List" },
+	{ href: "travel", text:"Enter Trip Info Component" }
   ]
 
   constructor() { }

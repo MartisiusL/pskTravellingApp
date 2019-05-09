@@ -1,0 +1,11 @@
+<div *ngIf="trip">
+  <h2>{{trip.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{trip.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="trip.name" placeholder="name"/>
+    </label>
+  </div>
+</div>
+<button (click)="goBack()">Go back</button>
+<button (click)="save()">save</button>
