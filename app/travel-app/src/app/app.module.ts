@@ -13,6 +13,9 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     MyTripsComponent,
     TripDetailComponent,
     MessagesComponent,
+    LoginComponent,
+    HomeComponent,
+    RegisterComponent,
   ],
   imports: [
 	FormsModule,

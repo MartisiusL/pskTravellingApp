@@ -1,0 +1,15 @@
+.div-left {
+ border-radius: 25px;
+  background: #32CD32 ;
+  padding: 20px; 
+  width: 150px;
+  height: 200px; 
+}
+
+a {
+    color: white;
+}
+
+a :hover {
+    color: black;
+}

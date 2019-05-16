@@ -15,7 +15,8 @@ h1 {
     font-weight: lighter;
   }
   body {
-    margin: 2em;
+    margin-top: 10dp;
+    float: left;
   }
   body, input[type="text"], button {
     color: #888;
