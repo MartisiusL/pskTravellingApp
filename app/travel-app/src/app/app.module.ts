@@ -16,7 +16,6 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
-import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +29,6 @@ import { MenuComponent } from './menu/menu.component';
     LoginComponent,
     HomeComponent,
     RegisterComponent,
-    MenuComponent,
   ],
   imports: [
 	FormsModule,
