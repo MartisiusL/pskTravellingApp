@@ -3,6 +3,13 @@
 	border-size: small;
 }
 
+form {
+  position: absolute;
+	left: 50%;
+  transform: translate(20%,-20%);
+  width: 500px
+}
+
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
 * {
   margin: 0;
