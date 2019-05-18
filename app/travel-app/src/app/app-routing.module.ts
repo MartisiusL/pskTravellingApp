@@ -5,12 +5,14 @@ import { TripDetailComponent } from './trip-detail/trip-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { FormsModule } from '@angular/forms';
 import { EnterTravelInfoComponent } from './enter-travel-info/enter-travel-info.component';
+import { RegisterComponent } from './register/register.component'
 
 const routes: Routes = [
   { path: 'trips', component: MyTripsComponent },
   { path: 'detail/:id', component: TripDetailComponent },
   { path: 'reports', component: MessagesComponent },
-  {path:"travel", component: EnterTravelInfoComponent}
+  { path: 'travel', component: EnterTravelInfoComponent },
+  { path: 'register', component: RegisterComponent },
 ]
 
 
