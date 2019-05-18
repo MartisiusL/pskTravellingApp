@@ -37,9 +37,6 @@ export class EnterTravelInfoComponent implements OnInit {
 	  alert("Doing stuff with file (AKA nothing yet, you can TypeScript here)");
 	  console.log(this.fileInput);
 	  if(event.target.files && event.target.files.length > 0) {
-		  let file = event.target.files[0];
-		  this.fileInput.nativeElement.value = null;
-		  this.filesContainer.nativeElement.innerHTML += file.name + "<br>"
 	  }
 	  
   }
