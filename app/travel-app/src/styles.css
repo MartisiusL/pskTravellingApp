@@ -10,14 +10,23 @@ h1 {
     font-size: 250%;
   }
   h2, h3 {
-    color: #444;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: lighter;
+	padding: 0 0 20px;
+	color: #efed40;
+	text-align: center;
   }
+  
   body {
     margin-top: 10dp;
     float: left;
-	width: 100%
+	width: 100%;
+	height: 100%;
+    background: url(https://cdn-images-1.medium.com/max/1600/1*CsDgB2D8KIetB_e37t3n_A.jpeg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	font-family: sans-serif;
+	
   }
   body, input[type="text"], button {
     color: #888;
@@ -27,4 +36,85 @@ h1 {
   * {
     font-family: Arial, Helvetica, sans-serif;
   }
+
+
+
+/* Style for boxes */
+
+
+.box
+{
+    padding: 80px 40px;
+	box-sizing: border-box;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.box p
+{
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+	color: #fff;
+}
+.box input
+{
+	width: 100%;
+	margin-bottom: 20px;
+}
+.box input[type="text"],
+.box input[type="password"]
+{
+	border: none;
+	border-bottom: 1px solid #fff;
+	background: transparent;
+	outline: none;
+	height: 40px;
+	color: #fff;
+	font-size: 16px;
+}
+::placeholder
+{
+	color: rgba(255,255,255,.5);
+}
+.box input[type="submit"]
+{
+	border: none;
+	outline: none;
+	height: 40px;
+	color: #fff;
+	font-size: 16px;
+	background: #ff267e;
+	cursor: pointer;
+	border-radius: 20px;
+}
+.box input[type="submit"]:hover
+{
+	background: #efed40;
+	color: #262626;
+}
+
+.box input[type="button"]
+{
+	border: none;
+	outline: none;
+	height: 40px;
+	color: #fff;
+	font-size: 16px;
+	background: #ff267e;
+	cursor: pointer;
+	border-radius: 20px;
+}
+.box input[type="button"]:hover
+{
+	background: #efed40;
+	color: #262626;
+}
+.box a
+{
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+	text-decoration: none;
+}
+  
 
