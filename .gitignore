@@ -1,0 +1,11 @@
+pskRESTServer/pskRESTServer/bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll
+pskRESTServer/pskRESTServer/bin/roslyn/Microsoft.CodeAnalysis.dll
+pskRESTServer/pskRESTServer/bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll
+pskRESTServer/pskRESTServer/bin/roslyn/System.ValueTuple.dll
+pskRESTServer/pskRESTServer/bin/roslyn/System.Security.Cryptography.Primitives.dll
+pskRESTServer/pskRESTServer/bin/roslyn/System.Reflection.Metadata.dll
+pskRESTServer/pskRESTServer/bin/roslyn/System.IO.FileSystem.dll
+pskRESTServer/pskRESTServer/bin/roslyn/System.IO.FileSystem.Primitives.dll
+pskRESTServer/pskRESTServer/bin/roslyn/System.Collections.Immutable.dll
+pskRESTServer/pskRESTServer/bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll
+pskRESTServer/pskRESTServer/bin/roslyn/VBCSCompiler.exe
