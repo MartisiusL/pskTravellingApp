@@ -51,6 +51,8 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -88,6 +90,16 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Home.html" />
+    <Content Include="LogModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LogModel.edmx</DependentUpon>
+      <LastGenOutput>LogModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="LogModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LogModel.edmx</DependentUpon>
+      <LastGenOutput>LogModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +109,24 @@
     <Compile Include="Controllers\OfficeController.cs" />
     <Compile Include="Controllers\TripController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Login.cs">
+      <DependentUpon>LogModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LogModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LogModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LogModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Repository\Database.cs" />
     <Compile Include="Repository\MockDatabase.cs" />
     <Compile Include="Global.asax.cs">
@@ -109,6 +139,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EntityDeploy Include="LogModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LogModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="LogModel.edmx.diagram">
+      <DependentUpon>LogModel.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -119,6 +156,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
