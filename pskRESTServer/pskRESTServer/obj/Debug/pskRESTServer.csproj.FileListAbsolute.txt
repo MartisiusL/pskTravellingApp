@@ -126,3 +126,7 @@ C:\Users\Lukas\Documents\pskTravellingApp\pskRESTServer\pskRESTServer\obj\Debug\
 C:\Users\Lukas\Documents\pskTravellingApp\pskRESTServer\pskRESTServer\obj\Debug\pskRESTServer.csproj.CopyComplete
 C:\Users\Lukas\Documents\pskTravellingApp\pskRESTServer\pskRESTServer\obj\Debug\pskRESTServer.dll
 C:\Users\Lukas\Documents\pskTravellingApp\pskRESTServer\pskRESTServer\obj\Debug\pskRESTServer.pdb
+C:\Users\Lukas\Documents\pskTravellingApp\pskRESTServer\pskRESTServer\bin\EntityFramework.dll
+C:\Users\Lukas\Documents\pskTravellingApp\pskRESTServer\pskRESTServer\bin\EntityFramework.SqlServer.dll
+C:\Users\Lukas\Documents\pskTravellingApp\pskRESTServer\pskRESTServer\bin\EntityFramework.xml
+C:\Users\Lukas\Documents\pskTravellingApp\pskRESTServer\pskRESTServer\bin\EntityFramework.SqlServer.xml
