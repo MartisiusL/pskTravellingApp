@@ -17,6 +17,7 @@ h1 {
   body {
     margin-top: 10dp;
     float: left;
+	width: 100%
   }
   body, input[type="text"], button {
     color: #888;
