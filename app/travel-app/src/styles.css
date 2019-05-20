@@ -3,6 +3,9 @@
 /* Bootstrap to distribute objects in a grid*/
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
+
+
+/* box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);*/ 
 /* Application-wide Styles */
 h1 {
     color: #369;

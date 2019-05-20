@@ -1,244 +1,40 @@
-.bordered{
-	border-style: solid;
-	border-size: small;
-}
-
-form {
-  position: absolute;
-	left: 50%;
-  transform: translate(30%, -10%);
-  width: 530px
-}
-
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
-  -o-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
-
-body {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
-  font-weight: 100;
-  font-size: 12px;
-  line-height: 30px;
-  color: #777;
-  background: #4CAF50;
-}
-
-.container {
-  max-width: 400px;
-  width: 100%;
-  margin: 0 auto;
-  position: relative;
-}
-#contact select,
-#contact input,
-#contact textarea,
-#contact button[type="submit"] {
-  font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
-}
-
-#contact {
-  background: #F9F9F9;
-  padding: 25px;
-  margin: 150px 0;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-}
-
-#contact h3 {
-  display: block;
-  font-size: 30px;
-  font-weight: 300;
-  margin-bottom: 10px;
-}
-
-#contact h4 {
-  margin: 5px 0 15px;
-  display: block;
-  font-size: 15px;
-  font-weight: 400;
-}
-
-#contact label {
-  margin: 5px 0 15px;
-  display: block;
-  font-size: 15px;
-  font-weight: 400;
-}
-
-fieldset {
-  border: medium none !important;
-  margin: 0 0 10px;
-  min-width: 100%;
-  padding: 0;
-  width: 100%;
-}
-#contact select,
-#contact input,
-#contact textarea {
-  width: 100%;
-  border: 1px solid #ccc;
-  background: #FFF;
-  margin: 0 0 5px;
-  padding: 10px;
-}
-
-#contact input:hover,
-#contact textarea:hover {
-  -webkit-transition: border-color 0.3s ease-in-out;
-  -moz-transition: border-color 0.3s ease-in-out;
-  transition: border-color 0.3s ease-in-out;
-  border: 1px solid #aaa;
-}
-
-#contact textarea {
-  height: 100px;
-  max-width: 100%;
-  resize: none;
-}
-#bottom-label button[type="submit"]:active {
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
-  font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
-  background-color: #eee;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  cursor: hand;
-  font-family: Arial;
-}
-
-#contact button[type="submit"]:active {
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-.copyright {
-  text-align: center;
-}
-
-#contact input:focus,
-#contact textarea:focus {
-  outline: 0;
-  border: 1px solid #aaa;
-}
-
-::-webkit-input-placeholder {
-  color: #888;
-}
-
-:-moz-placeholder {
-  color: #888;
-}
-
-::-moz-placeholder {
-  color: #888;
-}
-
-:-ms-input-placeholder {
-  color: #888;
-}
-
-#contact .w10{
-	width: 10%;
-}
-
-#contact .w40{
-	width: 40%;
-}
-
-#contact .w50{
-	width: 50%;
-}
-
-#contact .w95{
-	width:95%;
-}
 
 .trips {
-    margin: 0 0 2em 0;
-    list-style-type: none;
-    padding: 0;
-    width: 30em;
-  }
-  .trips li {
-    position: relative;
-    cursor: pointer;
-    background-color: #EEE;
-    margin: .5em;
-    padding: .3em 0;
-    height: 3em;
-    border-radius: 4px;
-  }
+	list-style-type: none;
+}
+/*
+.trips .badge {
+	font-size: small;
+	color: white;
+	background-color: #607D8B;
+}
    
-  .trips li:hover {
-    color: #607D8B;
-    background-color: #DDD;
-    left: .1em;
-  }
-   
-  .trips a {
-    color: #888;
-    text-decoration: none;
-    position: relative;
-    display: block;
-    width: 450px;
-  }
-   
-  .trips a:hover {
-    color:#607D8B;
-  }
-   
-  .trips .badge {
-    display: inline-block;
-    font-size: small;
-    color: white;
-    padding: 0.8em 0.7em 0 0.7em;
-    background-color: #607D8B;
-    line-height: 1em;
-    position: relative;
-    left: -1px;
-    top: -4px;
-    height: 3.5em;
-    min-width: 16px;
-    text-align: right;
-    margin-right: .8em;
-    border-radius: 4px 0 0 4px;
-  }
-   
-  button {
-    background-color: #eee;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    cursor: hand;
-    font-family: Arial;
-  }
-   
-  button:hover {
-    background-color: #cfd8dc;
-  }
-   
-  button.refuse {
-    position: absolute;
-    right: 0px;
-    top: 5px;
-    background-color: red !important;
-    color: white;
-  }
+button {
+	background-color: #eee;
+	border: none;
+	padding: 5px 10px;
+	border-radius: 4px;
+	cursor: pointer;
+	cursor: hand;
+	font-family: Arial;
+}
 
-  button.confirm {
-    position: absolute;
-    right: 0px;
-    top: 5px;
-    background-color: green !important;
-    color: white;
-  }
+button:hover {
+	background-color: #cfd8dc;
+}
+
+button.refuse {
+	position: absolute;
+	right: 0px;
+	background-color: red !important;
+	color: white;
+}
+
+button.confirm {
+	position: absolute;
+	right: 0px;
+	background-color: green !important;
+	color: white;
+}
+  
+*/
