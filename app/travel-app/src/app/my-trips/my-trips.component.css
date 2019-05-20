@@ -2,39 +2,3 @@
 .trips {
 	list-style-type: none;
 }
-/*
-.trips .badge {
-	font-size: small;
-	color: white;
-	background-color: #607D8B;
-}
-   
-button {
-	background-color: #eee;
-	border: none;
-	padding: 5px 10px;
-	border-radius: 4px;
-	cursor: pointer;
-	cursor: hand;
-	font-family: Arial;
-}
-
-button:hover {
-	background-color: #cfd8dc;
-}
-
-button.refuse {
-	position: absolute;
-	right: 0px;
-	background-color: red !important;
-	color: white;
-}
-
-button.confirm {
-	position: absolute;
-	right: 0px;
-	background-color: green !important;
-	color: white;
-}
-  
-*/

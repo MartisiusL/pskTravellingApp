@@ -1,12 +1,12 @@
 <div class="row">
 	<div class="col-sm"></div>
 	
-	<div class="col-sm-10 box">
+	<div class="col-sm-11 box">
 		<h2>My trips</h2>
 		
 		<ul class="trips">
 		  <li *ngFor="let trip of trips">
-			<div class="row p-2">
+			<div class="row pb-2">
 				<div class="col-sm-9 col-9">
 					<button class="btn btn-primary btn-block text-left" routerLink="/detail/{{trip.id}}">
 					  <span class="badge badge-secondary">{{trip.id}}</span> 
@@ -32,6 +32,8 @@
 			</div>
 		  </li>
 		</ul>
+		
+		
 		
 		
 	</div>
