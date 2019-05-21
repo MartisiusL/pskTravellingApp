@@ -10,10 +10,11 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'trips', component: MyTripsComponent },
   { path: 'detail/:id', component: TripDetailComponent },
   { path: 'reports', component: MessagesComponent },
-  { path:"travel", component: EnterTravelInfoComponent},
+  { path: "travel", component: EnterTravelInfoComponent},
   { path: "login", component: LoginComponent},
   { path: 'home', component: HomeComponent },
   { path: 'register', component: RegisterComponent }

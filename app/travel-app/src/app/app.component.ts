@@ -8,7 +8,7 @@ import { Router, NavigationStart } from '@angular/router';
 })
 export class AppComponent {
   title = 'Travel-app';
-  showMenu: boolean;
+  showMenu: boolean = false;
   constructor(router:Router) {
     router.events.forEach((event) => {
         if(event instanceof NavigationStart) {
