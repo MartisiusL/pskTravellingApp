@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {Trip} from '../trip';
+import { TripService } from '../trip.service';
 
 @Component({
   selector: 'app-enter-travel-info',
@@ -10,7 +10,7 @@ export class EnterTravelInfoComponent implements OnInit {
 	
   date = new Date();
   
-  tripInfo = new Trip();
+  tripInfo = {};
   locations = 
   [
 	"an array",
@@ -25,7 +25,7 @@ export class EnterTravelInfoComponent implements OnInit {
   @ViewChild('fileInput') fileInput: Object;
   
   
-  constructor() {
+  constructor(private tripService: TripService) {
   }
   
 
@@ -49,7 +49,7 @@ export class EnterTravelInfoComponent implements OnInit {
   }
   
   onClickMe() {
-    console.log(this.tripInfo);
+	  alert("qwertyuio");
   }
   
 
