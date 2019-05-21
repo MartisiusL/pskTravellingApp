@@ -15,7 +15,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
-import { AuthGuard } from './auth.guard';
+//import { AuthGuard } from './auth.guard';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -39,7 +39,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
 	NgbModule.forRoot(),
   ],
-  providers: [AuthGuard],
+  //providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { } 
