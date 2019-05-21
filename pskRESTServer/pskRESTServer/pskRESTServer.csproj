@@ -133,6 +133,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LogModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\AnswerForAuth.cs" />
+    <Compile Include="Models\AuthorizationBody.cs" />
     <Compile Include="Repository\Database.cs" />
     <Compile Include="Repository\MockDatabase.cs" />
     <Compile Include="Global.asax.cs">

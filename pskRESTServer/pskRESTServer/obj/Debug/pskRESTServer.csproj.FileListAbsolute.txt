@@ -201,3 +201,6 @@ C:\Users\Liutauras\Desktop\dev_env\public\pskTravellingApp\pskRESTServer\pskREST
 C:\Users\Liutauras\Desktop\dev_env\public\pskTravellingApp\pskRESTServer\pskRESTServer\bin\System.Web.Cors.dll
 C:\Users\Liutauras\Desktop\dev_env\public\pskTravellingApp\pskRESTServer\pskRESTServer\bin\System.Web.Http.Cors.dll
 C:\Users\Liutauras\Desktop\dev_env\public\pskTravellingApp\pskRESTServer\pskRESTServer\bin\System.Web.Http.Cors.xml
+C:\Users\Lukas\Documents\pskTravellingApp\pskRESTServer\pskRESTServer\bin\System.Web.Cors.dll
+C:\Users\Lukas\Documents\pskTravellingApp\pskRESTServer\pskRESTServer\bin\System.Web.Http.Cors.dll
+C:\Users\Lukas\Documents\pskTravellingApp\pskRESTServer\pskRESTServer\bin\System.Web.Http.Cors.xml
