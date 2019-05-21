@@ -14,7 +14,7 @@ const httpOptions = {
 })
 export class TripService {
 
-  private tripsUrl = 'api/trips';
+  private tripsUrl = 'http://localhost:55155/api/trip';
 
   constructor(
   private http: HttpClient,

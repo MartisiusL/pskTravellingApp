@@ -20,29 +20,31 @@ export class MyTripsComponent implements OnInit {
   getTrips(): void {
     this.tripService.getTrips()
     .subscribe(trips => this.trips = trips);
+	
   }
 
   add(name: string): void {
-    name = name.trim();
+    /*name = name.trim();
     if (!name) { return; }
     this.tripService.addTrip({ name } as Trip)
       .subscribe(trip => {
         this.trips.push(trip);
-      });
+      });*/
   }
 
   delete(trip: Trip): void {
-    this.trips = this.trips.filter(h => h !== trip);
-    this.tripService.deleteTrip(trip).subscribe();
+    //this.trips = this.trips.filter(h => h !== trip);
+    //this.tripService.deleteTrip(trip).subscribe();
   }
 
   refuse(trip: Trip): void {
-    trip.confirmed = true;
-    this.tripService.refuseTrip(trip).subscribe();
+    //trip.confirmed = true;
+    //this.tripService.refuseTrip(trip).subscribe();
+	//console.log(this.trips);
   }
 
   confirm(trip: Trip): void {
-    trip.confirmed = false;
-    this.tripService.refuseTrip(trip).subscribe();
+    //trip.confirmed = false;
+    //this.tripService.refuseTrip(trip).subscribe();
   }
 }

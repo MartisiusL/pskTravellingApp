@@ -5,8 +5,8 @@ import { Trip } from './trip';
 @Injectable({
   providedIn: 'root',
 })
-export class InMemoryDataService implements InMemoryDbService {
-  createDb() {
+export class InMemoryDataService{ //implements InMemoryDbService {
+  /*createDb() {
     const trips = [
       { id: 11, name: 'Vilnius', confirmed: false },
       { id: 12, name: 'Kaunas', confirmed: false },
@@ -23,6 +23,6 @@ export class InMemoryDataService implements InMemoryDbService {
   }
 
   genId(trips: Trip[]): number {
-    return trips.length > 0 ? Math.max(...trips.map(trip => trip.id)) + 1 : 11;
-  }
+    return trips.length > 0 ? Math.max(...trips.map(trip => trip.ID)) + 1 : 11;
+  }*/
 }

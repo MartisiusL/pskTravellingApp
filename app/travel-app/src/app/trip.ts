@@ -1,11 +1,10 @@
 export class Trip {
-	id: number;
-  confirmed: boolean;
+	
+	date: Date;
+	toOffice: object;
+	fromOffice: object;
 	name: string;
-	startDate: Date;
-	endDate: Date;
-	startLocation: string;
-	endLocation: string;
-	price: number;
-	miscInfo: string;
-} 
+	ID: number;
+	peopleAnswersForTheTrip: Array<boolean>;
+	peopleOfTheTrip: Array<object>;
+}  
