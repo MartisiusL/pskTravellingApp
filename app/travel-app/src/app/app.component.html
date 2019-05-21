@@ -1,15 +1,7 @@
-<div class="container">
+<app-header *ngIf="showMenu"></app-header>
+
+<div class="container-fluid">
 	
-	<div class="row">
-		<div class="col">
-			<app-header *ngIf="showMenu"></app-header>
-		</div>
-	</div>
-	
-	<div class="row align-items-center">	
-		<div class="col-9">
-			<router-outlet></router-outlet>
-		</div>
-	</div>
+	<router-outlet></router-outlet>
 	
 </div>

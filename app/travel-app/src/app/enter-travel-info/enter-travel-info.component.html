@@ -1,50 +1,75 @@
-<form id="contact">
-
-	
-	<h3>New Trip</h3>
-	<h4>Enter new trip info...</h4>
-	
-	<fieldset>
-		<input [(ngModel)]="tripInfo.name" name="trip-name" type="text" placeholder="Trip Name"/>
-	</fieldset>
-	
-	<fieldset>
-		<label>Trip Duration:</label>
-		
-		<input [(ngModel)]="tripInfo.startDate" name="trip-date-start" type="date" min="{{date | date:'yyyy-MM-dd'}}" 
-			value="{{date | date:'yyyy-MM-dd'}}" class="w50"/>
+<div class="row">
+	<div class="col-sm"></div>
+	<div class="col-sm-auto box">
+		<form>
+			<h2>New Trip</h2>
+			<h3>Enter new trip info...</h3>
 			
-		<input [(ngModel)]="tripInfo.endDate" name="trip-date-end" type="date" min="{{date | date:'yyyy-MM-dd'}}" 
-			value="{{date | date:'yyyy-MM-dd'}}" class="w50"/>
-	</fieldset>
-	<fieldset>
-		<input [(ngModel)]="tripInfo.price" type="number" class="w95" min="0.00" step="0.01"
-			placeholder="Price" maxlength="3" name="price"/> €
-	</fieldset>
-	
-	<fieldset>
-		<label>Choose trip locations:</label>
-		From
-		<select class="w40" [(ngModel)]="tripInfo.startLocation" name="startLocation">
-			<option *ngFor="let i of locations">{{i}}</option>
-		</select>
-		To
-		<select class="w40" [(ngModel)]="tripInfo.endLocation" name="endLocation">
-			<option *ngFor="let i of locations">{{i}}</option>
-		</select>
-	   
-	</fieldset>
-	
-	<fieldset>
-		<label>Ticket Files:</label>
-		<input type='file' (change)='onUploadTicket($event)' #fileInput />
-		<div #files></div>
-	</fieldset>
-	
-	<fieldset>
-		<textarea [(ngModel)]="tripInfo.miscInfo" name="additional-info" placeholder="Additional Info"></textarea>
-	</fieldset>
-	
-	<button type="submit" (click)="onClickMe()">Register a trip</button>
-</form>
+			<div class="row">
+				
+				<div class="col-sm-4">
+					<input [(ngModel)]="tripInfo.name" name="trip-name" type="text" placeholder="Trip Name"/>
+				</div>
+				
+				<div class="col-sm-4">
+					<input [(ngModel)]="tripInfo.startDate" name="trip-date-start" type="date" min="{{date | date:'yyyy-MM-dd'}}" 
+						value="{{date | date:'yyyy-MM-dd'}}" class="w50"/>
+				</div>	
+				
+				<div class="col-sm-4">
+					<input [(ngModel)]="tripInfo.endDate" name="trip-date-end" type="date" min="{{date | date:'yyyy-MM-dd'}}" 
+						value="{{date | date:'yyyy-MM-dd'}}" class="w50"/>
+				</div>
+			
+			</div>
+			
+			<div class="row">
+			
+				<div class="col-sm-3">
+					<input [(ngModel)]="tripInfo.price" type="number" class="w95" min="0.00" step="0.01"
+						placeholder="Price" maxlength="3" name="price"/> 
+				</div>
+				
+				<div class="col-sm-1">€</div>
+				
+				<div class="col-sm-4">
+					<select class="w40" [(ngModel)]="tripInfo.startLocation" name="startLocation">
+						<option *ngFor="let i of locations">{{i}}</option>
+					</select>
 
+				</div>
+				
+				<div class="col-sm-4">
+					<select class="w40" [(ngModel)]="tripInfo.endLocation" name="endLocation">
+						<option *ngFor="let i of locations">{{i}}</option>
+					</select>
+				</div>
+				
+			</div>
+			
+			<div class="row">
+			
+				<div class="col-sm-5">
+					<label>Ticket Files:</label>
+					<input type='file' (change)='onUploadTicket($event)' #fileInput />
+					<div #files></div>
+				</div>
+				
+				<div class="col-sm-7">
+					<textarea [(ngModel)]="tripInfo.miscInfo" name="additional-info" placeholder="Additional Info"></textarea>
+				</div>
+				
+			</div>
+			
+			<div class="row">
+			    <div class="col-sm"></div>
+				<div class="col-sm-10">
+					<input (click)="onClickMe()" type="submit" name="" value="Register a trip">
+				</div>
+				<div class="col-sm"></div>
+			</div>
+		</form>
+		
+	</div>
+	<div class="col-sm"></div>
+</div>

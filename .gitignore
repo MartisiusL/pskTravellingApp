@@ -9,3 +9,6 @@ pskRESTServer/pskRESTServer/bin/roslyn/System.IO.FileSystem.Primitives.dll
 pskRESTServer/pskRESTServer/bin/roslyn/System.Collections.Immutable.dll
 pskRESTServer/pskRESTServer/bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll
 pskRESTServer/pskRESTServer/bin/roslyn/VBCSCompiler.exe
+pskRESTServer/.vs/pskRESTServer/v15/Server/sqlite3/storage.ide
+pskRESTServer/.vs/pskRESTServer/v15/Server/sqlite3/storage.ide-shm
+pskRESTServer/.vs/pskRESTServer/v15/Server/sqlite3/storage.ide-wal

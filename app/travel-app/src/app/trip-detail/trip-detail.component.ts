@@ -1,9 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Trip } from '../trip'
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { TripService } from '../trip.service';
+import { TripService, Trip } from '../trip.service';
 
 @Component({
   selector: 'app-trip-detail',
@@ -26,8 +25,7 @@ export class TripDetailComponent implements OnInit {
 
   getTrip(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.tripService.getTrip(id)
-    .subscribe(trip => this.trip = trip);
+    this.tripService.getTrip(id).subscribe(trip => this.trip = trip);
   }
 
   goBack(): void {
@@ -35,7 +33,7 @@ export class TripDetailComponent implements OnInit {
   }
 
   save(): void {
-    this.tripService.updateTrip(this.trip)
-      .subscribe(() => this.goBack());
+    //this.tripService.updateTrip(this.trip)
+     // .subscribe(() => this.goBack());
   }
 }

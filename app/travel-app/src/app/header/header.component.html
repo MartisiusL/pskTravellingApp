@@ -1,21 +1,27 @@
-<body> 
-  <div id="main">
-    <div class="container">
-      <nav>
-        <div class="nav-fostrap">
-          <ul>
-            <li><a href="../home">Home</a></li>
-            <li><a href="../trips">My Trips</a></li>
-            <li><a href="../travel">Register Trip</a></li>
-            <li><a href="../login">Logout</a></li>
-          </ul>
-        </div>
-        <div class="nav-bg-fostrap">
-          <div class="navbar-fostrap"> <span></span> <span></span> <span></span> </div>
-          <a href="" class="title-mobile">Fostrap</a>
-        </div>
-      </nav>
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+  <a class="navbar-brand" href="#">Title</a>
+  <button class="navbar-toggler btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"  aria-expanded="false" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navbarTogglerDemo02">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02" [ngbCollapse]="isCollapsed">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+		<a class="nav-link" href="../home">Home</a>
+	  </li>
+	  
+	  <li class="nav-item">
+		<a class="nav-link" href="../trips">My Trips</a>
+	  </li>
+	  
+	  <li class="nav-item">
+		<a class="nav-link" href="../travel">Register Trip</a>
+	  </li>
+	  
+	  <li class="nav-item">
+		<a class="nav-link" href="../login">Logout</a>
+	  </li>
+    </ul>
+    <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
   </div>
-  </div>
-  </body>
-  
+</nav>

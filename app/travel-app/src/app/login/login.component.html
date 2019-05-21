@@ -1,22 +1,15 @@
-<head>
-		<title>Login Form</title>
-	</head>
-	<body>
-		<div class="loginBox">
-			<h2>Log In Here</h2>
-			<form (submit)="loginUser($event)">
-				<p>Email</p>
-				<input type="text" name="" placeholder="Enter Email" id="username">
-				<p>Password</p>
-				<input type="password" name="" placeholder="••••••" id="password">
-				<input type="submit" name="" value="Sign In" >
-				<input type="button" name="" value="Register" routerLink="../register">
-			</form>
-			<p>ANGULAR Application - CRUD Operation</p>
-<hr>
-<input type="button" name="postBtn" style="height:25px;width:200px"
-(click)="PostData()" value="Execute Http Post Call" />
-<br>
-{{ retPostData }}
-		</div>
-	</body>
+<div class="row">
+	<div class="col-sm"></div>
+	<div class="col-sm-auto box">
+		<h2>Log In Here</h2>
+		<form>
+			<p>Email</p>
+			<input type="text" name="" placeholder="Enter Email">
+			<p>Password</p>
+			<input type="password" name="" placeholder="••••••">
+			<input type="submit" name="" value="Sign In" routerLink="../home">
+			<input type="button" name="" value="Register" routerLink="../register">
+		</form>
+	</div>
+	<div class="col-sm"></div>
+</div>

@@ -1,32 +1,42 @@
-<form id="contact">
-    <h2>My trips</h2>
-    <ul class="trips">
-      <li *ngFor="let trip of trips">
-        <a routerLink="/detail/{{trip.id}}">
-          <span class="badge">{{trip.id}}
-          </span> {{trip.name}}
-        </a>
-        <button *ngIf="!trip.confirmed" 
-        class="refuse"
-        title="refuse trip"
-        (click)="refuse(trip)">Refused</button>
-  
-        <button *ngIf="trip.confirmed" 
-        class="confirm"
-        title="confirm trip"
-        (click)="confirm(trip)">Confirmed</button>
-      </li>
-    </ul>
-  
-    <div id="bottom-label">
-        <label>Trip name:
-          <input #tripName />
-        </label>
-        <!-- (click) passes input value to add() and then clears the input -->
-        <button type="submit" (click)="add(tripName.value); tripName.value=''">
-          add
-        </button>
-      </div>
-  </form>
-  
-  
+<div class="row">
+	<div class="col-sm"></div>
+	
+	<div class="col-sm-11 box">
+		<h2>My trips</h2>
+		
+		<ul class="trips">
+		  <li *ngFor="let trip of trips">
+			<div class="row pb-2">
+				<div class="col-sm-9 col-9">
+					<button class="btn btn-primary btn-block text-left" routerLink="/detail/{{trip.ID}}">
+					  <span class="badge badge-secondary">{{trip.id}}</span> 
+					  
+					  {{trip.name}}
+					  
+					  
+					  
+					</button>
+				</div>
+				<div class="col-sm-3 col-3">
+					<button *ngIf="!trip.confirmed" 
+					class="btn btn-danger"
+					title="refuse trip"
+					(click)="refuse(trip)">Refused</button>
+			  
+					<button *ngIf="trip.confirmed" 
+					class="btn btn-success"
+					title="confirm trip"
+					(click)="confirm(trip)">Confirmed</button>
+				</div>	
+				
+			</div>
+		  </li>
+		</ul>
+		
+		
+		
+		
+	</div>
+	
+	<div class="col-sm"></div>
+</div>
