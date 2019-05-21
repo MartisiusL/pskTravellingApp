@@ -18,6 +18,5 @@ export class MyTripsComponent implements OnInit {
 
   getTrips(): void {
     this.tripService.getTrips().subscribe(trips => this.trips = trips);
-	this.tripService.postTrip({ID:  123});
   }
 }

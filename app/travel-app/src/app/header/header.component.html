@@ -7,19 +7,19 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02" [ngbCollapse]="isCollapsed">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item">
-		<a class="nav-link" href="../home">Home</a>
+		<a class="nav-link" routerLink="../home">Home</a>
 	  </li>
 	  
 	  <li class="nav-item">
-		<a class="nav-link" href="../trips">My Trips</a>
+		<a class="nav-link" routerLink="../trips">My Trips</a>
 	  </li>
 	  
 	  <li class="nav-item">
-		<a class="nav-link" href="../travel">Register Trip</a>
+		<a class="nav-link" routerLink="../travel">Register Trip</a>
 	  </li>
 	  
 	  <li class="nav-item">
-		<a class="nav-link" href="../login">Logout</a>
+		<a class="nav-link" href="#"  ng-click="$event.preventDefault();logoutUser()">Logout</a>
 	  </li>
     </ul>
     <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
