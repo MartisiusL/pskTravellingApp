@@ -26,9 +26,11 @@ namespace pskRESTServer.Controllers
         }
 
         // POST: api/Trip
-        public void Post([FromBody]Trip value)
+        //[HttpPost]
+        public bool Post([FromBody]Trip value)
         {
             database.AddTrip(value);
+            return true;
         }
 
         // DELETE: api/Trip/5

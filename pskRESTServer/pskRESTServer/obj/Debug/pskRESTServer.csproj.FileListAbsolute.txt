@@ -130,3 +130,6 @@ C:\Users\Lukas\Documents\pskTravellingApp\pskRESTServer\pskRESTServer\bin\Entity
 C:\Users\Lukas\Documents\pskTravellingApp\pskRESTServer\pskRESTServer\bin\EntityFramework.SqlServer.dll
 C:\Users\Lukas\Documents\pskTravellingApp\pskRESTServer\pskRESTServer\bin\EntityFramework.xml
 C:\Users\Lukas\Documents\pskTravellingApp\pskRESTServer\pskRESTServer\bin\EntityFramework.SqlServer.xml
+C:\Users\Lukas\Documents\pskTravellingApp\pskRESTServer\pskRESTServer\bin\System.Web.Cors.dll
+C:\Users\Lukas\Documents\pskTravellingApp\pskRESTServer\pskRESTServer\bin\System.Web.Http.Cors.dll
+C:\Users\Lukas\Documents\pskTravellingApp\pskRESTServer\pskRESTServer\bin\System.Web.Http.Cors.xml

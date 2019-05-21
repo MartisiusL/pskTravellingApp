@@ -22,5 +22,29 @@ namespace pskRESTServer.Controllers
             else
                 return -1;
         }
+        
+        [HttpGet]
+        public bool Get(int id)
+        {
+            return true;
+        }
+
+        [HttpPost]
+        public AnswerForAuth Post([FromBody]AuthorizationBody value)
+        {
+            AnswerForAuth answer = new AnswerForAuth();
+            answer.message = "Answer from backend";
+
+            if (value.Username == "admin" && value.Password == "admin")
+            {
+                answer.success = true;
+            }
+            else
+            {
+                answer.success = false;
+            }
+
+            return answer;
+        }
     }
 }
