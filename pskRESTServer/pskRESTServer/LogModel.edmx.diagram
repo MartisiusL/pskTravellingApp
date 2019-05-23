@@ -5,7 +5,10 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="0829e0d5f4d44e47bb27f104622a6b2d" Name="Diagram1">
-        <EntityTypeShape EntityType="pskTravellingModel.Login" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pskTravellingModel.Account" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="pskTravellingModel.Office" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="pskTravellingModel.Trip" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="pskTravellingModel.User" Width="1.5" PointX="4.75" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -25,6 +25,9 @@ namespace pskRESTServer
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Login> Logins { get; set; }
+        public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<Office> Offices { get; set; }
+        public virtual DbSet<Trip> Trips { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }
