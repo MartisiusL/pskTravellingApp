@@ -34,14 +34,14 @@
 				
 				<div class="col-sm-4">
 					<select class="w40" [(ngModel)]="tripInfo.startLocation" name="startLocation">
-						<option *ngFor="let i of locations">{{i}}</option>
+						<option *ngFor="let office of offices">{{office.OfficeName}}</option>
 					</select>
 
 				</div>
 				
 				<div class="col-sm-4">
 					<select class="w40" [(ngModel)]="tripInfo.endLocation" name="endLocation">
-						<option *ngFor="let i of locations">{{i}}</option>
+						<option *ngFor="let office of offices">{{office.OfficeName}}</option>
 					</select>
 				</div>
 				

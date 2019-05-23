@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { TripService } from '../trip.service';
+import { OfficeService } from '../office.service';
 
 @Component({
   selector: 'app-enter-travel-info',
@@ -11,26 +12,22 @@ export class EnterTravelInfoComponent implements OnInit {
   date = new Date();
   
   tripInfo = {};
-  locations = 
-  [
-	"an array",
-	"that can be",
-	"edited in TypeScript",
-	"before the DOM is",
-	"generated"
-  
-  ]
+  offices = []
   
   @ViewChild('files') filesContainer: Object;
   @ViewChild('fileInput') fileInput: Object;
   
   
-  constructor(private tripService: TripService) {
+  constructor(private tripService: TripService, private officeService: OfficeService) {
   }
   
 
   ngOnInit() {
-	  this.locations.push("like this");
+    this.getOffices()
+  }
+
+  getOffices(): void {
+    this.officeService.getOffices().subscribe(offices => this.offices = offices);
   }
   
   ngAfterViewInit(){
