@@ -34,11 +34,9 @@ export class TripService {
 }
 
 export interface Trip{
-	date: Date;
-	toOffice: object;
-	fromOffice: object;
-	name: string;
-	ID: number;
-	peopleAnswersForTheTrip: Array<boolean>;
-	peopleOfTheTrip: Array<object>;
+	TripDate: Date;
+	ToOfficeId: number;
+	FromOfficeId: number;
+	TripName: string;
+	Id: number;
 }

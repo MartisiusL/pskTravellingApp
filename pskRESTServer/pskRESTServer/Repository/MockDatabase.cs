@@ -34,22 +34,22 @@ namespace pskRESTServer.Repository
 
         public User GetUserById(int id)
         {
-            return users.FirstOrDefault(x => x.ID == id);
+            return users.FirstOrDefault(x => x.Id == id);
         }
 
         public Trip GetTripById(int id)
         {
-            return trips.FirstOrDefault(x => x.ID == id);
+            return trips.FirstOrDefault(x => x.Id == id);
         }
 
         public Account GetAccountByEmail(string email)
         {
-            return accounts.FirstOrDefault(x => x.email == email);
+            return accounts.FirstOrDefault(x => x.Email == email);
         }
 
         public Office GetOfficeById(int id)
         {
-            return offices.FirstOrDefault(x => x.ID == id);
+            return offices.FirstOrDefault(x => x.Id == id);
         }
 
         public void AddTrip(Trip trip)
@@ -75,22 +75,22 @@ namespace pskRESTServer.Repository
 
         public void DeleteUserById(int id)
         {
-            users.RemoveAll(x => x.ID == id);
+            users.RemoveAll(x => x.Id == id);
         }
 
         public void DeleteAccountById(int id)
         {
-            accounts.RemoveAll(x => x.ID == id);
+            accounts.RemoveAll(x => x.Id == id);
         }
 
         public void DeleteTripById(int id)
         {
-            trips.RemoveAll(x => x.ID == id);
+            trips.RemoveAll(x => x.Id == id);
         }
 
         public void DeleteOfficeById(int id)
         {
-            offices.RemoveAll(x => x.ID == id);
+            offices.RemoveAll(x => x.Id == id);
         }
 
         public void GenerateData()
@@ -100,213 +100,213 @@ namespace pskRESTServer.Repository
             Office o = new Office();
             Trip t = new Trip();
 
-            o.ID = 201;
-            o.officeName = "Vilnius";
-            o.address = "Didlaukio 59";
+            o.Id = 201;
+            o.OfficeName = "Vilnius";
+            o.OfficeAddress = "Didlaukio 59";
             offices.Add(o);
 
-            a.ID = 101;
-            a.email = "test@gmail.com";
-            a.password = "123456";
+            a.Id = 101;
+            a.Email = "test@gmail.com";
+            a.Password = "123456";
             accounts.Add(a);
 
-            u.ID = 501;
-            u.name = "Lukas";
-            u.surname = "Martisius";
-            u.phoneNumber = "+37066666666";
-            u.office = o;
-            u.account = a;
-            u.admin = true;
+            u.Id = 501;
+            u.Name = "Lukas";
+            u.Surname = "Martisius";
+            u.PhoneNumber = "+37066666666";
+            u.OfficeId = o.Id;
+            u.AccountId = a.Id;
+            u.IsAdmin = true;
             users.Add(u);
 
             a = new Account();
-            a.ID = 102;
-            a.email = "abc@gmail.com";
-            a.password = "123456";
+            a.Id = 102;
+            a.Email = "abc@gmail.com";
+            a.Password = "123456";
             accounts.Add(a);
 
             u = new User();
-            u.ID = 502;
-            u.name = "Liutauras";
-            u.surname = "Butkinas";
-            u.phoneNumber = "+37066666667";
-            u.office = o;
-            u.account = a;
-            u.admin = true;
+            u.Id = 502;
+            u.Name = "Liutauras";
+            u.Surname = "Butkinas";
+            u.PhoneNumber = "+37066666667";
+            u.OfficeId = o.Id;
+            u.AccountId = a.Id;
+            u.IsAdmin = true;
             users.Add(u);
             u = new User();
 
             a = new Account();
-            a.ID = 103;
-            a.email = "def@gmail.com";
-            a.password = "123456";
+            a.Id = 103;
+            a.Email = "def@gmail.com";
+            a.Password = "123456";
             accounts.Add(a);
 
             u = new User();
-            u.ID = 503;
-            u.name = "Modestas";
-            u.surname = "Dulevicius";
-            u.phoneNumber = "+37066666668";
-            u.office = o;
-            u.account = a;
-            u.admin = true;
+            u.Id = 503;
+            u.Name = "Modestas";
+            u.Surname = "Dulevicius";
+            u.PhoneNumber = "+37066666668";
+            u.OfficeId = o.Id;
+            u.AccountId = a.Id;
+            u.IsAdmin = true;
             users.Add(u);          
 
             o = new Office();
-            o.ID = 202;
-            o.officeName = "Kaunas";
-            o.address = "Savanoriu 42";
+            o.Id = 202;
+            o.OfficeName = "Kaunas";
+            o.OfficeAddress = "Savanoriu 42";
             offices.Add(o);
 
             a = new Account();
-            a.ID = 104;
-            a.email = "ghi@gmail.com";
-            a.password = "123456";
+            a.Id = 104;
+            a.Email = "ghi@gmail.com";
+            a.Password = "123456";
             accounts.Add(a);
 
             u = new User();
-            u.ID = 504;
-            u.name = "Simonas";
-            u.surname = "Butkus";
-            u.phoneNumber = "+37066666669";
-            u.office = o;
-            u.account = a;
-            u.admin = true;
+            u.Id = 504;
+            u.Name = "Simonas";
+            u.Surname = "Butkus";
+            u.PhoneNumber = "+37066666669";
+            u.OfficeId = o.Id;
+            u.AccountId = a.Id;
+            u.IsAdmin = true;
             users.Add(u);
 
             a = new Account();
-            a.ID = 105;
-            a.email = "ghi@gmail.com";
-            a.password = "123456";
+            a.Id = 105;
+            a.Email = "ghi@gmail.com";
+            a.Password = "123456";
             accounts.Add(a);
 
             u = new User();
-            u.ID = 505;
-            u.name = "Benas";
-            u.surname = "Gudeliauskas";
-            u.phoneNumber = "+37066666670";
-            u.office = o;
-            u.account = a;
-            u.admin = true;
+            u.Id = 505;
+            u.Name = "Benas";
+            u.Surname = "Gudeliauskas";
+            u.PhoneNumber = "+37066666670";
+            u.OfficeId = o.Id;
+            u.AccountId = a.Id;
+            u.IsAdmin = true;
             users.Add(u);
 
             a = new Account();
-            a.ID = 106;
-            a.email = "jkl@gmail.com";
-            a.password = "123456";
+            a.Id = 106;
+            a.Email = "jkl@gmail.com";
+            a.Password = "123456";
             accounts.Add(a);
 
             u = new User();
-            u.ID = 506;
-            u.name = "Tomas";
-            u.surname = "Maironis";
-            u.phoneNumber = "+37066666671";
-            u.office = o;
-            u.account = a;
-            u.admin = false;
+            u.Id = 506;
+            u.Name = "Tomas";
+            u.Surname = "Maironis";
+            u.PhoneNumber = "+37066666671";
+            u.OfficeId = o.Id;
+            u.AccountId = a.Id;
+            u.IsAdmin = false;
             users.Add(u);
 
             a = new Account();
-            a.ID = 107;
-            a.email = "mno@gmail.com";
-            a.password = "123456";
+            a.Id = 107;
+            a.Email = "mno@gmail.com";
+            a.Password = "123456";
             accounts.Add(a);
 
             u = new User();
-            u.ID = 507;
-            u.name = "Jonas";
-            u.surname = "Skardzius";
-            u.phoneNumber = "+37066666672";
-            u.office = o;
-            u.account = a;
-            u.admin = false;
+            u.Id = 507;
+            u.Name = "Jonas";
+            u.Surname = "Skardzius";
+            u.PhoneNumber = "+37066666672";
+            u.OfficeId = o.Id;
+            u.AccountId = a.Id;
+            u.IsAdmin = false;
             users.Add(u);
 
             o = new Office();
-            o.ID = 203;
-            o.officeName = "Klaipeda";
-            o.address = "Juros 12";
+            o.Id = 203;
+            o.OfficeName = "Klaipeda";
+            o.OfficeAddress = "Juros 12";
             offices.Add(o);
 
             a = new Account();
-            a.ID = 108;
-            a.email = "prs@gmail.com";
-            a.password = "123456";
+            a.Id = 108;
+            a.Email = "prs@gmail.com";
+            a.Password = "123456";
             accounts.Add(a);
 
             u = new User();
-            u.ID = 508;
-            u.name = "Paulius";
-            u.surname = "Juozaitis";
-            u.phoneNumber = "+37066666673";
-            u.office = o;
-            u.account = a;
-            u.admin = false;
+            u.Id = 508;
+            u.Name = "Paulius";
+            u.Surname = "Juozaitis";
+            u.PhoneNumber = "+37066666673";
+            u.OfficeId = o.Id;
+            u.AccountId = a.Id;
+            u.IsAdmin = false;
             users.Add(u);
 
             a = new Account();
-            a.ID = 109;
-            a.email = "tuv@gmail.com";
-            a.password = "123456";
+            a.Id = 109;
+            a.Email = "tuv@gmail.com";
+            a.Password = "123456";
             accounts.Add(a);
 
             u = new User();
-            u.ID = 509;
-            u.name = "Rokas";
-            u.surname = "Andrijauskas";
-            u.phoneNumber = "+37066666674";
-            u.office = o;
-            u.account = a;
-            u.admin = false;
+            u.Id = 509;
+            u.Name = "Rokas";
+            u.Surname = "Andrijauskas";
+            u.PhoneNumber = "+37066666674";
+            u.OfficeId = o.Id;
+            u.AccountId = a.Id;
+            u.IsAdmin = false;
             users.Add(u);
 
-            t.ID = 401;
-            t.name = "komandiruote 1";
-            t.fromOffice = offices[0];
-            t.toOffice = offices[1];
-            t.peopleOfTheTrip.Add(users[0]);
-            t.peopleAnswersForTheTrip.Add(false);
-            t.peopleOfTheTrip.Add(users[2]);
-            t.peopleAnswersForTheTrip.Add(true);
+            t.Id = 401;
+            t.TripName = "komandiruote 1";
+            t.FromOfficeId = offices[0].Id;
+            t.ToOfficeId = offices[1].Id;
+            //t.peopleOfTheTrip.Add(users[0]);
+            //t.peopleAnswersForTheTrip.Add(false);
+            //t.peopleOfTheTrip.Add(users[2]);
+            //t.peopleAnswersForTheTrip.Add(true);
             trips.Add(t);
 
             t = new Trip();
-            t.ID = 402;
-            t.name = "komandiruote 2";
-            t.fromOffice = offices[0];
-            t.toOffice = offices[2];
-            t.peopleOfTheTrip.Add(users[0]);
-            t.peopleAnswersForTheTrip.Add(false);
-            t.peopleOfTheTrip.Add(users[1]);
-            t.peopleAnswersForTheTrip.Add(true);
-            t.peopleOfTheTrip.Add(users[2]);
-            t.peopleAnswersForTheTrip.Add(false);
+            t.Id = 402;
+            t.TripName = "komandiruote 2";
+            t.FromOfficeId = offices[0].Id;
+            t.ToOfficeId = offices[2].Id;
+            //t.peopleOfTheTrip.Add(users[0]);
+            //t.peopleAnswersForTheTrip.Add(false);
+            //t.peopleOfTheTrip.Add(users[1]);
+            //t.peopleAnswersForTheTrip.Add(true);
+            //t.peopleOfTheTrip.Add(users[2]);
+            //t.peopleAnswersForTheTrip.Add(false);
             trips.Add(t);
 
             t = new Trip();
-            t.ID = 403;
-            t.name = "komandiruote 3";
-            t.fromOffice = offices[1];
-            t.toOffice = offices[2];
-            t.peopleOfTheTrip.Add(users[3]);
-            t.peopleAnswersForTheTrip.Add(false);
-            t.peopleOfTheTrip.Add(users[4]);
-            t.peopleAnswersForTheTrip.Add(true);
-            t.peopleOfTheTrip.Add(users[5]);
-            t.peopleAnswersForTheTrip.Add(false);
-            t.peopleOfTheTrip.Add(users[6]);
-            t.peopleAnswersForTheTrip.Add(true);
+            t.Id = 403;
+            t.TripName = "komandiruote 3";
+            t.FromOfficeId = offices[1].Id;
+            t.ToOfficeId = offices[2].Id;
+            //t.peopleOfTheTrip.Add(users[3]);
+            //t.peopleAnswersForTheTrip.Add(false);
+            //t.peopleOfTheTrip.Add(users[4]);
+            //t.peopleAnswersForTheTrip.Add(true);
+            //t.peopleOfTheTrip.Add(users[5]);
+            //t.peopleAnswersForTheTrip.Add(false);
+            //t.peopleOfTheTrip.Add(users[6]);
+            //t.peopleAnswersForTheTrip.Add(true);
             trips.Add(t);
 
             t = new Trip();
-            t.ID = 404;
-            t.name = "komandiruote 4";
-            t.fromOffice = offices[2];
-            t.toOffice = offices[0];
-            t.peopleOfTheTrip.Add(users[7]);
-            t.peopleAnswersForTheTrip.Add(false);
-            t.peopleOfTheTrip.Add(users[8]);
-            t.peopleAnswersForTheTrip.Add(true);
+            t.Id = 404;
+            t.TripName = "komandiruote 4";
+            t.FromOfficeId = offices[2].Id;
+            t.ToOfficeId = offices[0].Id;
+            //t.peopleOfTheTrip.Add(users[7]);
+            //t.peopleAnswersForTheTrip.Add(false);
+            //t.peopleOfTheTrip.Add(users[8]);
+            //t.peopleAnswersForTheTrip.Add(true);
             trips.Add(t);
         }
     }

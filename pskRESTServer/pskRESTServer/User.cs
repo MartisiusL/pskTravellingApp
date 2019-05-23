@@ -19,5 +19,7 @@ namespace pskRESTServer
         public string Surname { get; set; }
         public string PhoneNumber { get; set; }
         public bool IsAdmin { get; set; }
+        public int OfficeId { get; set; }
+        public int AccountId { get; set; }
     }
 }

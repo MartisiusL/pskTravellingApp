@@ -8,7 +8,14 @@ import { TripService, Trip } from '../trip.service';
 })
 export class MyTripsComponent implements OnInit {
 
-  trips = [];
+  /*It should be not trips, but rather UserTrip to make Many to Many relationship
+  then this would be called to the back end to get the list of UserTrip where contents would be
+  UserId and TripId and whether this is confirmed. So after getting this list, then the list of
+  trips should be generated, where we know whether the user confirmed it or not and a put method
+  should be called to the database. It would be pretty good place to implement optimistic lock variants
+  where we can cancel, refresh and do it again or just force. @Task @Liutauras.
+  */
+ trips = [];
 
   constructor(private tripService: TripService) { }
 

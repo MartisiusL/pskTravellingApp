@@ -13,6 +13,9 @@ export class TripDetailComponent implements OnInit {
 
   @Input() trip: Trip;
 
+  /* @Task same as with home page. The info here is provided you can easily access it and see how it is 
+  received, take this task and make this screen design look good enough.  */
+
   constructor(  
     private route: ActivatedRoute,
     private tripService: TripService,

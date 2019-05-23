@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http'
 
 interface myData {
   success: boolean,
+  admin: boolean,
+  userId: number, 
   message: string
 }
 
@@ -12,11 +14,20 @@ interface myData {
 export class AuthService {
 
   private loggedInStatus = false
+  private isAdmin = false
 
   constructor(private http: HttpClient) { }
 
   setLoggedIn(value: boolean) {
     this.loggedInStatus = value
+  }
+
+  setIsAdmin(value: boolean) {
+    this.isAdmin = true
+  }
+
+  get IsAdmin() {
+    return this.isAdmin
   }
 
   get isLoggedIn() {

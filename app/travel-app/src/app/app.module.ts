@@ -40,7 +40,7 @@ import { AuthGuard } from './auth.guard';
     HttpClientModule,
 	NgbModule.forRoot(),
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard, HeaderComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { } 

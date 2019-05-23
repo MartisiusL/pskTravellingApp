@@ -17,10 +17,11 @@ namespace pskRESTServer.Controllers
         public int Get(String email, String password)
         {
             Account a = database.GetAccountByEmail(email);
-            if (a != null && database.GetAccountByEmail(email).password == password)
-                return a.ID;
-            else
-                return -1;
+            //if (a != null && database.GetAccountByEmail(email).password == password)
+            //    return a.ID;
+            //else
+            //    return -1;
+            return 0;
         }
 
         public AnswerForAuth Post([FromBody]AuthorizationBody value)
@@ -31,6 +32,12 @@ namespace pskRESTServer.Controllers
             if (value.Username == "admin" && value.Password == "admin")
             {
                 answer.success = true;
+                answer.admin = true;
+            }
+            else if (value.Username == "simple" && value.Password == "simple")
+            {
+                answer.success = true;
+                answer.admin = false;
             }
             else
             {
