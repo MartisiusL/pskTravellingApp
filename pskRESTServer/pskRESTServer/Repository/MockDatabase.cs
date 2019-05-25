@@ -95,7 +95,7 @@ namespace pskRESTServer.Repository
 
         public void GenerateData()
         {
-            User u = new User();
+            /*User u = new User();
             Account a = new Account();
             Office o = new Office();
             Trip t = new Trip();
@@ -307,7 +307,7 @@ namespace pskRESTServer.Repository
             //t.peopleAnswersForTheTrip.Add(false);
             //t.peopleOfTheTrip.Add(users[8]);
             //t.peopleAnswersForTheTrip.Add(true);
-            trips.Add(t);
+            trips.Add(t);*/
         }
     }
 }

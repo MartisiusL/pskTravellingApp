@@ -155,6 +155,9 @@
     <Compile Include="User.cs">
       <DependentUpon>LogModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="UserTrip.cs">
+      <DependentUpon>LogModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="LogModel.edmx">

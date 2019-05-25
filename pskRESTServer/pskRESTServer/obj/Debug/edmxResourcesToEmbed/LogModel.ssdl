@@ -24,6 +24,8 @@
     <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="TripName" Type="nvarchar(max)" />
     <Property Name="TripDate" Type="datetime" />
+    <Property Name="ToOfficeId" Type="int" />
+    <Property Name="FromOfficeId" Type="int" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -34,11 +36,54 @@
     <Property Name="Surname" Type="nvarchar" MaxLength="50" />
     <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
     <Property Name="IsAdmin" Type="bit" Nullable="false" />
+    <Property Name="AccountId" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="UserTrip">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="TripId" Type="int" Nullable="false" />
+    <Property Name="Confirmed" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <Association Name="TripId">
+    <End Role="Trip" Type="Self.Trip" Multiplicity="1" />
+    <End Role="UserTrip" Type="Self.UserTrip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trip">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserTrip">
+        <PropertyRef Name="TripId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserId">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="UserTrip" Type="Self.UserTrip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserTrip">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="pskTravellingModelStoreContainer">
     <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Office" EntityType="Self.Office" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Trip" EntityType="Self.Trip" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserTrip" EntityType="Self.UserTrip" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="TripId" Association="Self.TripId">
+      <End Role="Trip" EntitySet="Trip" />
+      <End Role="UserTrip" EntitySet="UserTrip" />
+    </AssociationSet>
+    <AssociationSet Name="UserId" Association="Self.UserId">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserTrip" EntitySet="UserTrip" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

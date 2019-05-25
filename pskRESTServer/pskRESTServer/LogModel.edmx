@@ -29,6 +29,8 @@
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="TripName" Type="nvarchar(max)" />
           <Property Name="TripDate" Type="datetime" />
+          <Property Name="ToOfficeId" Type="int" />
+          <Property Name="FromOfficeId" Type="int" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -39,12 +41,55 @@
           <Property Name="Surname" Type="nvarchar" MaxLength="50" />
           <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
           <Property Name="IsAdmin" Type="bit" Nullable="false" />
+          <Property Name="AccountId" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="UserTrip">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="TripId" Type="int" Nullable="false" />
+          <Property Name="Confirmed" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <Association Name="TripId">
+          <End Role="Trip" Type="Self.Trip" Multiplicity="1" />
+          <End Role="UserTrip" Type="Self.UserTrip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trip">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserTrip">
+              <PropertyRef Name="TripId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserId">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="UserTrip" Type="Self.UserTrip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserTrip">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="pskTravellingModelStoreContainer">
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Office" EntityType="Self.Office" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Trip" EntityType="Self.Trip" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserTrip" EntityType="Self.UserTrip" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="TripId" Association="Self.TripId">
+            <End Role="Trip" EntitySet="Trip" />
+            <End Role="UserTrip" EntitySet="UserTrip" />
+          </AssociationSet>
+          <AssociationSet Name="UserId" Association="Self.UserId">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserTrip" EntitySet="UserTrip" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -55,6 +100,15 @@
           <EntitySet Name="Offices" EntityType="pskTravellingModel.Office" />
           <EntitySet Name="Trips" EntityType="pskTravellingModel.Trip" />
           <EntitySet Name="Users" EntityType="pskTravellingModel.User" />
+          <EntitySet Name="UserTrips" EntityType="pskTravellingModel.UserTrip" />
+          <AssociationSet Name="TripId" Association="pskTravellingModel.TripId">
+            <End Role="Trip" EntitySet="Trips" />
+            <End Role="UserTrip" EntitySet="UserTrips" />
+          </AssociationSet>
+          <AssociationSet Name="UserId" Association="pskTravellingModel.UserId">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserTrip" EntitySet="UserTrips" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Account">
           <Key>
@@ -80,6 +134,9 @@
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="TripName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TripDate" Type="DateTime" Precision="3" />
+          <Property Name="ToOfficeId" Type="Int32" />
+          <Property Name="FromOfficeId" Type="Int32" />
+          <NavigationProperty Name="UserTrips" Relationship="pskTravellingModel.TripId" FromRole="Trip" ToRole="UserTrip" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -90,7 +147,44 @@
           <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="AccountId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="UserTrips" Relationship="pskTravellingModel.UserId" FromRole="User" ToRole="UserTrip" />
         </EntityType>
+        <EntityType Name="UserTrip">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="TripId" Type="Int32" Nullable="false" />
+          <Property Name="Confirmed" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Trip" Relationship="pskTravellingModel.TripId" FromRole="UserTrip" ToRole="Trip" />
+          <NavigationProperty Name="User" Relationship="pskTravellingModel.UserId" FromRole="UserTrip" ToRole="User" />
+        </EntityType>
+        <Association Name="TripId">
+          <End Type="pskTravellingModel.Trip" Role="Trip" Multiplicity="1" />
+          <End Type="pskTravellingModel.UserTrip" Role="UserTrip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trip">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserTrip">
+              <PropertyRef Name="TripId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserId">
+          <End Type="pskTravellingModel.User" Role="User" Multiplicity="1" />
+          <End Type="pskTravellingModel.UserTrip" Role="UserTrip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserTrip">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -119,6 +213,8 @@
           <EntitySetMapping Name="Trips">
             <EntityTypeMapping TypeName="pskTravellingModel.Trip">
               <MappingFragment StoreEntitySet="Trip">
+                <ScalarProperty Name="FromOfficeId" ColumnName="FromOfficeId" />
+                <ScalarProperty Name="ToOfficeId" ColumnName="ToOfficeId" />
                 <ScalarProperty Name="TripDate" ColumnName="TripDate" />
                 <ScalarProperty Name="TripName" ColumnName="TripName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -128,10 +224,21 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="pskTravellingModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
                 <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
                 <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTrips">
+            <EntityTypeMapping TypeName="pskTravellingModel.UserTrip">
+              <MappingFragment StoreEntitySet="UserTrip">
+                <ScalarProperty Name="Confirmed" ColumnName="Confirmed" />
+                <ScalarProperty Name="TripId" ColumnName="TripId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -34,7 +34,12 @@ namespace pskRESTServer.Repository
 
         public List<Trip> GetTripsList()
         {
-            return trips;
+            return entities.Trips.Select(trip => trip).ToList();
+            //return trips;
+        }
+
+        public List<Trip> GetTripsListByUserId(int id) {
+            return entities.Users.First(user => user.Id == id).UserTrips.Select(ut => ut.Trip).ToList();
         }
 
         public User GetUserById(int id)

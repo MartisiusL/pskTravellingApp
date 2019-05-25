@@ -16,6 +16,10 @@ namespace pskRESTServer
             config.Formatters.JsonFormatter.SupportedMediaTypes
                 .Add(new MediaTypeHeaderValue("text/html"));
 
+            config.Formatters.JsonFormatter
+            .SerializerSettings
+            .ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+
             config.EnableCors(new EnableCorsAttribute("http://localhost:4200", "*", "GET,POST"));
 
             // Web API routes
