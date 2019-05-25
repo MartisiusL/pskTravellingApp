@@ -22,5 +22,22 @@ namespace pskRESTServer.Controllers
             else
                 return -1;
         }
+
+        public AnswerForAuth Post([FromBody]AuthorizationBody value)
+        {
+            AnswerForAuth answer = new AnswerForAuth();
+            answer.message = "Invalid username or password";
+
+            if (value.Username == "admin" && value.Password == "admin")
+            {
+                answer.success = true;
+            }
+            else
+            {
+                answer.success = false;
+            }
+
+            return answer;
+        }
     }
 }
