@@ -52,6 +52,11 @@ namespace pskRESTServer.Repository
             return accounts.FirstOrDefault(x => x.Email == email);
         }
 
+        public Account GetAccountById(int id)
+        {
+            return accounts.FirstOrDefault(x => x.Id == id);
+        }
+
         public Office GetOfficeById(int id)
         {
             return offices.FirstOrDefault(x => x.Id == id);
@@ -88,38 +93,34 @@ namespace pskRESTServer.Repository
 
         public void DeleteUserById(int id)
         {
-            users.RemoveAll(x => x.Id == id);
-            User toDelete = new User() { Id = id };
-            entities.Users.Attach(toDelete);
-            entities.Users.Remove(toDelete);
+            User toDelete = this.GetUserById(id);
+            entities.Entry(toDelete).State = System.Data.Entity.EntityState.Deleted;
             entities.SaveChangesAsync();
+            users.RemoveAll(x => x.Id == id);
         }
 
         public void DeleteAccountById(int id)
         {
-            accounts.RemoveAll(x => x.Id == id);
-            Account toDelete = new Account() { Id = id };
-            entities.Accounts.Attach(toDelete);
-            entities.Accounts.Remove(toDelete);
+            Account toDelete = this.GetAccountById(id);
+            entities.Entry(toDelete).State = System.Data.Entity.EntityState.Deleted;
             entities.SaveChangesAsync();
+            accounts.RemoveAll(x => x.Id == id);
         }
 
         public void DeleteTripById(int id)
-        {
-            trips.RemoveAll(x => x.Id == id);
-            Trip toDelete = new Trip() { Id = id };
-            entities.Trips.Attach(toDelete);
-            entities.Trips.Remove(toDelete);
+        { 
+            Trip toDelete = this.GetTripById(id);
+            entities.Entry(toDelete).State = System.Data.Entity.EntityState.Deleted;
             entities.SaveChangesAsync();
+            trips.RemoveAll(x => x.Id == id);
         }
 
         public void DeleteOfficeById(int id)
         {
-            offices.RemoveAll(x => x.Id == id);
-            Office toDelete = new Office() { Id = id };
-            entities.Offices.Attach(toDelete);
-            entities.Offices.Remove(toDelete);
+            Office toDelete = this.GetOfficeById(id);
+            entities.Entry(toDelete).State = System.Data.Entity.EntityState.Deleted;
             entities.SaveChangesAsync();
+            offices.RemoveAll(x => x.Id == id);
         }
     }
 }
