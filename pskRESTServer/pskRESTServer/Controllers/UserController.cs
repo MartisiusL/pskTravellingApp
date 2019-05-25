@@ -1,10 +1,8 @@
-﻿using pskRESTServer.Models;
+﻿using pskRESTServer.Models.RestModels;
 using pskRESTServer.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace pskRESTServer.Controllers
@@ -26,9 +24,49 @@ namespace pskRESTServer.Controllers
         }
 
         // POST: api/User
-        public void Post([FromBody]User user)
+        public bool Post([FromBody]NewUser newUser)
         {
-            database.AddUser(user);
+            using (pskTravellingEntities db = new pskTravellingEntities())
+            {
+                //try
+                //{
+                Account account = new Account();
+                account.Email = newUser.Username;
+                account.Password = newUser.Password;
+                try
+                {
+                    account.Id = db.Accounts.Max(record => record.Id) + 1;
+                }
+                catch
+                {
+                    account.Id = 0;
+                }
+                db.Accounts.Add(account);
+
+                User user = new User();
+                user.IsAdmin = false;
+                user.Name = newUser.Name;
+                user.Surname = newUser.Surname;
+                user.PhoneNumber = newUser.Phone;
+                user.AccountId = account.Id;
+                try
+                {
+                    user.Id = db.Users.Max(record => record.Id) + 1;
+                } catch
+                {
+                    user.Id = 0;
+                }
+                
+                db.Users.Add(user);
+                db.SaveChanges();
+                return true;
+                //}
+                //catch(Exception ex)
+                //{
+                //    return false;
+                //}
+
+            }
         }
 
         // DELETE: api/User/5

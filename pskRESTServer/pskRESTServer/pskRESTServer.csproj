@@ -98,13 +98,13 @@
     <Content Include="Home.html" />
     <Content Include="LogModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>LogModel.edmx</DependentUpon>
       <LastGenOutput>LogModel.Context.cs</LastGenOutput>
+      <DependentUpon>LogModel.edmx</DependentUpon>
     </Content>
     <Content Include="LogModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>LogModel.edmx</DependentUpon>
       <LastGenOutput>LogModel.cs</LastGenOutput>
+      <DependentUpon>LogModel.edmx</DependentUpon>
     </Content>
     <Content Include="Web.config" />
   </ItemGroup>
@@ -135,6 +135,7 @@
     </Compile>
     <Compile Include="Models\AnswerForAuth.cs" />
     <Compile Include="Models\AuthorizationBody.cs" />
+    <Compile Include="Models\RestModels\NewUser.cs" />
     <Compile Include="Office.cs">
       <DependentUpon>LogModel.tt</DependentUpon>
     </Compile>

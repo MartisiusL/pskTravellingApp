@@ -114,7 +114,7 @@ namespace pskRESTServer.Repository
             u.Name = "Lukas";
             u.Surname = "Martisius";
             u.PhoneNumber = "+37066666666";
-            u.OfficeId = o.Id;
+            //u.OfficeId = o.Id;
             u.AccountId = a.Id;
             u.IsAdmin = true;
             users.Add(u);
@@ -130,7 +130,7 @@ namespace pskRESTServer.Repository
             u.Name = "Liutauras";
             u.Surname = "Butkinas";
             u.PhoneNumber = "+37066666667";
-            u.OfficeId = o.Id;
+            //u.OfficeId = o.Id;
             u.AccountId = a.Id;
             u.IsAdmin = true;
             users.Add(u);
@@ -147,7 +147,7 @@ namespace pskRESTServer.Repository
             u.Name = "Modestas";
             u.Surname = "Dulevicius";
             u.PhoneNumber = "+37066666668";
-            u.OfficeId = o.Id;
+            //u.OfficeId = o.Id;
             u.AccountId = a.Id;
             u.IsAdmin = true;
             users.Add(u);          
@@ -169,7 +169,7 @@ namespace pskRESTServer.Repository
             u.Name = "Simonas";
             u.Surname = "Butkus";
             u.PhoneNumber = "+37066666669";
-            u.OfficeId = o.Id;
+            //u.OfficeId = o.Id;
             u.AccountId = a.Id;
             u.IsAdmin = true;
             users.Add(u);
@@ -185,7 +185,7 @@ namespace pskRESTServer.Repository
             u.Name = "Benas";
             u.Surname = "Gudeliauskas";
             u.PhoneNumber = "+37066666670";
-            u.OfficeId = o.Id;
+            //u.OfficeId = o.Id;
             u.AccountId = a.Id;
             u.IsAdmin = true;
             users.Add(u);
@@ -201,7 +201,7 @@ namespace pskRESTServer.Repository
             u.Name = "Tomas";
             u.Surname = "Maironis";
             u.PhoneNumber = "+37066666671";
-            u.OfficeId = o.Id;
+            //u.OfficeId = o.Id;
             u.AccountId = a.Id;
             u.IsAdmin = false;
             users.Add(u);
@@ -217,7 +217,7 @@ namespace pskRESTServer.Repository
             u.Name = "Jonas";
             u.Surname = "Skardzius";
             u.PhoneNumber = "+37066666672";
-            u.OfficeId = o.Id;
+            //u.OfficeId = o.Id;
             u.AccountId = a.Id;
             u.IsAdmin = false;
             users.Add(u);
@@ -239,7 +239,7 @@ namespace pskRESTServer.Repository
             u.Name = "Paulius";
             u.Surname = "Juozaitis";
             u.PhoneNumber = "+37066666673";
-            u.OfficeId = o.Id;
+            //u.OfficeId = o.Id;
             u.AccountId = a.Id;
             u.IsAdmin = false;
             users.Add(u);
@@ -255,7 +255,7 @@ namespace pskRESTServer.Repository
             u.Name = "Rokas";
             u.Surname = "Andrijauskas";
             u.PhoneNumber = "+37066666674";
-            u.OfficeId = o.Id;
+            //u.OfficeId = o.Id;
             u.AccountId = a.Id;
             u.IsAdmin = false;
             users.Add(u);

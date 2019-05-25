@@ -30,6 +30,8 @@
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="TripName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="TripDate" Type="DateTime" Precision="3" />
+    <Property Name="ToOfficeId" Type="Int32" Nullable="true" />
+    <Property Name="FromOfficeId" Type="Int32" Nullable="true" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -40,5 +42,6 @@
     <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
+    <Property Name="AccountId" Type="Int32" Nullable="false" />
   </EntityType>
 </Schema>

@@ -2,41 +2,44 @@
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="pskTravellingModelStoreContainer" CdmEntityContainer="pskTravellingEntities">
     <EntitySetMapping Name="Accounts">
-      <EntityTypeMapping TypeName="pskTravellingModel.Account">
-        <MappingFragment StoreEntitySet="Account">
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
+      <EntityTypeMapping TypeName="IsTypeOf(pskTravellingModel.Account)">
+        <MappingFragment StoreEntitySet="Accounts">
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Offices">
-      <EntityTypeMapping TypeName="pskTravellingModel.Office">
-        <MappingFragment StoreEntitySet="Office">
-          <ScalarProperty Name="Accounts" ColumnName="Accounts" />
-          <ScalarProperty Name="OfficeAddress" ColumnName="OfficeAddress" />
-          <ScalarProperty Name="OfficeName" ColumnName="OfficeName" />
+      <EntityTypeMapping TypeName="IsTypeOf(pskTravellingModel.Office)">
+        <MappingFragment StoreEntitySet="Offices">
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OfficeName" ColumnName="OfficeName" />
+          <ScalarProperty Name="OfficeAddress" ColumnName="OfficeAddress" />
+          <ScalarProperty Name="Accounts" ColumnName="Accounts" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Trips">
-      <EntityTypeMapping TypeName="pskTravellingModel.Trip">
-        <MappingFragment StoreEntitySet="Trip">
-          <ScalarProperty Name="TripDate" ColumnName="TripDate" />
-          <ScalarProperty Name="TripName" ColumnName="TripName" />
+      <EntityTypeMapping TypeName="IsTypeOf(pskTravellingModel.Trip)">
+        <MappingFragment StoreEntitySet="Trips">
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TripName" ColumnName="TripName" />
+          <ScalarProperty Name="TripDate" ColumnName="TripDate" />
+          <ScalarProperty Name="ToOfficeId" ColumnName="ToOfficeId" />
+          <ScalarProperty Name="FromOfficeId" ColumnName="FromOfficeId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="pskTravellingModel.User">
-        <MappingFragment StoreEntitySet="User">
-          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
-          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-          <ScalarProperty Name="Surname" ColumnName="Surname" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
+      <EntityTypeMapping TypeName="IsTypeOf(pskTravellingModel.User)">
+        <MappingFragment StoreEntitySet="Users">
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+          <ScalarProperty Name="AccountId" ColumnName="AccountId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

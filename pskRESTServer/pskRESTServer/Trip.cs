@@ -17,7 +17,7 @@ namespace pskRESTServer
         public int Id { get; set; }
         public string TripName { get; set; }
         public Nullable<System.DateTime> TripDate { get; set; }
-        public int FromOfficeId { get; set; }
-        public int ToOfficeId { get; set; }
+        public Nullable<int> ToOfficeId { get; set; }
+        public Nullable<int> FromOfficeId { get; set; }
     }
 }
