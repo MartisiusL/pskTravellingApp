@@ -11,7 +11,7 @@ namespace pskRESTServer.Controllers
 {
     public class AccountController : ApiController
     {
-        private Database database = new MockDatabase();
+        private Database database = new AzureDatabase();
 
         // POST: api/account
         public void Post([FromBody]Account account)

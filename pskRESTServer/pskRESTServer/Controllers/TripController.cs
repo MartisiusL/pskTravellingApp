@@ -12,7 +12,7 @@ namespace pskRESTServer.Controllers
 {
     public class TripController : ApiController
     {
-        private Database database = new MockDatabase();
+        private Database database = new AzureDatabase();
 
         // GET: api/Trip
         public IEnumerable<Trip> Get()

@@ -138,6 +138,7 @@
     <Compile Include="Office.cs">
       <DependentUpon>LogModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Repository\AzureDatabase.cs" />
     <Compile Include="Repository\Database.cs" />
     <Compile Include="Repository\MockDatabase.cs" />
     <Compile Include="Global.asax.cs">

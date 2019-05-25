@@ -11,7 +11,7 @@ namespace pskRESTServer.Controllers
 {
     public class UserController : ApiController
     {
-        private Database database = new MockDatabase();
+        private Database database = new AzureDatabase();
 
         // GET: api/User
         public IEnumerable<User> Get()
