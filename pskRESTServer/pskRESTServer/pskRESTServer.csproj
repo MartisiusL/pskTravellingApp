@@ -112,12 +112,18 @@
     <Compile Include="Account.cs">
       <DependentUpon>LogModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Account1.cs">
+      <DependentUpon>LogModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuthorizationController.cs" />
     <Compile Include="Controllers\OfficeController.cs" />
     <Compile Include="Controllers\TripController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="database_firewall_rules.cs">
+      <DependentUpon>LogModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="LogModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -133,10 +139,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LogModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\AnswerForAuth.cs" />
-    <Compile Include="Models\AuthorizationBody.cs" />
+    <Compile Include="Models\RestModels\AnswerForAuth.cs" />
+    <Compile Include="Models\RestModels\AnswerForRegistration.cs" />
+    <Compile Include="Models\RestModels\AuthorizationBody.cs" />
     <Compile Include="Models\RestModels\NewUser.cs" />
     <Compile Include="Office.cs">
+      <DependentUpon>LogModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Office1.cs">
       <DependentUpon>LogModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Repository\Database.cs" />
@@ -152,7 +162,16 @@
     <Compile Include="Trip.cs">
       <DependentUpon>LogModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Trip1.cs">
+      <DependentUpon>LogModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
+      <DependentUpon>LogModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User1.cs">
+      <DependentUpon>LogModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserTrip.cs">
       <DependentUpon>LogModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>

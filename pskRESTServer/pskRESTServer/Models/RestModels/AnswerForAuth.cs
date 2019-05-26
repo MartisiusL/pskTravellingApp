@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace pskRESTServer.Models
+namespace pskRESTServer.Models.RestModels
 {
     public class AnswerForAuth
     {

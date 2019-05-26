@@ -5,6 +5,24 @@
     <EntitySet Name="Offices" EntityType="pskTravellingModel.Office" />
     <EntitySet Name="Trips" EntityType="pskTravellingModel.Trip" />
     <EntitySet Name="Users" EntityType="pskTravellingModel.User" />
+    <EntitySet Name="Account1" EntityType="pskTravellingModel.Account1" />
+    <EntitySet Name="Office1" EntityType="pskTravellingModel.Office1" />
+    <EntitySet Name="Trip1" EntityType="pskTravellingModel.Trip1" />
+    <EntitySet Name="User1" EntityType="pskTravellingModel.User1" />
+    <EntitySet Name="UserTrips" EntityType="pskTravellingModel.UserTrip" />
+    <EntitySet Name="database_firewall_rules" EntityType="pskTravellingModel.database_firewall_rules" />
+    <AssociationSet Name="AccountId" Association="pskTravellingModel.AccountId">
+      <End Role="Account1" EntitySet="Account1" />
+      <End Role="User1" EntitySet="User1" />
+    </AssociationSet>
+    <AssociationSet Name="TripId" Association="pskTravellingModel.TripId">
+      <End Role="Trip1" EntitySet="Trip1" />
+      <End Role="UserTrip" EntitySet="UserTrips" />
+    </AssociationSet>
+    <AssociationSet Name="UserId" Association="pskTravellingModel.UserId">
+      <End Role="User1" EntitySet="User1" />
+      <End Role="UserTrip" EntitySet="UserTrips" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Account">
     <Key>
@@ -44,4 +62,109 @@
     <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
     <Property Name="AccountId" Type="Int32" Nullable="false" />
   </EntityType>
+  <EntityType Name="Account1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Users" Relationship="pskTravellingModel.AccountId" FromRole="Account1" ToRole="User1" />
+  </EntityType>
+  <EntityType Name="Office1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="OfficeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OfficeAddress" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Accounts" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Trip1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="TripName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TripDate" Type="DateTime" Precision="3" />
+    <Property Name="ToOfficeId" Type="Int32" />
+    <Property Name="FromOfficeId" Type="Int32" />
+    <NavigationProperty Name="UserTrips" Relationship="pskTravellingModel.TripId" FromRole="Trip1" ToRole="UserTrip" />
+  </EntityType>
+  <EntityType Name="User1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
+    <Property Name="AccountId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Account" Relationship="pskTravellingModel.AccountId" FromRole="User1" ToRole="Account1" />
+    <NavigationProperty Name="UserTrips" Relationship="pskTravellingModel.UserId" FromRole="User1" ToRole="UserTrip" />
+  </EntityType>
+  <EntityType Name="UserTrip">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="TripId" Type="Int32" Nullable="false" />
+    <Property Name="Confirmed" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Trip" Relationship="pskTravellingModel.TripId" FromRole="UserTrip" ToRole="Trip1" />
+    <NavigationProperty Name="User" Relationship="pskTravellingModel.UserId" FromRole="UserTrip" ToRole="User1" />
+  </EntityType>
+  <EntityType Name="database_firewall_rules">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="start_ip_address" />
+      <PropertyRef Name="end_ip_address" />
+      <PropertyRef Name="create_date" />
+      <PropertyRef Name="modify_date" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="start_ip_address" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="end_ip_address" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <Association Name="AccountId">
+    <End Type="pskTravellingModel.Account1" Role="Account1" Multiplicity="1" />
+    <End Type="pskTravellingModel.User1" Role="User1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account1">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User1">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TripId">
+    <End Type="pskTravellingModel.Trip1" Role="Trip1" Multiplicity="1" />
+    <End Type="pskTravellingModel.UserTrip" Role="UserTrip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trip1">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserTrip">
+        <PropertyRef Name="TripId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserId">
+    <End Type="pskTravellingModel.User1" Role="User1" Multiplicity="1" />
+    <End Type="pskTravellingModel.UserTrip" Role="UserTrip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User1">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserTrip">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

@@ -9,6 +9,15 @@
         <EntityTypeShape EntityType="pskTravellingModel.Office" Width="1.5" PointX="0.75" PointY="3.75" />
         <EntityTypeShape EntityType="pskTravellingModel.Trip" Width="1.5" PointX="2.75" PointY="3.75" />
         <EntityTypeShape EntityType="pskTravellingModel.User" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="pskTravellingModel.Account1" Width="1.5" PointX="0.75" PointY="7.375" />
+        <EntityTypeShape EntityType="pskTravellingModel.Office1" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="pskTravellingModel.Trip1" Width="1.5" PointX="3" PointY="11.125" />
+        <EntityTypeShape EntityType="pskTravellingModel.User1" Width="1.5" PointX="3" PointY="7" />
+        <EntityTypeShape EntityType="pskTravellingModel.UserTrip" Width="1.5" PointX="5.25" PointY="7.125" />
+        <EntityTypeShape EntityType="pskTravellingModel.database_firewall_rules" Width="1.5" PointX="6.75" PointY="0.75" />
+        <AssociationConnector Association="pskTravellingModel.AccountId" />
+        <AssociationConnector Association="pskTravellingModel.TripId" />
+        <AssociationConnector Association="pskTravellingModel.UserId" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
