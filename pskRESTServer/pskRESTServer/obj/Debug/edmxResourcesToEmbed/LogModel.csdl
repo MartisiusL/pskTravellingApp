@@ -5,6 +5,7 @@
     <EntitySet Name="Offices" EntityType="pskTravellingModel.Office" />
     <EntitySet Name="Trips" EntityType="pskTravellingModel.Trip" />
     <EntitySet Name="Users" EntityType="pskTravellingModel.User" />
+<<<<<<< HEAD
     <EntitySet Name="Account1" EntityType="pskTravellingModel.Account1" />
     <EntitySet Name="Office1" EntityType="pskTravellingModel.Office1" />
     <EntitySet Name="Trip1" EntityType="pskTravellingModel.Trip1" />
@@ -21,6 +22,15 @@
     </AssociationSet>
     <AssociationSet Name="UserId" Association="pskTravellingModel.UserId">
       <End Role="User1" EntitySet="User1" />
+=======
+    <EntitySet Name="UserTrips" EntityType="pskTravellingModel.UserTrip" />
+    <AssociationSet Name="TripId" Association="pskTravellingModel.TripId">
+      <End Role="Trip" EntitySet="Trips" />
+      <End Role="UserTrip" EntitySet="UserTrips" />
+    </AssociationSet>
+    <AssociationSet Name="UserId" Association="pskTravellingModel.UserId">
+      <End Role="User" EntitySet="Users" />
+>>>>>>> azure-database
       <End Role="UserTrip" EntitySet="UserTrips" />
     </AssociationSet>
   </EntityContainer>
@@ -48,8 +58,14 @@
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="TripName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="TripDate" Type="DateTime" Precision="3" />
+<<<<<<< HEAD
     <Property Name="ToOfficeId" Type="Int32" Nullable="true" />
     <Property Name="FromOfficeId" Type="Int32" Nullable="true" />
+=======
+    <Property Name="ToOfficeId" Type="Int32" />
+    <Property Name="FromOfficeId" Type="Int32" />
+    <NavigationProperty Name="UserTrips" Relationship="pskTravellingModel.TripId" FromRole="Trip" ToRole="UserTrip" />
+>>>>>>> azure-database
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -61,6 +77,7 @@
     <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
     <Property Name="AccountId" Type="Int32" Nullable="false" />
+<<<<<<< HEAD
   </EntityType>
   <EntityType Name="Account1">
     <Key>
@@ -104,6 +121,10 @@
     <NavigationProperty Name="Account" Relationship="pskTravellingModel.AccountId" FromRole="User1" ToRole="Account1" />
     <NavigationProperty Name="UserTrips" Relationship="pskTravellingModel.UserId" FromRole="User1" ToRole="UserTrip" />
   </EntityType>
+=======
+    <NavigationProperty Name="UserTrips" Relationship="pskTravellingModel.UserId" FromRole="User" ToRole="UserTrip" />
+  </EntityType>
+>>>>>>> azure-database
   <EntityType Name="UserTrip">
     <Key>
       <PropertyRef Name="Id" />
@@ -112,6 +133,7 @@
     <Property Name="UserId" Type="Int32" Nullable="false" />
     <Property Name="TripId" Type="Int32" Nullable="false" />
     <Property Name="Confirmed" Type="Boolean" Nullable="false" />
+<<<<<<< HEAD
     <NavigationProperty Name="Trip" Relationship="pskTravellingModel.TripId" FromRole="UserTrip" ToRole="Trip1" />
     <NavigationProperty Name="User" Relationship="pskTravellingModel.UserId" FromRole="UserTrip" ToRole="User1" />
   </EntityType>
@@ -148,6 +170,16 @@
     <End Type="pskTravellingModel.UserTrip" Role="UserTrip" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Trip1">
+=======
+    <NavigationProperty Name="Trip" Relationship="pskTravellingModel.TripId" FromRole="UserTrip" ToRole="Trip" />
+    <NavigationProperty Name="User" Relationship="pskTravellingModel.UserId" FromRole="UserTrip" ToRole="User" />
+  </EntityType>
+  <Association Name="TripId">
+    <End Type="pskTravellingModel.Trip" Role="Trip" Multiplicity="1" />
+    <End Type="pskTravellingModel.UserTrip" Role="UserTrip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trip">
+>>>>>>> azure-database
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="UserTrip">
@@ -156,10 +188,17 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="UserId">
+<<<<<<< HEAD
     <End Type="pskTravellingModel.User1" Role="User1" Multiplicity="1" />
     <End Type="pskTravellingModel.UserTrip" Role="UserTrip" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User1">
+=======
+    <End Type="pskTravellingModel.User" Role="User" Multiplicity="1" />
+    <End Type="pskTravellingModel.UserTrip" Role="UserTrip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+>>>>>>> azure-database
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="UserTrip">

@@ -24,6 +24,6 @@ export class MyTripsComponent implements OnInit {
   }
 
   getTrips(): void {
-    this.tripService.getTrips().subscribe(trips => this.trips = trips);
+    this.tripService.getTripsByUserId(1).subscribe(trips => this.trips = trips);
   }
 }

@@ -53,6 +53,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+<<<<<<< HEAD
     <EntitySetMapping Name="database_firewall_rules">
       <EntityTypeMapping TypeName="pskTravellingModel.database_firewall_rules">
         <MappingFragment StoreEntitySet="database_firewall_rules">
@@ -65,5 +66,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+=======
+>>>>>>> azure-database
   </EntityContainerMapping>
 </Mapping>

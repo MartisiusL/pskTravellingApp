@@ -119,6 +119,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuthorizationController.cs" />
     <Compile Include="Controllers\OfficeController.cs" />
+    <Compile Include="Controllers\TripByUserIdController.cs" />
     <Compile Include="Controllers\TripController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="database_firewall_rules.cs">
@@ -149,6 +150,11 @@
     <Compile Include="Office1.cs">
       <DependentUpon>LogModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TripWithConfirmation.cs" />
+    <Compile Include="Office.cs">
+      <DependentUpon>LogModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\AzureDatabase.cs" />
     <Compile Include="Repository\Database.cs" />
     <Compile Include="Repository\MockDatabase.cs" />
     <Compile Include="Global.asax.cs">

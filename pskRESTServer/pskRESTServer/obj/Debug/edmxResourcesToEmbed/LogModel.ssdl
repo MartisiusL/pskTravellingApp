@@ -47,6 +47,7 @@
     <Property Name="TripId" Type="int" Nullable="false" />
     <Property Name="Confirmed" Type="bit" Nullable="false" />
   </EntityType>
+<<<<<<< HEAD
   <!--Errors Found During Generation:
 warning 6002: The table/view 'pskTravelling.sys.database_firewall_rules' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="database_firewall_rules">
@@ -77,6 +78,8 @@ warning 6002: The table/view 'pskTravelling.sys.database_firewall_rules' does no
       </Dependent>
     </ReferentialConstraint>
   </Association>
+=======
+>>>>>>> azure-database
   <Association Name="TripId">
     <End Role="Trip" Type="Self.Trip" Multiplicity="1" />
     <End Role="UserTrip" Type="Self.UserTrip" Multiplicity="*" />
@@ -107,6 +110,7 @@ warning 6002: The table/view 'pskTravelling.sys.database_firewall_rules' does no
     <EntitySet Name="Trip" EntityType="Self.Trip" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserTrip" EntityType="Self.UserTrip" Schema="dbo" store:Type="Tables" />
+<<<<<<< HEAD
     <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" store:Type="Views" store:Schema="sys">
       <DefiningQuery>SELECT 
     [database_firewall_rules].[id] AS [id], 
@@ -121,6 +125,8 @@ warning 6002: The table/view 'pskTravelling.sys.database_firewall_rules' does no
       <End Role="Account" EntitySet="Account" />
       <End Role="User" EntitySet="User" />
     </AssociationSet>
+=======
+>>>>>>> azure-database
     <AssociationSet Name="TripId" Association="Self.TripId">
       <End Role="Trip" EntitySet="Trip" />
       <End Role="UserTrip" EntitySet="UserTrip" />

@@ -11,7 +11,7 @@ namespace pskRESTServer.Controllers
 {
     public class OfficeController : ApiController
     {
-        private Database database = new MockDatabase();
+        private Database database = new AzureDatabase();
 
         // GET: api/office
         public IEnumerable<Office> Get()
