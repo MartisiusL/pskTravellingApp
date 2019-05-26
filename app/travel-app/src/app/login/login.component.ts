@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
           this.Auth.setIsAdmin(true)
         }
         this.Auth.setLoggedIn(true)
+        this.Auth.setCurrentUserId(data.userId)
         this.router.navigate(['home'])   
         console.log("successfully logged in")
       } else {

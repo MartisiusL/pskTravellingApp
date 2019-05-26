@@ -10,6 +10,11 @@ export class UserService {
 
   getUserDetails(newUser) {
     console.log(newUser)
-    return this.http.post('http://localhost:55155/api/User', newUser)
+    return this.http.post<RegisterUserData>('http://localhost:55155/api/User', newUser)
   }
+}
+
+interface RegisterUserData {
+  success: boolean,
+  userId: number
 }

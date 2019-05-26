@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Identifiers } from '@angular/compiler';
 import { UserService } from '../user.service';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -11,11 +13,17 @@ export class RegisterComponent implements OnInit {
 
   userInfo = {}
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private auth: AuthService, private router: Router) { }
 
   onResgisterClick() {
     this.userService.getUserDetails(this.userInfo).subscribe(data => {
-      alert(data)
+      if(data.success) {
+        this.auth.setCurrentUserId(data.userId)
+        this.router.navigate(['home']) 
+      }
+      else {
+        alert("Operation was not successful! Please try again.")
+      }
     })
   }
 

@@ -15,11 +15,20 @@ export class AuthService {
 
   private loggedInStatus = false
   private isAdmin = false
+  private currentUserId: Number
 
   constructor(private http: HttpClient) { }
 
   setLoggedIn(value: boolean) {
     this.loggedInStatus = value
+  }
+
+  setCurrentUserId(Id: Number) {
+    this.currentUserId = Id
+  }
+
+  getCurrentUserId() {
+    return this.currentUserId
   }
 
   setIsAdmin(value: boolean) {
@@ -40,5 +49,4 @@ export class AuthService {
       password
     })
   }
-
 }
