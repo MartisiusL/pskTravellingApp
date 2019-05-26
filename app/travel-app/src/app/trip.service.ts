@@ -15,7 +15,8 @@ const httpOptions = {
 export class TripService {
 
   private tripsUrl = 'http://localhost:55155/api/trip';
-
+  private tripsByUserIdUrl = 'http://localhost:55155/api/tripbyuserid';
+  
   constructor(
   private http: HttpClient,
   private messageService: MessageService) { }
@@ -28,9 +29,15 @@ export class TripService {
     return this.http.get<Trip>(this.tripsUrl + "/" + id);
   }
   
+  getTripsByUserId(id: number){
+	  return this.http.get<Trip[]>(this.tripsByUserIdUrl + "/" + id);
+  }
+  
   postTrip(trip: Trip){
 	  this.http.post(this.tripsUrl, trip, httpOptions).subscribe();
   }
+  
+  
 }
 
 export interface Trip{

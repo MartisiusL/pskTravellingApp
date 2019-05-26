@@ -62,7 +62,7 @@
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="UserId" Type="Int32" Nullable="false" />
     <Property Name="TripId" Type="Int32" Nullable="false" />
-    <Property Name="Confirmed" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Confirmed" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Trip" Relationship="pskTravellingModel.TripId" FromRole="UserTrip" ToRole="Trip" />
     <NavigationProperty Name="User" Relationship="pskTravellingModel.UserId" FromRole="UserTrip" ToRole="User" />
   </EntityType>

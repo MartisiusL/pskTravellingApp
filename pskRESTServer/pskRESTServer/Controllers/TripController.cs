@@ -12,7 +12,7 @@ namespace pskRESTServer.Controllers
 {
     public class TripController : ApiController
     {
-        private Database database = new AzureDatabase();
+        private AzureDatabase database = new AzureDatabase();
 
         // GET: api/Trip
         public IEnumerable<Trip> Get()
@@ -30,6 +30,13 @@ namespace pskRESTServer.Controllers
         public void Post([FromBody]Trip value)
         {
             database.AddTrip(value);
+        }
+
+        // PUT: api/Trip/5
+
+        public void Put(int id, [FromBody] Trip trip)
+        {
+            database.PutTrip(id, trip);
         }
 
         // DELETE: api/Trip/5

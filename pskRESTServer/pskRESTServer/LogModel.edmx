@@ -50,7 +50,7 @@
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="TripId" Type="int" Nullable="false" />
-          <Property Name="Confirmed" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Confirmed" Type="bit" Nullable="false" />
         </EntityType>
         <Association Name="TripId">
           <End Role="Trip" Type="Self.Trip" Multiplicity="1" />
@@ -109,7 +109,7 @@
             <End Role="User" EntitySet="Users" />
             <End Role="UserTrip" EntitySet="UserTrips" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="Id" />
@@ -157,7 +157,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <Property Name="TripId" Type="Int32" Nullable="false" />
-          <Property Name="Confirmed" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Confirmed" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Trip" Relationship="pskTravellingModel.TripId" FromRole="UserTrip" ToRole="Trip" />
           <NavigationProperty Name="User" Relationship="pskTravellingModel.UserId" FromRole="UserTrip" ToRole="User" />
         </EntityType>
@@ -185,7 +185,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>

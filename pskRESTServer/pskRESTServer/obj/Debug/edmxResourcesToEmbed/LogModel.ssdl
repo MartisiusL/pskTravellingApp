@@ -45,7 +45,7 @@
     <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="UserId" Type="int" Nullable="false" />
     <Property Name="TripId" Type="int" Nullable="false" />
-    <Property Name="Confirmed" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Confirmed" Type="bit" Nullable="false" />
   </EntityType>
   <Association Name="TripId">
     <End Role="Trip" Type="Self.Trip" Multiplicity="1" />

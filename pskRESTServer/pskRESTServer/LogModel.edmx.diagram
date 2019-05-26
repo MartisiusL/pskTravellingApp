@@ -9,10 +9,10 @@
         <EntityTypeShape EntityType="pskTravellingModel.Office" Width="1.5" PointX="0.75" PointY="3.75" />
         <EntityTypeShape EntityType="pskTravellingModel.Trip" Width="1.5" PointX="2.75" PointY="3.75" />
         <EntityTypeShape EntityType="pskTravellingModel.User" Width="1.5" PointX="4.75" PointY="3.75" />
-        <EntityTypeShape EntityType="pskTravellingModel.UserTrip" Width="1.5" PointX="4.25" PointY="7.125" />
+        <EntityTypeShape EntityType="pskTravellingModel.UserTrip" Width="1.5" PointX="9.875" PointY="6.25" />
         <AssociationConnector Association="pskTravellingModel.TripId" />
         <AssociationConnector Association="pskTravellingModel.UserId" />
-      </Diagram>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

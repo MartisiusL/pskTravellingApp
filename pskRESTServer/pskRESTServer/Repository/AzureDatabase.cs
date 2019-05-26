@@ -1,4 +1,5 @@
-﻿using System;
+﻿using pskRESTServer.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -38,8 +39,8 @@ namespace pskRESTServer.Repository
             //return trips;
         }
 
-        public List<Trip> GetTripsListByUserId(int id) {
-            return entities.Users.First(user => user.Id == id).UserTrips.Select(ut => ut.Trip).ToList();
+        public List<TripWithConfirmation> GetTripsListByUserId(int id) {
+            return entities.Users.First(user => user.Id == id).UserTrips.Select(ut => new TripWithConfirmation(ut.Trip) {confirmed = ut.Confirmed }).ToList();
         }
 
         public User GetUserById(int id)
@@ -126,6 +127,20 @@ namespace pskRESTServer.Repository
             entities.Entry(toDelete).State = System.Data.Entity.EntityState.Deleted;
             entities.SaveChangesAsync();
             offices.RemoveAll(x => x.Id == id);
+        }
+
+        public void PutTrip(int id, Trip trip) {
+            var oldTrip = GetTripById(id);
+            oldTrip.TripName = trip.TripName;
+            oldTrip.TripDate = trip.TripDate;
+            oldTrip.ToOfficeId = trip.ToOfficeId;
+            oldTrip.FromOfficeId = trip.FromOfficeId;
+        }
+
+        public void PutUserTrip(int tripId, int userId, bool answer) {
+            var oldUserTrip = GetTripById(tripId).UserTrips
+                .Where(ut => ut.TripId == tripId && ut.UserId == userId).FirstOrDefault();
+            oldUserTrip.Confirmed = answer;
         }
     }
 }

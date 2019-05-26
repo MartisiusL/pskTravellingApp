@@ -17,7 +17,7 @@ namespace pskRESTServer
         public int Id { get; set; }
         public int UserId { get; set; }
         public int TripId { get; set; }
-        public string Confirmed { get; set; }
+        public Boolean Confirmed { get; set; }
     
         public virtual Trip Trip { get; set; }
         public virtual User User { get; set; }

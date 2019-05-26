@@ -116,6 +116,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuthorizationController.cs" />
     <Compile Include="Controllers\OfficeController.cs" />
+    <Compile Include="Controllers\TripByUserIdController.cs" />
     <Compile Include="Controllers\TripController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="LogModel.Context.cs">
@@ -135,6 +136,7 @@
     </Compile>
     <Compile Include="Models\AnswerForAuth.cs" />
     <Compile Include="Models\AuthorizationBody.cs" />
+    <Compile Include="Models\TripWithConfirmation.cs" />
     <Compile Include="Office.cs">
       <DependentUpon>LogModel.tt</DependentUpon>
     </Compile>

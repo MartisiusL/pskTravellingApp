@@ -20,7 +20,7 @@ namespace pskRESTServer
             .SerializerSettings
             .ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
 
-            config.EnableCors(new EnableCorsAttribute("http://localhost:4200", "*", "GET,POST"));
+            config.EnableCors(new EnableCorsAttribute("http://localhost:4200", "*", "GET,POST,PUT"));
 
             // Web API routes
             config.MapHttpAttributeRoutes();
