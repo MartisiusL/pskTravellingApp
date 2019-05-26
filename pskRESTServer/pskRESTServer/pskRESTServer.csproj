@@ -98,23 +98,29 @@
     <Content Include="Home.html" />
     <Content Include="LogModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>LogModel.edmx</DependentUpon>
       <LastGenOutput>LogModel.Context.cs</LastGenOutput>
+      <DependentUpon>LogModel.edmx</DependentUpon>
     </Content>
     <Content Include="LogModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>LogModel.edmx</DependentUpon>
       <LastGenOutput>LogModel.cs</LastGenOutput>
+      <DependentUpon>LogModel.edmx</DependentUpon>
     </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account.cs">
+      <DependentUpon>LogModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuthorizationController.cs" />
     <Compile Include="Controllers\OfficeController.cs" />
     <Compile Include="Controllers\TripController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="database_firewall_rules.cs">
+      <DependentUpon>LogModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <DependentUpon>LogModel.tt</DependentUpon>
     </Compile>
@@ -135,6 +141,9 @@
     </Compile>
     <Compile Include="Models\AnswerForAuth.cs" />
     <Compile Include="Models\AuthorizationBody.cs" />
+    <Compile Include="Office.cs">
+      <DependentUpon>LogModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Repository\Database.cs" />
     <Compile Include="Repository\MockDatabase.cs" />
     <Compile Include="Global.asax.cs">
@@ -145,6 +154,15 @@
     <Compile Include="Models\Trip.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Trip.cs">
+      <DependentUpon>LogModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>LogModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserTrip.cs">
+      <DependentUpon>LogModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="LogModel.edmx">

@@ -17,8 +17,8 @@ namespace pskRESTServer.Controllers
         public int Get(String email, String password)
         {
             Account a = database.GetAccountByEmail(email);
-            if (a != null && database.GetAccountByEmail(email).password == password)
-                return a.ID;
+            if (a != null && database.GetAccountByEmail(email).Password == password)
+                return a.Id;
             else
                 return -1;
         }
