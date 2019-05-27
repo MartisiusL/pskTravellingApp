@@ -29,5 +29,7 @@ namespace pskRESTServer
         public virtual DbSet<Office> Offices { get; set; }
         public virtual DbSet<Trip> Trips { get; set; }
         public virtual DbSet<User> Users { get; set; }
+
+        public virtual DbSet<UserTrip> UserTrips { get; set; }
     }
 }

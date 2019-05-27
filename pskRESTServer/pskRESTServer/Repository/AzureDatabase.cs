@@ -40,7 +40,9 @@ namespace pskRESTServer.Repository
         }
 
         public List<TripWithConfirmation> GetTripsListByUserId(int id) {
-            return entities.Users.First(user => user.Id == id).UserTrips.Select(ut => new TripWithConfirmation(ut.Trip) {confirmed = ut.Confirmed }).ToList();
+            return entities.Users.First(user => user.Id == id).
+                UserTrips.Select(ut => new TripWithConfirmation(ut.Trip)
+                    { confirmed = ut.Confirmed, UserTripId = ut.Id }).ToList();
         }
 
         public User GetUserById(int id)
@@ -135,12 +137,13 @@ namespace pskRESTServer.Repository
             oldTrip.TripDate = trip.TripDate;
             oldTrip.ToOfficeId = trip.ToOfficeId;
             oldTrip.FromOfficeId = trip.FromOfficeId;
+            entities.SaveChanges();
         }
 
-        public void PutUserTrip(int tripId, int userId, bool answer) {
-            var oldUserTrip = GetTripById(tripId).UserTrips
-                .Where(ut => ut.TripId == tripId && ut.UserId == userId).FirstOrDefault();
+        public void PutUserTrip(int userTripId, bool answer) {
+            var oldUserTrip = entities.UserTrips.Where(ut => ut.Id == userTripId).FirstOrDefault();
             oldUserTrip.Confirmed = answer;
+            entities.SaveChanges();
         }
     }
 }
