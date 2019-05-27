@@ -4,20 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0829e0d5f4d44e47bb27f104622a6b2d" Name="Diagram1">
-        <EntityTypeShape EntityType="pskTravellingModel.Account" Width="1.5" PointX="3.75" PointY="0.75" />
-        <EntityTypeShape EntityType="pskTravellingModel.Office" Width="1.5" PointX="0.75" PointY="3.75" />
-        <EntityTypeShape EntityType="pskTravellingModel.Trip" Width="1.5" PointX="2.75" PointY="3.75" />
-        <EntityTypeShape EntityType="pskTravellingModel.User" Width="1.5" PointX="4.75" PointY="3.75" />
-        <EntityTypeShape EntityType="pskTravellingModel.Account1" Width="1.5" PointX="0.75" PointY="7.375" />
-        <EntityTypeShape EntityType="pskTravellingModel.Office1" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="pskTravellingModel.Trip1" Width="1.5" PointX="3" PointY="11.125" />
-        <EntityTypeShape EntityType="pskTravellingModel.User1" Width="1.5" PointX="3" PointY="7" />
-        <EntityTypeShape EntityType="pskTravellingModel.UserTrip" Width="1.5" PointX="5.25" PointY="7.125" />
-        <EntityTypeShape EntityType="pskTravellingModel.database_firewall_rules" Width="1.5" PointX="6.75" PointY="0.75" />
-        <AssociationConnector Association="pskTravellingModel.AccountId" />
-        <AssociationConnector Association="pskTravellingModel.TripId" />
-        <AssociationConnector Association="pskTravellingModel.UserId" />
+      <Diagram DiagramId="39b2745530284dd3af9e2c4ff0595d72" Name="Diagram1" ZoomLevel="50">
+        <EntityTypeShape EntityType="pskTravellingModel.Account" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="pskTravellingModel.Office" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pskTravellingModel.Trip" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="pskTravellingModel.User" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="pskTravellingModel.UserTrip" Width="1.5" PointX="10.875" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="pskTravellingModel.AccountId" ManuallyRouted="false" />
+        <AssociationConnector Association="pskTravellingModel.TripId" ManuallyRouted="false" />
+        <AssociationConnector Association="pskTravellingModel.UserId" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

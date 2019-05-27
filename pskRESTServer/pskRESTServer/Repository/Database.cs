@@ -45,6 +45,7 @@ namespace pskRESTServer.Repository
         List<Trip> GetTripsList();
 
         User GetUserById(int id);
+        User GetUserByAccountId(int accountId);
         Trip GetTripById(int id);
         Account GetAccountByEmail(string email);
         Office GetOfficeById(int id);

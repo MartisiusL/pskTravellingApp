@@ -15,9 +15,12 @@ export class RegisterComponent implements OnInit {
 
   constructor(private userService: UserService, private auth: AuthService, private router: Router) { }
 
+  
+  
   onResgisterClick() {
     this.userService.getUserDetails(this.userInfo).subscribe(data => {
       if(data.success) {
+        this.auth.setLoggedIn(true)
         this.auth.setCurrentUserId(data.userId)
         this.router.navigate(['home']) 
       }

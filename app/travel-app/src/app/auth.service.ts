@@ -15,7 +15,7 @@ export class AuthService {
 
   private loggedInStatus = false
   private isAdmin = false
-  private currentUserId: Number
+  private currentUserId: number
 
   constructor(private http: HttpClient) { }
 
@@ -23,7 +23,7 @@ export class AuthService {
     this.loggedInStatus = value
   }
 
-  setCurrentUserId(Id: Number) {
+  setCurrentUserId(Id: number) {
     this.currentUserId = Id
   }
 

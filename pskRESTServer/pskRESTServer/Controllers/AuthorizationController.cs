@@ -12,7 +12,8 @@ namespace pskRESTServer.Controllers
 {
     public class AuthorizationController : ApiController
     {
-        private Database database = new MockDatabase();
+        //private Database database = new MockDatabase();
+        private Database database = new AzureDatabase();
 
         [Route("api/authorization/{email}/{password}")]
         public int Get(String email, String password)
@@ -27,24 +28,22 @@ namespace pskRESTServer.Controllers
 
         public AnswerForAuth Post([FromBody]AuthorizationBody value)
         {
-            AnswerForAuth answer = new AnswerForAuth();
-            answer.message = "Invalid username or password";
-
-            if (value.Username == "admin" && value.Password == "admin")
+            AnswerForAuth answer = new AnswerForAuth();       
+            Account account = database.GetAccountByEmail(value.Username);
+            if(account.Password != value.Password)
             {
-                answer.success = true;
-                answer.admin = true;
-            }
-            else if (value.Username == "simple" && value.Password == "simple")
-            {
-                answer.success = true;
-                answer.admin = false;
+                answer.success = false;
+                answer.message = "Invalid username or password";
+                return answer;
             }
             else
             {
-                answer.success = false;
-            }
-
+                answer.success = true;
+                answer.message = "Successfully authenticated";
+                User user = database.GetUserByAccountId(account.Id);
+                answer.userId = user.Id;
+                answer.admin = user.IsAdmin;
+            }          
             return answer;
         }
     }

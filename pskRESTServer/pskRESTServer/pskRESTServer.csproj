@@ -98,21 +98,18 @@
     <Content Include="Home.html" />
     <Content Include="LogModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>LogModel.Context.cs</LastGenOutput>
       <DependentUpon>LogModel.edmx</DependentUpon>
+      <LastGenOutput>LogModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="LogModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>LogModel.cs</LastGenOutput>
       <DependentUpon>LogModel.edmx</DependentUpon>
+      <LastGenOutput>LogModel.cs</LastGenOutput>
     </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs">
-      <DependentUpon>LogModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Account1.cs">
       <DependentUpon>LogModel.tt</DependentUpon>
     </Compile>
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -122,9 +119,6 @@
     <Compile Include="Controllers\TripByUserIdController.cs" />
     <Compile Include="Controllers\TripController.cs" />
     <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="database_firewall_rules.cs">
-      <DependentUpon>LogModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="LogModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -144,12 +138,6 @@
     <Compile Include="Models\RestModels\AnswerForRegistration.cs" />
     <Compile Include="Models\RestModels\AuthorizationBody.cs" />
     <Compile Include="Models\RestModels\NewUser.cs" />
-    <Compile Include="Office.cs">
-      <DependentUpon>LogModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Office1.cs">
-      <DependentUpon>LogModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\TripWithConfirmation.cs" />
     <Compile Include="Office.cs">
       <DependentUpon>LogModel.tt</DependentUpon>
@@ -168,13 +156,7 @@
     <Compile Include="Trip.cs">
       <DependentUpon>LogModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Trip1.cs">
-      <DependentUpon>LogModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="User.cs">
-      <DependentUpon>LogModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="User1.cs">
       <DependentUpon>LogModel.tt</DependentUpon>
     </Compile>
     <Compile Include="UserTrip.cs">

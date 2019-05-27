@@ -27,6 +27,7 @@ namespace pskRESTServer
         public bool IsAdmin { get; set; }
         public int AccountId { get; set; }
     
+        public virtual Account Account { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserTrip> UserTrips { get; set; }
     }

@@ -24,12 +24,13 @@ namespace pskRESTServer.Controllers
         }
 
         // POST: api/User
-        public bool Post([FromBody]NewUser newUser)
+        public AnswerForRegistration Post([FromBody]NewUser newUser)
         {
             using (pskTravellingEntities db = new pskTravellingEntities())
             {
                 //try
                 //{
+                AnswerForRegistration answerForRegistration = new AnswerForRegistration();
                 Account account = new Account();
                 account.Email = newUser.Username;
                 account.Password = newUser.Password;
@@ -59,7 +60,9 @@ namespace pskRESTServer.Controllers
                 
                 db.Users.Add(user);
                 db.SaveChanges();
-                return true;
+                answerForRegistration.success = true;
+                answerForRegistration.userId = user.Id;
+                return answerForRegistration;
                 //}
                 //catch(Exception ex)
                 //{

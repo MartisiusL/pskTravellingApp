@@ -29,11 +29,6 @@ namespace pskRESTServer
         public virtual DbSet<Office> Offices { get; set; }
         public virtual DbSet<Trip> Trips { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Account1> Account1 { get; set; }
-        public virtual DbSet<Office1> Office1 { get; set; }
-        public virtual DbSet<Trip1> Trip1 { get; set; }
-        public virtual DbSet<User1> User1 { get; set; }
         public virtual DbSet<UserTrip> UserTrips { get; set; }
-        public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
     }
 }

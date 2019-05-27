@@ -37,6 +37,11 @@ namespace pskRESTServer.Repository
             return users.FirstOrDefault(x => x.Id == id);
         }
 
+        public User GetUserByAccountId(int accountId)
+        {
+            return users.FirstOrDefault(x => x.AccountId == accountId);
+        }
+
         public Trip GetTripById(int id)
         {
             return trips.FirstOrDefault(x => x.Id == id);
