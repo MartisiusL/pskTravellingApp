@@ -48,23 +48,43 @@
 			</div>
 			
 			<div class="row">
-			
+
 				<div class="col-sm-5">
-					<label>Ticket Files:</label>
-					<input type='file' (change)='onUploadTicket($event)' #fileInput />
-					<div #files></div>
+					<label>Plane Tickets:</label>
+					<input [(ngModel)]="tripInfo.planeTicket" type='checkbox' name="planeTicket"/>
 				</div>
-				
-				<div class="col-sm-7">
-					<textarea [(ngModel)]="tripInfo.miscInfo" name="additional-info" placeholder="Additional Info"></textarea>
+				<div class="col-sm-5">
+					<label>Hotel Tickets:</label>
+					<input [(ngModel)]="tripInfo.hotelTickets" type='checkbox' name="hotelTickets"/>
 				</div>
-				
+				<div class="col-sm-5">
+					<label>Car Rent:</label>
+					<input [(ngModel)]="tripInfo.carRent" type='checkbox' name="carRent" />
+				</div>		
+			</div>
+
+
+			<div class="col-sm-5 people-list">
+				<label>Select employees:</label>
+				<ng-multiselect-dropdown
+				[placeholder]="'List of employees'"
+				[data]="usersDropDownList"
+				[settings]="dropdownSettings"
+				(onSelect)="onItemSelect($event)"
+				(onSelectAll)="onSelectAll($event)"
+				>
+				</ng-multiselect-dropdown>
+		</div>
+
+
+			<div class="col-sm-7">
+				<textarea [(ngModel)]="tripInfo.miscInfo" name="additional-info" placeholder="Additional Info"></textarea>
 			</div>
 			
 			<div class="row">
 			    <div class="col-sm"></div>
 				<div class="col-sm-10">
-					<input (click)="onClickMe()" type="submit" name="" value="Register a trip">
+					<input (click)="onRegisterTripClick()" type="submit" name="" value="Register a trip">
 				</div>
 				<div class="col-sm"></div>
 			</div>

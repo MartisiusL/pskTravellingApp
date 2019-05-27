@@ -18,6 +18,7 @@ import { RegisterComponent } from './register/register.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AuthGuard } from './auth.guard';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-	NgbModule.forRoot(),
+  NgbModule.forRoot(),
+  NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [AuthService, AuthGuard, HeaderComponent],
   bootstrap: [AppComponent]
