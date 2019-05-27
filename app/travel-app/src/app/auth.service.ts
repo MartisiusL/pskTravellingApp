@@ -13,18 +13,20 @@ interface myData {
 })
 export class AuthService {
 
-  private loggedInStatus = false
-  private isAdmin = false
-  private currentUserId: number
+  private loggedInStatus = JSON.parse(localStorage.getItem('loggedInStatus') || 'false')
+  private isAdmin = JSON.parse(localStorage.getItem('isAdmin') || 'false')
+  private currentUserId: number = JSON.parse(localStorage.getItem('currentUserId') || '-1')
 
   constructor(private http: HttpClient) { }
 
   setLoggedIn(value: boolean) {
     this.loggedInStatus = value
+    localStorage.setItem('loggedInStatus', value.toString());
   }
 
   setCurrentUserId(Id: number) {
     this.currentUserId = Id
+    localStorage.setItem('currentUserId', Id.toString());
   }
 
   getCurrentUserId() {
@@ -33,6 +35,7 @@ export class AuthService {
 
   setIsAdmin(value: boolean) {
     this.isAdmin = true
+    localStorage.setItem('isAdmin', value.toString());
   }
 
   get IsAdmin() {
