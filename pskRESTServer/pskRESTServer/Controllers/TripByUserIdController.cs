@@ -31,9 +31,9 @@ namespace pskRESTServer.Controllers
         }
 
         // PUT: api/TripByUserId/5
-        public void Put([FromBody]int tripId, [FromBody]int userId, [FromBody]bool value)
+        public void Put(int id, [FromBody]bool value)
         {
-            azureDatabase.PutUserTrip(tripId, userId, value);
+            azureDatabase.PutUserTrip(id, value);
         }
 
         // DELETE: api/TripByUserId/5

@@ -10,6 +10,8 @@ namespace pskRESTServer.Models
     {
 
         public Boolean confirmed { get; set; }
+        public int UserTripId { get; set; }
+
 
         public TripWithConfirmation(pskRESTServer.Trip t) {
             Id = t.Id;
