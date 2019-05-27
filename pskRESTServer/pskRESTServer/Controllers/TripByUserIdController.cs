@@ -1,4 +1,5 @@
 ﻿using pskRESTServer.Models;
+using pskRESTServer.Models.RestModels;
 using pskRESTServer.Repository;
 using System;
 using System.Collections.Generic;
@@ -31,9 +32,9 @@ namespace pskRESTServer.Controllers
         }
 
         // PUT: api/TripByUserId/5
-        public void Put(int id, [FromBody]bool value)
+        public void Put(int id, [FromBody]TripConfirmationBody confirmed)
         {
-            azureDatabase.PutUserTrip(id, value);
+            azureDatabase.PutUserTrip(id, confirmed.confirmed);
         }
 
         // DELETE: api/TripByUserId/5

@@ -138,6 +138,7 @@
     <Compile Include="Models\RestModels\AnswerForRegistration.cs" />
     <Compile Include="Models\RestModels\AuthorizationBody.cs" />
     <Compile Include="Models\RestModels\NewUser.cs" />
+    <Compile Include="Models\RestModels\TripConfirmationBody.cs" />
     <Compile Include="Models\TripWithConfirmation.cs" />
     <Compile Include="Office.cs">
       <DependentUpon>LogModel.tt</DependentUpon>
