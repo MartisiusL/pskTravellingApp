@@ -1,11 +1,11 @@
 <!-- *ngIf="trip"-->
 
 <div >
-  <h2>{{trip.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{trip.id}}</div>
+  <h2>{{trip.TripName | uppercase}} Details</h2>
+  <div><span>id: </span>{{trip.Id}}</div>
   <div>
     <label>name:
-      <input [(ngModel)]="trip.name" placeholder="name"/>
+      <input [(ngModel)]="trip.TripName" placeholder="name"/>
     </label>
   </div>
 </div>

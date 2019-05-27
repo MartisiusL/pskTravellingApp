@@ -52,4 +52,5 @@ export interface Trip{
 	TripName: string;
 	Id: number;
 	confirmed: boolean;
+	UserTripId: number;
 }
