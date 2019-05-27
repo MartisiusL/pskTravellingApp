@@ -37,6 +37,11 @@ export class TripService {
 	  this.http.post(this.tripsUrl, trip, httpOptions).subscribe();
   }
   
+  putUserTrip(trip: Trip){
+	  
+	  this.http.put(this.tripsByUserIdUrl + "/" + trip.UserTripId, {"confirmed": trip.confirmed}, httpOptions).subscribe();
+  }
+  
   
 }
 
@@ -46,4 +51,5 @@ export interface Trip{
 	FromOfficeId: number;
 	TripName: string;
 	Id: number;
+	confirmed: boolean;
 }
