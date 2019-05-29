@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using pskRESTServer.Models.RestModels;
 
 namespace pskRESTServer.Controllers
 {
@@ -27,9 +28,53 @@ namespace pskRESTServer.Controllers
         }
 
         // POST: api/Trip
-        public void Post([FromBody]Trip value)
+        public AnswerForTripRegistration Post([FromBody]TripContract tripContract)
         {
-            database.AddTrip(value);
+            using (pskTravellingEntities db = new pskTravellingEntities())
+            {
+                Trip trip = new Trip();
+                trip.TripName = tripContract.name;
+                trip.ToOfficeId = tripContract.endLocationId;
+                trip.FromOfficeId = tripContract.startLocationId;
+                trip.HasHotel = tripContract.hotelTickets;
+                trip.RentCar = tripContract.carRent;
+                trip.TravelTickets = tripContract.planeTicket;
+                trip.TripStartDate = tripContract.startDate;
+                trip.TripEndDate = tripContract.endDate;
+                try
+                {
+                    trip.Id = db.Trips.Max(record => record.Id) + 1;
+                }
+                catch
+                {
+                    trip.Id = 0;
+                }
+                
+                database.AddTrip(trip);
+
+                foreach (selectedItems employee in tripContract.selectedItems)
+                {
+                    UserTrip userTrip = new UserTrip();
+                    userTrip.TripId = trip.Id;
+                    userTrip.UserId = employee.id;
+                    userTrip.Confirmed = false;
+                    try
+                    {
+                        userTrip.Id = db.UserTrips.Max(record => record.Id) + 1;
+                    }
+                    catch
+                    {
+                        userTrip.Id = 0;
+                    }
+                    database.AddUserTrip(userTrip);
+                }
+
+            };
+        
+            AnswerForTripRegistration ans = new AnswerForTripRegistration();
+            ans.success = true;
+            ans.message = "Successfully registered trip!";
+            return ans;
         }
 
         // PUT: api/Trip/5

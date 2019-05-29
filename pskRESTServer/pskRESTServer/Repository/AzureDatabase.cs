@@ -1,4 +1,5 @@
 ﻿using pskRESTServer.Models;
+using pskRESTServer.Models.RestModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -77,9 +78,10 @@ namespace pskRESTServer.Repository
 
         public void AddTrip(Trip trip)
         {
+
             trips.Add(trip);
             entities.Trips.Add(trip);
-            entities.SaveChangesAsync();
+            entities.SaveChanges();
         }
 
         public void AddAccount(Account account)
@@ -139,7 +141,7 @@ namespace pskRESTServer.Repository
         public void PutTrip(int id, Trip trip) {
             var oldTrip = GetTripById(id);
             oldTrip.TripName = trip.TripName;
-            oldTrip.TripDate = trip.TripDate;
+            oldTrip.TripStartDate = trip.TripStartDate;
             oldTrip.ToOfficeId = trip.ToOfficeId;
             oldTrip.FromOfficeId = trip.FromOfficeId;
             entities.SaveChanges();
@@ -148,6 +150,12 @@ namespace pskRESTServer.Repository
         public void PutUserTrip(int userTripId, bool answer) {
             var oldUserTrip = entities.UserTrips.Where(ut => ut.Id == userTripId).FirstOrDefault();
             oldUserTrip.Confirmed = answer;
+            entities.SaveChanges();
+        }
+
+        public void AddUserTrip(UserTrip userTrip)
+        {
+            entities.UserTrips.Add(userTrip);
             entities.SaveChanges();
         }
     }

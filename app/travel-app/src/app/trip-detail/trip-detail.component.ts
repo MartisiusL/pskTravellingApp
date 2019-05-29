@@ -12,6 +12,7 @@ import { TripService, Trip } from '../trip.service';
 export class TripDetailComponent implements OnInit {
 
   @Input() trip: Trip;
+  myTrip = {}
 
   /* @Task same as with home page. The info here is provided you can easily access it and see how it is 
   received, take this task and make this screen design look good enough.  */
@@ -28,7 +29,10 @@ export class TripDetailComponent implements OnInit {
 
   getTrip(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.tripService.getTrip(id).subscribe(trip => this.trip = trip);
+    this.tripService.getTrip(id).subscribe(trip => {
+      this.myTrip = trip;
+      console.log(trip)
+    });
   }
 
   goBack(): void {

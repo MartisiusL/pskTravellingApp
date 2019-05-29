@@ -24,10 +24,14 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="TripName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="TripDate" Type="DateTime" Precision="3" />
     <Property Name="ToOfficeId" Type="Int32" />
     <Property Name="FromOfficeId" Type="Int32" />
     <NavigationProperty Name="UserTrips" Relationship="Self.TripId" FromRole="Trip" ToRole="UserTrip" />
+    <Property Name="TripStartDate" Type="DateTime" Precision="3" />
+    <Property Name="TripEndDate" Type="DateTime" Precision="3" />
+    <Property Name="HasHotel" Type="Boolean" />
+    <Property Name="RentCar" Type="Boolean" />
+    <Property Name="TravelTickets" Type="Boolean" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -107,5 +111,22 @@
       <End Role="User" EntitySet="Users" />
       <End Role="UserTrip" EntitySet="UserTrips" />
     </AssociationSet>
+    <EntitySet Name="database_firewall_rules" EntityType="pskTravellingModel.database_firewall_rules" />
   </EntityContainer>
+  <EntityType Name="database_firewall_rules">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="start_ip_address" />
+      <PropertyRef Name="end_ip_address" />
+      <PropertyRef Name="create_date" />
+      <PropertyRef Name="modify_date" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="start_ip_address" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="end_ip_address" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
 </Schema>

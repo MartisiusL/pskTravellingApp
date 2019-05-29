@@ -19,6 +19,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     AppRoutingModule,
     HttpClientModule,
   NgbModule.forRoot(),
-  NgMultiSelectDropDownModule.forRoot()
+  NgMultiSelectDropDownModule.forRoot(),
+  AngularMultiSelectModule
   ],
   providers: [AuthService, AuthGuard, HeaderComponent],
   bootstrap: [AppComponent]

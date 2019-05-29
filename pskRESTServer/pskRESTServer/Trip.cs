@@ -22,9 +22,13 @@ namespace pskRESTServer
     
         public int Id { get; set; }
         public string TripName { get; set; }
-        public Nullable<System.DateTime> TripDate { get; set; }
         public Nullable<int> ToOfficeId { get; set; }
         public Nullable<int> FromOfficeId { get; set; }
+        public Nullable<System.DateTime> TripStartDate { get; set; }
+        public Nullable<System.DateTime> TripEndDate { get; set; }
+        public Nullable<bool> HasHotel { get; set; }
+        public Nullable<bool> RentCar { get; set; }
+        public Nullable<bool> TravelTickets { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserTrip> UserTrips { get; set; }

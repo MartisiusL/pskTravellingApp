@@ -1,12 +1,25 @@
 <!-- *ngIf="trip"-->
 
 <div >
-  <h2>{{trip.TripName | uppercase}} Details</h2>
-  <div><span>id: </span>{{trip.Id}}</div>
+  <h2>{{myTrip.TripName | uppercase}} Details</h2>
+  <div><span>Id: </span>{{myTrip.Id}}</div>
   <div>
-    <label>name:
-      <input [(ngModel)]="trip.TripName" placeholder="name"/>
+    <label>Name:
+      <input [(ngModel)]="myTrip.TripName" placeholder="TripName" name="TripName"/>
     </label>
+    <br>
+    <label placeholder="TripStartDate">Start Date: {{myTrip.TripStartDate}}</label>
+    <br>
+    <label>End Date: {{myTrip.TripEndDate}}</label>
+    <div *ngIf="myTrip.HasHotel">
+      <label>Has Hotel Reservated</label>
+    </div>
+    <div *ngIf="myTrip.RentCar">
+        <label>Has Car Rent Ordered</label>
+    </div>
+    <div *ngIf="myTrip.TravelTickets">
+        <label>Has Travel Tickets Purchased</label>
+    </div>
   </div>
 </div>
 <button (click)="goBack()">Go back</button>

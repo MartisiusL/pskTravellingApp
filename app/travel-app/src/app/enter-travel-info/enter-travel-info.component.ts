@@ -17,9 +17,8 @@ export class EnterTravelInfoComponent implements OnInit {
   users = []
   usersDropDownList = []
 
-  dropdownList = [];
   selectedItems = [];
-  dropdownSettings = {};
+  settings = {};
   
   @ViewChild('files') filesContainer: Object;
   @ViewChild('fileInput') fileInput: Object;
@@ -32,29 +31,23 @@ export class EnterTravelInfoComponent implements OnInit {
   ngOnInit() {
     this.getOffices()
     this.getEmployees()
+
+      this.settings = { 
+        singleSelection: false
+      }; 
   }
 
   getOffices(): void {
-    this.officeService.getOffices().subscribe(offices => {this.offices = offices; console.log(offices)});
+    this.officeService.getOffices().subscribe(offices => {this.offices = offices});
   }
 
-  getEmployees(): void {
+  getEmployees() {
     this.userService.getUsers().subscribe(users => {
       this.users = users
-
-
       this.users.forEach(user => {
-        this.usersDropDownList.push({ item_id: user.Id, item_text: user.Name})
-      });
-
-      this.dropdownSettings = {
-        singleSelection: false,
-        idField: 'item_id',
-        textField: 'item_text',
-        selectAllText: 'Select All',
-        unSelectAllText: 'UnSelect All',
-        itemsShowLimit: 10
-      };
+        this.usersDropDownList.push({ "id": user.Id, "itemName": user.Name})
+      }); 
+      console.log(this.usersDropDownList)  
     })
   }
   
@@ -74,8 +67,10 @@ export class EnterTravelInfoComponent implements OnInit {
   }
   
   onRegisterTripClick() {
-	  console.log(this.tripInfo)
+    var tripContract = Object.assign(this.tripInfo, {"selectedItems" :this.selectedItems})
+    this.tripService.registerTrip(tripContract).subscribe(data => {
+      alert(data.message)
+      window.location.reload();
+    });
   }
-  
-
 }

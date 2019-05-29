@@ -36,13 +36,42 @@ export class TripService {
   postTrip(trip: Trip){
 	  this.http.post(this.tripsUrl, trip, httpOptions).subscribe();
   }
-  
-  putUserTrip(trip: Trip){
-	  
-	  this.http.put(this.tripsByUserIdUrl + "/" + trip.UserTripId, {"confirmed": trip.confirmed}, httpOptions).subscribe();
+
+  registerTrip(tripContract: any) {
+    return this.http.post<answerForRegistation>(this.tripsUrl, tripContract, httpOptions);
   }
   
-  
+  putUserTrip(trip: Trip){	  
+	  this.http.put(this.tripsByUserIdUrl + "/" + trip.UserTripId, {"confirmed": trip.confirmed}, httpOptions).subscribe();
+  }
+}
+
+interface answerForRegistation {
+  success: boolean,
+  message: string
+}
+
+export interface TripInfo {
+  TripName: string;
+  TripStartDate: Date;
+  TripEndDate: Date;
+  ToOfficeId: number;
+  FromOfficeId: number;
+  Hotel: boolean;
+  Car: boolean;
+  Travel: boolean;
+}
+
+export interface TripContract{
+  TripName: string;
+  TripStartDate: Date;
+  TripEndDate: Date;
+  ToOfficeId: number;
+  FromOfficeId: number;
+  Hotel: boolean;
+  Car: boolean;
+  Travel: boolean;
+  users: any[]
 }
 
 export interface Trip{

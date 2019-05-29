@@ -119,6 +119,9 @@
     <Compile Include="Controllers\TripByUserIdController.cs" />
     <Compile Include="Controllers\TripController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="database_firewall_rules.cs">
+      <DependentUpon>LogModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="LogModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -136,9 +139,12 @@
     </Compile>
     <Compile Include="Models\RestModels\AnswerForAuth.cs" />
     <Compile Include="Models\RestModels\AnswerForRegistration.cs" />
+    <Compile Include="Models\RestModels\AnswerForTripRegistration.cs" />
     <Compile Include="Models\RestModels\AuthorizationBody.cs" />
     <Compile Include="Models\RestModels\NewUser.cs" />
+    <Compile Include="Models\RestModels\selectedItems.cs" />
     <Compile Include="Models\RestModels\TripConfirmationBody.cs" />
+    <Compile Include="Models\RestModels\TripContract.cs" />
     <Compile Include="Models\TripWithConfirmation.cs" />
     <Compile Include="Office.cs">
       <DependentUpon>LogModel.tt</DependentUpon>

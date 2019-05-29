@@ -16,7 +16,7 @@ namespace pskRESTServer.Models
         public TripWithConfirmation(pskRESTServer.Trip t) {
             Id = t.Id;
             TripName = t.TripName;
-            TripDate = t.TripDate;
+            TripStartDate = t.TripStartDate;
             ToOfficeId = t.ToOfficeId;
             FromOfficeId = t.FromOfficeId;
             UserTrips = new List<UserTrip>();

@@ -33,15 +33,15 @@
 				<div class="col-sm-1">€</div>
 				
 				<div class="col-sm-4">
-					<select class="w40" [(ngModel)]="tripInfo.startLocation" name="startLocation">
-						<option *ngFor="let office of offices">{{office.OfficeName}}</option>
+					<select class="w40" [(ngModel)]="tripInfo.startLocationId" name="startLocationId">
+						<option *ngFor="let office of offices" [value]="office.Id">{{office.OfficeName}}</option>
 					</select>
 
 				</div>
 				
 				<div class="col-sm-4">
-					<select class="w40" [(ngModel)]="tripInfo.endLocation" name="endLocation">
-						<option *ngFor="let office of offices">{{office.OfficeName}}</option>
+					<select class="w40" [(ngModel)]="tripInfo.endLocationId" name="endLocationID">
+						<option *ngFor="let office of offices" [value]="office.Id">{{office.OfficeName}}</option>
 					</select>
 				</div>
 				
@@ -66,14 +66,16 @@
 
 			<div class="col-sm-5 people-list">
 				<label>Select employees:</label>
-				<ng-multiselect-dropdown
-				[placeholder]="'List of employees'"
-				[data]="usersDropDownList"
-				[settings]="dropdownSettings"
-				(onSelect)="onItemSelect($event)"
-				(onSelectAll)="onSelectAll($event)"
-				>
-				</ng-multiselect-dropdown>
+				<angular2-multiselect class="dropdown" name="selectedItems"
+					  [data]="usersDropDownList" 
+                      [(ngModel)]="selectedItems" 
+                      [settings]="settings">
+					  <c-item (onItemClick)="onItemClick($event)">
+							<ng-template let-item="item">
+							  <label style="color: #333;min-width: 50px;" (onItemClick)="onItemClick($event)">{{item.itemName}}</label>
+							</ng-template>
+					</c-item> 
+				</angular2-multiselect>
 		</div>
 
 
