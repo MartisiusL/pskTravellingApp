@@ -6,9 +6,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using pskRESTServer.Filters;
 
 namespace pskRESTServer.Controllers
 {
+    [LogInvocationsFilters]
     public class AccountController : ApiController
     {
         private Database database = new AzureDatabase();

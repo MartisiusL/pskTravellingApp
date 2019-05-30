@@ -113,6 +113,7 @@
       <End Role="UserTrip" EntitySet="UserTrips" />
     </AssociationSet>
     <EntitySet Name="database_firewall_rules" EntityType="pskTravellingModel.database_firewall_rules" />
+    <EntitySet Name="InvocationLogs" EntityType="pskTravellingModel.InvocationLog" />
   </EntityContainer>
   <EntityType Name="database_firewall_rules">
     <Key>
@@ -129,5 +130,15 @@
     <Property Name="end_ip_address" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="InvocationLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Controller" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Action" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ip" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Timestamp" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>
