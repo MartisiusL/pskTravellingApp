@@ -1,4 +1,5 @@
-﻿using pskRESTServer.Models.RestModels;
+﻿using pskRESTServer.Filters;
+using pskRESTServer.Models.RestModels;
 using pskRESTServer.Repository;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Web.Http;
 
 namespace pskRESTServer.Controllers
 {
+    [LogInvocationsFilters]
     public class UserController : ApiController
     {
         private Database database = new AzureDatabase();

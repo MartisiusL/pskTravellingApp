@@ -1,4 +1,5 @@
-﻿using pskRESTServer.Models;
+﻿using pskRESTServer.Filters;
+using pskRESTServer.Models;
 using pskRESTServer.Models.RestModels;
 using pskRESTServer.Repository;
 using System;
@@ -10,6 +11,7 @@ using System.Web.Http;
 
 namespace pskRESTServer.Controllers
 {
+    [LogInvocationsFilters]
     public class AuthorizationController : ApiController
     {
         //private Database database = new MockDatabase();

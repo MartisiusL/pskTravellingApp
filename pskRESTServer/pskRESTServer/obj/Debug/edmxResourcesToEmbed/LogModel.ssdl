@@ -12,7 +12,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Controller" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Action" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Ip" Type="varchar" MaxLength="50" Nullable="false" />

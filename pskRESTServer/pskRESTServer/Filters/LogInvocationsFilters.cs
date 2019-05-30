@@ -24,11 +24,11 @@ namespace pskRESTServer.Filters
                 };
                 try
                 {
-                    log.Id = entities.InvocationLogs.Max(record => record.Id) + 1;
+                    //log.Id = entities.InvocationLogs.Max(record => record.Id) + 1;
                 }
                 catch
                 {
-                    log.Id = 0;
+                    //log.Id = 0;
                 }
                 entities.InvocationLogs.Add(log);
                 entities.SaveChanges();

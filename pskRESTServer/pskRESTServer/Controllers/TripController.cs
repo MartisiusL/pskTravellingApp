@@ -8,9 +8,11 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using pskRESTServer.Models.RestModels;
+using pskRESTServer.Filters;
 
 namespace pskRESTServer.Controllers
 {
+    [LogInvocationsFilters]
     public class TripController : ApiController
     {
         private AzureDatabase database = new AzureDatabase();
