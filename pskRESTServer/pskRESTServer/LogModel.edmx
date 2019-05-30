@@ -13,6 +13,16 @@
           <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="InvocationLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Controller" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Action" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ip" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Timestamp" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Office">
           <Key>
             <PropertyRef Name="Id" />
@@ -35,6 +45,7 @@
           <Property Name="HasHotel" Type="bit" />
           <Property Name="RentCar" Type="bit" />
           <Property Name="TravelTickets" Type="bit" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -112,6 +123,7 @@ warning 6002: The table/view 'pskTravelling.sys.database_firewall_rules' does no
         </Association>
         <EntityContainer Name="pskTravellingModelStoreContainer">
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvocationLog" EntityType="Self.InvocationLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Office" EntityType="Self.Office" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Trip" EntityType="Self.Trip" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
@@ -175,6 +187,7 @@ warning 6002: The table/view 'pskTravelling.sys.database_firewall_rules' does no
           <Property Name="HasHotel" Type="Boolean" />
           <Property Name="RentCar" Type="Boolean" />
           <Property Name="TravelTickets" Type="Boolean" />
+          <Property Name="RowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -255,6 +268,7 @@ warning 6002: The table/view 'pskTravelling.sys.database_firewall_rules' does no
             <End Role="UserTrip" EntitySet="UserTrips" />
           </AssociationSet>
           <EntitySet Name="database_firewall_rules" EntityType="pskTravellingModel.database_firewall_rules" />
+          <EntitySet Name="InvocationLogs" EntityType="pskTravellingModel.InvocationLog" />
         </EntityContainer>
         <EntityType Name="database_firewall_rules">
           <Key>
@@ -271,6 +285,16 @@ warning 6002: The table/view 'pskTravelling.sys.database_firewall_rules' does no
           <Property Name="end_ip_address" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvocationLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Controller" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Action" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ip" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Timestamp" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -300,6 +324,7 @@ warning 6002: The table/view 'pskTravelling.sys.database_firewall_rules' does no
           <EntitySetMapping Name="Trips">
             <EntityTypeMapping TypeName="pskTravellingModel.Trip">
               <MappingFragment StoreEntitySet="Trip">
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
                 <ScalarProperty Name="TravelTickets" ColumnName="TravelTickets" />
                 <ScalarProperty Name="RentCar" ColumnName="RentCar" />
                 <ScalarProperty Name="HasHotel" ColumnName="HasHotel" />
@@ -343,6 +368,17 @@ warning 6002: The table/view 'pskTravelling.sys.database_firewall_rules' does no
                 <ScalarProperty Name="start_ip_address" ColumnName="start_ip_address" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvocationLogs">
+            <EntityTypeMapping TypeName="pskTravellingModel.InvocationLog">
+              <MappingFragment StoreEntitySet="InvocationLog">
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="Ip" ColumnName="Ip" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Controller" ColumnName="Controller" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

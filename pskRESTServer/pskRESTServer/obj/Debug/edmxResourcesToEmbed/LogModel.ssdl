@@ -8,6 +8,16 @@
     <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="InvocationLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Controller" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Action" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Ip" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Timestamp" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="Office">
     <Key>
       <PropertyRef Name="Id" />
@@ -30,6 +40,7 @@
     <Property Name="HasHotel" Type="bit" />
     <Property Name="RentCar" Type="bit" />
     <Property Name="TravelTickets" Type="bit" />
+    <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -107,6 +118,7 @@ warning 6002: The table/view 'pskTravelling.sys.database_firewall_rules' does no
   </Association>
   <EntityContainer Name="pskTravellingModelStoreContainer">
     <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InvocationLog" EntityType="Self.InvocationLog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Office" EntityType="Self.Office" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Trip" EntityType="Self.Trip" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />

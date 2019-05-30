@@ -23,6 +23,7 @@
     <EntitySetMapping Name="Trips">
       <EntityTypeMapping TypeName="pskTravellingModel.Trip">
         <MappingFragment StoreEntitySet="Trip">
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
           <ScalarProperty Name="TravelTickets" ColumnName="TravelTickets" />
           <ScalarProperty Name="RentCar" ColumnName="RentCar" />
           <ScalarProperty Name="HasHotel" ColumnName="HasHotel" />
@@ -66,6 +67,17 @@
           <ScalarProperty Name="start_ip_address" ColumnName="start_ip_address" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InvocationLogs">
+      <EntityTypeMapping TypeName="pskTravellingModel.InvocationLog">
+        <MappingFragment StoreEntitySet="InvocationLog">
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="Ip" ColumnName="Ip" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Controller" ColumnName="Controller" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

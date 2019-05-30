@@ -274,3 +274,16 @@ C:\Users\Mode\Documents\GitHub\pskTravellingApp\pskRESTServer\pskRESTServer\obj\
 C:\Users\Mode\Documents\GitHub\pskTravellingApp\pskRESTServer\pskRESTServer\obj\Debug\pskRESTServer.csproj.CoreCompileInputs.cache
 C:\Users\Mode\Documents\GitHub\pskTravellingApp\pskRESTServer\pskRESTServer\obj\Debug\pskRESTServer.dll
 C:\Users\Mode\Documents\GitHub\pskTravellingApp\pskRESTServer\pskRESTServer\obj\Debug\pskRESTServer.pdb
+C:\Users\Liutauras\Desktop\dev_env\public\pskTravellingApp\pskRESTServer\pskRESTServer\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Liutauras\Desktop\dev_env\public\pskTravellingApp\pskRESTServer\pskRESTServer\bin\System.Web.Helpers.dll
+C:\Users\Liutauras\Desktop\dev_env\public\pskTravellingApp\pskRESTServer\pskRESTServer\bin\System.Web.Mvc.dll
+C:\Users\Liutauras\Desktop\dev_env\public\pskTravellingApp\pskRESTServer\pskRESTServer\bin\System.Web.Razor.dll
+C:\Users\Liutauras\Desktop\dev_env\public\pskTravellingApp\pskRESTServer\pskRESTServer\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Liutauras\Desktop\dev_env\public\pskTravellingApp\pskRESTServer\pskRESTServer\bin\System.Web.WebPages.dll
+C:\Users\Liutauras\Desktop\dev_env\public\pskTravellingApp\pskRESTServer\pskRESTServer\bin\System.Web.WebPages.Razor.dll
+C:\Users\Liutauras\Desktop\dev_env\public\pskTravellingApp\pskRESTServer\pskRESTServer\bin\System.Web.Helpers.xml
+C:\Users\Liutauras\Desktop\dev_env\public\pskTravellingApp\pskRESTServer\pskRESTServer\bin\System.Web.Mvc.xml
+C:\Users\Liutauras\Desktop\dev_env\public\pskTravellingApp\pskRESTServer\pskRESTServer\bin\System.Web.Razor.xml
+C:\Users\Liutauras\Desktop\dev_env\public\pskTravellingApp\pskRESTServer\pskRESTServer\bin\System.Web.WebPages.xml
+C:\Users\Liutauras\Desktop\dev_env\public\pskTravellingApp\pskRESTServer\pskRESTServer\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Liutauras\Desktop\dev_env\public\pskTravellingApp\pskRESTServer\pskRESTServer\bin\System.Web.WebPages.Razor.xml
