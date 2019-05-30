@@ -37,6 +37,15 @@ export class TripService {
 	  this.http.post(this.tripsUrl, trip, httpOptions).subscribe();
   }
 
+  updateName(tripName: string, tripId: number, rowVersion: any[]) {
+
+    return this.http.put<answerForNameUpdate>(this.tripsUrl, {"CurrentTripId": tripId, "TripName": tripName, "RowVersion": rowVersion, "Force": false}, httpOptions)
+  }
+
+  forceUpdateName(tripName: string, tripId: number, rowVersion: any[]) {
+    return this.http.put<answerForNameUpdate>(this.tripsUrl, {"CurrentTripId": tripId, "TripName": tripName, "RowVersion": rowVersion, "Force": true}, httpOptions)
+  }
+
   registerTrip(tripContract: any) {
     return this.http.post<answerForRegistation>(this.tripsUrl, tripContract, httpOptions);
   }
@@ -51,15 +60,15 @@ interface answerForRegistation {
   message: string
 }
 
-export interface TripInfo {
+interface answerForNameUpdate {
+  success: boolean,
+  message: string
+}
+
+export interface UpdateTripContract {
   TripName: string;
-  TripStartDate: Date;
-  TripEndDate: Date;
-  ToOfficeId: number;
-  FromOfficeId: number;
-  Hotel: boolean;
-  Car: boolean;
-  Travel: boolean;
+  TripId: number;
+  RowVersion: any[];
 }
 
 export interface TripContract{
@@ -82,5 +91,6 @@ export interface Trip{
 	TripName: string;
 	Id: number;
 	confirmed: boolean;
-	UserTripId: number;
+  UserTripId: number;
+  RowVersion: any[];
 }

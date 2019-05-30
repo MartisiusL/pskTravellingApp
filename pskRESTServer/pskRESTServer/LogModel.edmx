@@ -35,6 +35,7 @@
           <Property Name="HasHotel" Type="bit" />
           <Property Name="RentCar" Type="bit" />
           <Property Name="TravelTickets" Type="bit" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -175,6 +176,7 @@ warning 6002: The table/view 'pskTravelling.sys.database_firewall_rules' does no
           <Property Name="HasHotel" Type="Boolean" />
           <Property Name="RentCar" Type="Boolean" />
           <Property Name="TravelTickets" Type="Boolean" />
+          <Property Name="RowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -300,6 +302,7 @@ warning 6002: The table/view 'pskTravelling.sys.database_firewall_rules' does no
           <EntitySetMapping Name="Trips">
             <EntityTypeMapping TypeName="pskTravellingModel.Trip">
               <MappingFragment StoreEntitySet="Trip">
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
                 <ScalarProperty Name="TravelTickets" ColumnName="TravelTickets" />
                 <ScalarProperty Name="RentCar" ColumnName="RentCar" />
                 <ScalarProperty Name="HasHotel" ColumnName="HasHotel" />

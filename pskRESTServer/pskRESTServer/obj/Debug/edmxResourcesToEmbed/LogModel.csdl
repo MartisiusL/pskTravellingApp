@@ -32,6 +32,7 @@
     <Property Name="HasHotel" Type="Boolean" />
     <Property Name="RentCar" Type="Boolean" />
     <Property Name="TravelTickets" Type="Boolean" />
+    <Property Name="RowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
   </EntityType>
   <EntityType Name="User">
     <Key>

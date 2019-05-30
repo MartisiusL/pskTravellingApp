@@ -30,6 +30,7 @@
     <Property Name="HasHotel" Type="bit" />
     <Property Name="RentCar" Type="bit" />
     <Property Name="TravelTickets" Type="bit" />
+    <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
   </EntityType>
   <EntityType Name="User">
     <Key>

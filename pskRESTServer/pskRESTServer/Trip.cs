@@ -29,6 +29,7 @@ namespace pskRESTServer
         public Nullable<bool> HasHotel { get; set; }
         public Nullable<bool> RentCar { get; set; }
         public Nullable<bool> TravelTickets { get; set; }
+        public byte[] RowVersion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserTrip> UserTrips { get; set; }

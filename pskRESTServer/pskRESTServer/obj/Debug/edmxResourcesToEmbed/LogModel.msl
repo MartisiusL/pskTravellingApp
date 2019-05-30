@@ -23,6 +23,7 @@
     <EntitySetMapping Name="Trips">
       <EntityTypeMapping TypeName="pskTravellingModel.Trip">
         <MappingFragment StoreEntitySet="Trip">
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
           <ScalarProperty Name="TravelTickets" ColumnName="TravelTickets" />
           <ScalarProperty Name="RentCar" ColumnName="RentCar" />
           <ScalarProperty Name="HasHotel" ColumnName="HasHotel" />

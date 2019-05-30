@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using pskRESTServer.Models.RestModels;
+using System.Data.Entity;
 
 namespace pskRESTServer.Controllers
 {
@@ -30,6 +31,7 @@ namespace pskRESTServer.Controllers
         // POST: api/Trip
         public AnswerForTripRegistration Post([FromBody]TripContract tripContract)
         {
+            AnswerForTripRegistration ans = new AnswerForTripRegistration();
             using (pskTravellingEntities db = new pskTravellingEntities())
             {
                 Trip trip = new Trip();
@@ -70,8 +72,7 @@ namespace pskRESTServer.Controllers
                 }
 
             };
-        
-            AnswerForTripRegistration ans = new AnswerForTripRegistration();
+         
             ans.success = true;
             ans.message = "Successfully registered trip!";
             return ans;
@@ -82,6 +83,46 @@ namespace pskRESTServer.Controllers
         public void Put(int id, [FromBody] Trip trip)
         {
             database.PutTrip(id, trip);
+        }
+
+        public AnswerForTripRegistration Put([FromBody] UpdateTripNameContract tripContract)
+        {
+            Trip trip = null;
+            AnswerForTripRegistration answer = new AnswerForTripRegistration();
+
+            using (pskTravellingEntities db = new pskTravellingEntities())
+            {
+                trip = db.Trips.FirstOrDefault(x => x.Id == tripContract.CurrentTripId);
+            }
+
+            trip.TripName = tripContract.TripName;
+            if(!tripContract.Force)
+            {
+                trip.RowVersion = tripContract.RowVersion;
+            }
+            
+            using (pskTravellingEntities db = new pskTravellingEntities())
+            {
+                try
+                {
+                    db.Entry(trip).State = EntityState.Modified;
+                    db.SaveChanges();
+
+                    Console.WriteLine("Student saved successfully.");
+                }
+                catch (System.Data.Entity.Infrastructure.DbUpdateConcurrencyException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    answer.success = false;
+                    answer.message = "Concurrency Exception Occurred.";
+                    return answer;
+                }
+            }
+
+            
+            answer.success = true;
+            answer.message = "Successfully updated!";
+            return answer;
         }
 
         // DELETE: api/Trip/5
