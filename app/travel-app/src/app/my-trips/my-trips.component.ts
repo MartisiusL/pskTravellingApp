@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TripService, Trip } from '../trip.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-my-trips',
@@ -17,14 +18,14 @@ export class MyTripsComponent implements OnInit {
   */
  trips = [];
 
-  constructor(private tripService: TripService) { }
+  constructor(private tripService: TripService, private authService: AuthService) { }
 
   ngOnInit() {
     this.getTrips();
   }
 
   getTrips(): void {
-    this.tripService.getTripsByUserId(1).subscribe(trips => this.trips = trips);
+    this.tripService.getTripsByUserId(this.authService.getCurrentUserId()).subscribe(trips => this.trips = trips);
   }
 
   getTripStatus(trip) {
