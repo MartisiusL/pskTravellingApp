@@ -26,6 +26,24 @@ export class MyTripsComponent implements OnInit {
   getTrips(): void {
     this.tripService.getTripsByUserId(1).subscribe(trips => this.trips = trips);
   }
+
+  getTripStatus(trip) {
+    if(trip.TripStartDate < Date.now)
+      return "Trip started"
+    if(trip.TripEndDate < Date.now)
+      return "Trip ended"
+    
+    return "Trip awaiting"
+  }
+
+  getTripStatusBool(trip) {
+    if(trip.TripStartDate < Date.now)
+      return false
+    if(trip.TripEndDate < Date.now)
+      return false
+    
+    return true
+  }
   
   confirm(trip){
 	  trip.confirmed = false;

@@ -29,6 +29,7 @@ export class HeaderComponent implements OnInit {
   logoutUser() {
     this.auth.setLoggedIn(false)
     this.setIsAdmin(false)
+    this.auth.setCurrentUserId(-1)
     console.log("successfully logged out")
   }
 }

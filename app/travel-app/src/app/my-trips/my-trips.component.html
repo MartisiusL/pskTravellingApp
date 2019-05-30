@@ -9,23 +9,22 @@
 			<div class="row pb-2">
 				<div class="col-sm-9 col-9">
 					<button class="btn btn-primary btn-block text-left" routerLink="/detail/{{trip.Id}}">
-					  <span class="badge badge-secondary">{{trip.Id}}</span> 
-					  
-					  {{trip.TripName}}
-					  
-					  
-					  
+					  <span class="badge badge-secondary">{{trip.Id}}</span> 					  
+						{{trip.TripName}} <p>{{getTripStatus(trip)}}</p>
 					</button>
+					
 				</div>
 				<div class="col-sm-3 col-3">
 					<button *ngIf="!trip.confirmed" 
 					class="btn btn-danger"
 					title="refuse trip"
+					[disabled]="!getTripStatusBool(trip)"
 					(click)="refuse(trip)">Refused</button>
 			  
 					<button *ngIf="trip.confirmed" 
 					class="btn btn-success"
 					title="confirm trip"
+					[disabled]="!getTripStatusBool(trip)"
 					(click)="confirm(trip)">Confirmed</button>
 				</div>	
 				

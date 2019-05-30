@@ -21,7 +21,13 @@ export class AuthService {
 
   setLoggedIn(value: boolean) {
     this.loggedInStatus = value
-    localStorage.setItem('loggedInStatus', value.toString());
+    if(value)
+      localStorage.setItem('loggedInStatus', value.toString());
+    else {
+      localStorage.removeItem('loggedInStatus')
+      localStorage.removeItem('currentUserId')
+      localStorage.removeItem('isAdmin')
+    }  
   }
 
   setCurrentUserId(Id: number) {

@@ -75,7 +75,8 @@ export interface TripContract{
 }
 
 export interface Trip{
-	TripDate: Date;
+  TripStartDate: Date;
+  TripEndDate: Date;
 	ToOfficeId: number;
 	FromOfficeId: number;
 	TripName: string;

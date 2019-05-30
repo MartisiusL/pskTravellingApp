@@ -15,7 +15,8 @@ export class AppComponent {
     router.events.forEach((event) => {
         if(event instanceof NavigationStart) {
             header.setIsAdmin(auth.IsAdmin)
-            this.showMenu = auth.isLoggedIn         
+            this.showMenu = auth.isLoggedIn  
+            console.log(this.showMenu)       
         }
       });
     }
