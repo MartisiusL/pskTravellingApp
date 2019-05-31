@@ -103,7 +103,7 @@ namespace pskRESTServer.Repository
 
         public void GenerateData()
         {
-            /*User u = new User();
+            User u = new User();
             Account a = new Account();
             Office o = new Office();
             Trip t = new Trip();
@@ -315,12 +315,24 @@ namespace pskRESTServer.Repository
             //t.peopleAnswersForTheTrip.Add(false);
             //t.peopleOfTheTrip.Add(users[8]);
             //t.peopleAnswersForTheTrip.Add(true);
-            trips.Add(t);*/
+            trips.Add(t);
         }
 
         public List<TripWithConfirmation> GetTripsListByUserId(int id)
         {
-            return tripWithConfirmations.FindAll(x => x.UserTripId == id);
+            //return tripWithConfirmations.FindAll(x => x.UserTripId == id);
+            //return users.First(user => user.Id == id).
+            //    UserTrips.Select(ut => new TripWithConfirmation(ut.Trip)
+            //    { confirmed = ut.Confirmed, UserTripId = ut.Id }).ToList();
+            List<UserTrip> u = userTrips.FindAll(trip => trip.UserId == id);
+            List<TripWithConfirmation> t = new List<TripWithConfirmation>();
+            foreach (UserTrip userTrip in u)
+            {
+                t.Add(new TripWithConfirmation(GetTripById(userTrip.TripId))
+                { confirmed = userTrip.Confirmed, UserTripId = userTrip.Id });
+            }
+
+            return t;
         }
 
         public void AddUserTrip(UserTrip userTrip)
