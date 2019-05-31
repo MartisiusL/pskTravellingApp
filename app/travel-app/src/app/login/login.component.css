@@ -1,4 +1,4 @@
-body {
+.OtherBackground {
     background: url(../../assets/background.jpg) !important; 
-	
+	background-size: cover !important;
   }
