@@ -32,6 +32,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
+    document.body.className = "OtherBackground";
   }
 
 }
