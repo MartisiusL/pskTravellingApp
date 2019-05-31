@@ -17,6 +17,7 @@ namespace pskRESTServer.Models
             Id = t.Id;
             TripName = t.TripName;
             TripStartDate = t.TripStartDate;
+            TripEndDate = t.TripEndDate;
             ToOfficeId = t.ToOfficeId;
             FromOfficeId = t.FromOfficeId;
             UserTrips = new List<UserTrip>();
