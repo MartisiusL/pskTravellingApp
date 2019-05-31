@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
-import {ViewEncapsulation} from '@angular/core';
+import {ViewEncapsulation, OnDestroy} from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -9,15 +9,20 @@ import {ViewEncapsulation} from '@angular/core';
   styleUrls: ['./login.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
 
   constructor(private Auth: AuthService, private router: Router) { }
 
   ngOnInit() {
+	  document.body.className = "OtherBackground";
   }
 
   register(): void {
     
+  }
+  
+  ngOnDestroy(){
+	   document.body.className = "";
   }
 
   loginUser(event) {
