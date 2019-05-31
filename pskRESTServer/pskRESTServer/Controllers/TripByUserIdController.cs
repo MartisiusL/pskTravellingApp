@@ -14,18 +14,17 @@ namespace pskRESTServer.Controllers
     [LogInvocationsFilters]
     public class TripByUserIdController : ApiController
     {
-        AzureDatabase azureDatabase = new AzureDatabase();
 
         // GET: api/TripByUserId
         public IEnumerable<Trip> Get()
         {
-            return azureDatabase.GetTripsList();
+            return RepositoryGetter.getDatabase().GetTripsList();
         }
 
         // GET: api/TripByUserId/5
         public List<TripWithConfirmation> Get(int id)
         {
-            return azureDatabase.GetTripsListByUserId(id);
+            return RepositoryGetter.getDatabase().GetTripsListByUserId(id);
         }
 
         // POST: api/TripByUserId
@@ -36,7 +35,7 @@ namespace pskRESTServer.Controllers
         // PUT: api/TripByUserId/5
         public void Put(int id, [FromBody]TripConfirmationBody confirmed)
         {
-            azureDatabase.PutUserTrip(id, confirmed.confirmed);
+            RepositoryGetter.getDatabase().PutUserTrip(id, confirmed.confirmed);
         }
 
         // DELETE: api/TripByUserId/5

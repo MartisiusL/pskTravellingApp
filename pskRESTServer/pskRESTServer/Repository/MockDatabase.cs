@@ -1,4 +1,5 @@
 ﻿using pskRESTServer.Models;
+using pskRESTServer.Models.RestModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,8 @@ namespace pskRESTServer.Repository
         private List<Account> accounts = new List<Account>();
         private List<Office> offices = new List<Office>();
         private List<Trip> trips = new List<Trip>();
+        private List<TripWithConfirmation> tripWithConfirmations = new List<TripWithConfirmation>();
+        private List<UserTrip> userTrips = new List<UserTrip>();
 
         public MockDatabase()
         {
@@ -313,6 +316,107 @@ namespace pskRESTServer.Repository
             //t.peopleOfTheTrip.Add(users[8]);
             //t.peopleAnswersForTheTrip.Add(true);
             trips.Add(t);*/
+        }
+
+        public List<TripWithConfirmation> GetTripsListByUserId(int id)
+        {
+            return tripWithConfirmations.FindAll(x => x.UserTripId == id);
+        }
+
+        public void AddUserTrip(UserTrip userTrip)
+        {
+            userTrips.Add(userTrip);
+        }
+
+        public void PutTrip(int id, Trip trip)
+        {
+            trips.Remove(trips.FirstOrDefault(x => x.Id == id));
+            trips.Add(trip);
+        }
+
+        public void PutUserTrip(int id, bool confirmed)
+        {
+            userTrips.FirstOrDefault(x => x.Id == id).Confirmed = confirmed;
+        }
+
+        public void AddTripByContract(TripContract tripContract)
+        {
+            Trip trip = new Trip();
+            trip.TripName = tripContract.name;
+            trip.ToOfficeId = tripContract.endLocationId;
+            trip.FromOfficeId = tripContract.startLocationId;
+            trip.HasHotel = tripContract.hotelTickets;
+            trip.RentCar = tripContract.carRent;
+            trip.TravelTickets = tripContract.planeTicket;
+            trip.TripStartDate = tripContract.startDate;
+            trip.TripEndDate = tripContract.endDate;
+            try
+            {
+                trip.Id = trips.Max(record => record.Id) + 1;
+            }
+            catch
+            {
+                trip.Id = 0;
+            }
+
+            trips.Add(trip);
+
+            foreach (selectedItems employee in tripContract.selectedItems)
+            {
+                UserTrip userTrip = new UserTrip();
+                userTrip.TripId = trip.Id;
+                userTrip.UserId = employee.id;
+                userTrip.Confirmed = false;
+                try
+                {
+                    userTrip.Id = userTrips.Max(record => record.Id) + 1;
+                }
+                catch
+                {
+                    userTrip.Id = 0;
+                }
+                userTrips.Add(userTrip);
+            }
+        }
+
+        public int AddUserByContract(NewUser newUser)
+        {
+            Account account = new Account();
+            account.Email = newUser.Username;
+            account.Password = newUser.Password;
+            try
+            {
+                account.Id = accounts.Max(record => record.Id) + 1;
+            }
+            catch
+            {
+                account.Id = 0;
+            }
+            accounts.Add(account);
+
+            User user = new User();
+            user.IsAdmin = false;
+            user.Name = newUser.Name;
+            user.Surname = newUser.Surname;
+            user.PhoneNumber = newUser.Phone;
+            user.AccountId = account.Id;
+            try
+            {
+                user.Id = users.Max(record => record.Id) + 1;
+            }
+            catch
+            {
+                user.Id = 0;
+            }
+
+            users.Add(user);
+            return user.Id;
+        }
+
+        public bool PutTripName(UpdateTripNameContract tripContract)
+        {
+            trips.FirstOrDefault(x => x.Id == tripContract.CurrentTripId).TripName = tripContract.TripName;
+            return true;
         }
     }
 }

@@ -2,6 +2,7 @@
 using pskRESTServer.Models.RestModels;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -157,6 +158,109 @@ namespace pskRESTServer.Repository
         {
             entities.UserTrips.Add(userTrip);
             entities.SaveChanges();
+        }
+
+        public void AddTripByContract(TripContract tripContract)
+        {
+            Trip trip = new Trip();
+            trip.TripName = tripContract.name;
+            trip.ToOfficeId = tripContract.endLocationId;
+            trip.FromOfficeId = tripContract.startLocationId;
+            trip.HasHotel = tripContract.hotelTickets;
+            trip.RentCar = tripContract.carRent;
+            trip.TravelTickets = tripContract.planeTicket;
+            trip.TripStartDate = tripContract.startDate;
+            trip.TripEndDate = tripContract.endDate;
+            try
+            {
+                trip.Id = entities.Trips.Max(record => record.Id) + 1;
+            }
+            catch
+            {
+                trip.Id = 0;
+            }
+
+            RepositoryGetter.getDatabase().AddTrip(trip);
+
+            foreach (selectedItems employee in tripContract.selectedItems)
+            {
+                UserTrip userTrip = new UserTrip();
+                userTrip.TripId = trip.Id;
+                userTrip.UserId = employee.id;
+                userTrip.Confirmed = false;
+                try
+                {
+                    userTrip.Id = entities.UserTrips.Max(record => record.Id) + 1;
+                }
+                catch
+                {
+                    userTrip.Id = 0;
+                }
+                RepositoryGetter.getDatabase().AddUserTrip(userTrip);
+            }
+        }
+
+        public bool PutTripName(UpdateTripNameContract tripContract)
+        {
+
+            Trip trip = entities.Trips.FirstOrDefault(x => x.Id == tripContract.CurrentTripId);
+
+            trip.TripName = tripContract.TripName;
+            if (!tripContract.Force)
+            {
+                trip.RowVersion = tripContract.RowVersion;
+            }
+
+            try
+            {
+                entities.Entry(trip).State = EntityState.Modified;
+                entities.SaveChanges();
+
+                Console.WriteLine("Student saved successfully.");
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateConcurrencyException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+            return true;
+        }
+
+        public int AddUserByContract(NewUser newUser)
+        {
+            Account account = new Account();
+            account.Email = newUser.Username;
+            account.Password = newUser.Password;
+            try
+            {
+                account.Id = entities.Accounts.Max(record => record.Id) + 1;
+            }
+            catch
+            {
+                account.Id = 0;
+            }
+            entities.Accounts.Add(account);
+            accounts.Add(account);
+
+            User user = new User();
+            user.IsAdmin = false;
+            user.Name = newUser.Name;
+            user.Surname = newUser.Surname;
+            user.PhoneNumber = newUser.Phone;
+            user.AccountId = account.Id;
+            try
+            {
+                user.Id = entities.Users.Max(record => record.Id) + 1;
+            }
+            catch
+            {
+                user.Id = 0;
+            }
+
+            entities.Users.Add(user);
+            entities.SaveChanges();
+            users.Add(user);
+            return user.Id;
         }
     }
 }

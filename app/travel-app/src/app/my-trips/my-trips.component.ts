@@ -29,18 +29,18 @@ export class MyTripsComponent implements OnInit {
   }
 
   getTripStatus(trip) {
-    if(trip.TripStartDate < Date.now)
+    if(trip.TripStartDate > Date.now)
       return "Trip started"
-    if(trip.TripEndDate < Date.now)
+    if(trip.TripEndDate > Date.now)
       return "Trip ended"
     
     return "Trip awaiting"
   }
 
   getTripStatusBool(trip) {
-    if(trip.TripStartDate < Date.now)
+    if(trip.TripStartDate > Date.now)
       return false
-    if(trip.TripEndDate < Date.now)
+    if(trip.TripEndDate > Date.now)
       return false
     
     return true

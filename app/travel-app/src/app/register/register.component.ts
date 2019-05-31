@@ -22,6 +22,7 @@ export class RegisterComponent implements OnInit {
       if(data.success) {
         this.auth.setLoggedIn(true)
         this.auth.setCurrentUserId(data.userId)
+        alert("Successfully registered!")
         this.router.navigate(['home']) 
       }
       else {

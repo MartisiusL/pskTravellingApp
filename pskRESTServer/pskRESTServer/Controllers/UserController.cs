@@ -11,73 +11,33 @@ namespace pskRESTServer.Controllers
     [LogInvocationsFilters]
     public class UserController : ApiController
     {
-        private Database database = new AzureDatabase();
+        //private Database database = new AzureDatabase();
 
         // GET: api/User
         public IEnumerable<User> Get()
         {
-            return database.GetUserList();
+            return RepositoryGetter.getDatabase().GetUserList();
         }
 
         // GET: api/User/5
         public User Get(int id)
         {
-            return database.GetUserById(id);
+            return RepositoryGetter.getDatabase().GetUserById(id);
         }
 
         // POST: api/User
         public AnswerForRegistration Post([FromBody]NewUser newUser)
-        {
-            using (pskTravellingEntities db = new pskTravellingEntities())
-            {
-                //try
-                //{
-                AnswerForRegistration answerForRegistration = new AnswerForRegistration();
-                Account account = new Account();
-                account.Email = newUser.Username;
-                account.Password = newUser.Password;
-                try
-                {
-                    account.Id = db.Accounts.Max(record => record.Id) + 1;
-                }
-                catch
-                {
-                    account.Id = 0;
-                }
-                db.Accounts.Add(account);
-
-                User user = new User();
-                user.IsAdmin = false;
-                user.Name = newUser.Name;
-                user.Surname = newUser.Surname;
-                user.PhoneNumber = newUser.Phone;
-                user.AccountId = account.Id;
-                try
-                {
-                    user.Id = db.Users.Max(record => record.Id) + 1;
-                } catch
-                {
-                    user.Id = 0;
-                }
-                
-                db.Users.Add(user);
-                db.SaveChanges();
-                answerForRegistration.success = true;
-                answerForRegistration.userId = user.Id;
-                return answerForRegistration;
-                //}
-                //catch(Exception ex)
-                //{
-                //    return false;
-                //}
-
-            }
+        {            
+            AnswerForRegistration answerForRegistration = new AnswerForRegistration();
+            answerForRegistration.success = true;
+            answerForRegistration.userId = RepositoryGetter.getDatabase().AddUserByContract(newUser);
+            return answerForRegistration;          
         }
 
         // DELETE: api/User/5
         public void Delete(int id)
         {
-            database.DeleteUserById(id);
+            RepositoryGetter.getDatabase().DeleteUserById(id);
         }
     }
 }

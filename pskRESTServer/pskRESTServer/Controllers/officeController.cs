@@ -13,30 +13,29 @@ namespace pskRESTServer.Controllers
     [LogInvocationsFilters]
     public class OfficeController : ApiController
     {
-        private Database database = new AzureDatabase();
 
         // GET: api/office
         public IEnumerable<Office> Get()
         {
-            return database.GetOfficeList();
+            return RepositoryGetter.getDatabase().GetOfficeList();
         }
 
         // GET: api/office/5
         public Office Get(int id)
         {
-            return database.GetOfficeById(id);
+            return RepositoryGetter.getDatabase().GetOfficeById(id);
         }
 
         // POST: api/office
         public void Post([FromBody]Office office)
         {
-            database.AddOffice(office);
+            RepositoryGetter.getDatabase().AddOffice(office);
         }
 
         // DELETE: api/office/5
         public void Delete(int id)
         {
-            database.DeleteOfficeById(id);
+            RepositoryGetter.getDatabase().DeleteOfficeById(id);
         }
     }
 }

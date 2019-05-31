@@ -1,4 +1,5 @@
 ﻿using pskRESTServer.Models;
+using pskRESTServer.Models.RestModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +44,7 @@ namespace pskRESTServer.Repository
         List<User> GetUserList();
         List<Office> GetOfficeList();
         List<Trip> GetTripsList();
+        List<TripWithConfirmation> GetTripsListByUserId(int id);
 
         User GetUserById(int id);
         User GetUserByAccountId(int accountId);
@@ -54,11 +56,20 @@ namespace pskRESTServer.Repository
         void AddAccount(Account account);
         void AddTrip(Trip trip);
         void AddOffice(Office office);
+        void AddUserTrip(UserTrip userTrip);
+
+        void AddTripByContract(TripContract tripContract);
+        int AddUserByContract(NewUser user);
 
         void DeleteUserById(int id);
         void DeleteAccountById(int id);
         void DeleteTripById(int id);
         void DeleteOfficeById(int id);
+
+        void PutTrip(int id, Trip trip);
+        void PutUserTrip(int id, bool confirmed);
+        bool PutTripName(UpdateTripNameContract tripContract);
+
 
     }
 }

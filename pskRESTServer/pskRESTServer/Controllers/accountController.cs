@@ -13,18 +13,16 @@ namespace pskRESTServer.Controllers
     [LogInvocationsFilters]
     public class AccountController : ApiController
     {
-        private Database database = new AzureDatabase();
-
         // POST: api/account
         public void Post([FromBody]Account account)
         {
-            database.AddAccount(account);
+            RepositoryGetter.getDatabase().AddAccount(account);
         }
 
         // DELETE: api/account/5
         public void Delete(int id)
         {
-            database.DeleteAccountById(id);
+            RepositoryGetter.getDatabase().DeleteAccountById(id);
         }
     }
 }
