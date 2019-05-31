@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TripService, Trip } from '../trip.service';
 import { AuthService } from '../auth.service';
-import {formatDate} from '@angular/common';
 
 @Component({
   selector: 'app-my-trips',
@@ -26,28 +25,22 @@ export class MyTripsComponent implements OnInit {
   }
 
   getTrips(): void {
-    this.tripService.getTripsByUserId(this.authService.getCurrentUserId()).subscribe(trips => {
-      this.trips = trips
-      console.log(trips)
-    });
-      
+    this.tripService.getTripsByUserId(this.authService.getCurrentUserId()).subscribe(trips => this.trips = trips);
   }
 
   getTripStatus(trip) {
-    console.log(formatDate(trip.TripEndDate, 'yyyy/MM/dd', 'en') + " and " +  formatDate(new Date(), 'yyyy/MM/dd', 'en'))
-    if(formatDate(trip.TripEndDate, 'yyyy/MM/dd', 'en') < formatDate(new Date(), 'yyyy/MM/dd', 'en')) {
-      return "Trip ended"
-    } else if(formatDate(trip.TripStartDate, 'yyyy/MM/dd', 'en') < formatDate(new Date(), 'yyyy/MM/dd', 'en')){
+    if(trip.TripStartDate > Date.now)
       return "Trip started"
-    } else {
-      return "Trip awaiting"
-    }
+    if(trip.TripEndDate > Date.now)
+      return "Trip ended"
+    
+    return "Trip awaiting"
   }
 
   getTripStatusBool(trip) {
-    if(formatDate(trip.TripStartDate, 'yyyy/MM/dd', 'en') < formatDate(new Date(), 'yyyy/MM/dd', 'en'))
+    if(trip.TripStartDate > Date.now)
       return false
-    if(formatDate(trip.TripEndDate, 'yyyy/MM/dd', 'en') < formatDate(new Date(), 'yyyy/MM/dd', 'en'))
+    if(trip.TripEndDate > Date.now)
       return false
     
     return true
