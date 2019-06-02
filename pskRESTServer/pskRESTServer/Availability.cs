@@ -22,9 +22,9 @@ namespace pskRESTServer
 
         public int UserId { get; set; }
 
-        public System.DateTime BusyFrom { get; set; }
+        public System.DateTime? BusyFrom { get; set; }
 
-        public System.DateTime BusyTo { get; set; }
+        public System.DateTime? BusyTo { get; set; }
 
         public string Title { get; set; }
 
