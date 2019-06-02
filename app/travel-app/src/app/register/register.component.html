@@ -19,7 +19,7 @@
 		  <select [(ngModel)]="userInfo.office" name="endLocationID">
 				<option *ngFor="let office of offices" [value]="office.Id">{{office.OfficeName}}</option>
 			</select>
-			
+			<br>
 		  
 		  <label>Is organizer:</label>
 					<input [(ngModel)]="userInfo.IsOrganizer" type='checkbox' name="check"/>
