@@ -13,8 +13,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getUserDetails(newUser) {
-    console.log(newUser)
-    return this.http.post<RegisterUserData>('http://localhost:55155/api/User', newUser)
+    this.http.post<RegisterUserData>('http://localhost:55155/api/User', newUser).subscribe();
   }
 
   getUsers(): Observable<User[]>{

@@ -16,9 +16,17 @@
 		  <p>Phone number</p>
 		  <input [(ngModel)]="userInfo.Phone" type="text" name="user-phone" placeholder="Phone number">
 		  <p>Office</p>
-		  <input type="text" name="" placeholder="Office">
-		  <input type="submit" name="" value="Sign Up" (click)="onResgisterClick()" >
-		  <input type="button" name="" value="Cancel" routerLink="../login">
+		  <select [(ngModel)]="userInfo.office" name="endLocationID">
+				<option *ngFor="let office of offices" [value]="office.Id">{{office.OfficeName}}</option>
+			</select>
+			
+		  
+		  <label>Is organizer:</label>
+					<input [(ngModel)]="userInfo.IsOrganizer" type='checkbox' name="check"/>
+		
+		<label>Is admin:</label>
+					<input [(ngModel)]="userInfo.IsAdmin" type='checkbox' name="check"/>
+		  <input type="submit" name="" value="Sign Up" (click)="onRegisterClick()" >
 		</form>
 	</div>
 	<div class="col-sm"></div>
