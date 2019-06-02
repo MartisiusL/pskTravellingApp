@@ -142,6 +142,7 @@
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuthorizationController.cs" />
+    <Compile Include="Controllers\AvailabilityController.cs" />
     <Compile Include="Controllers\OfficeController.cs" />
     <Compile Include="Controllers\TripByOrganizerIdController.cs" />
     <Compile Include="Controllers\TripByUserIdController.cs" />
@@ -167,9 +168,12 @@
       <DependentUpon>LogModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\RestModels\AnswerForAuth.cs" />
+    <Compile Include="Models\RestModels\AnswerForPostRequests.cs" />
     <Compile Include="Models\RestModels\AnswerForRegistration.cs" />
     <Compile Include="Models\RestModels\AnswerForTripRegistration.cs" />
     <Compile Include="Models\RestModels\AuthorizationBody.cs" />
+    <Compile Include="Models\RestModels\AnswerForAvailability.cs" />
+    <Compile Include="Models\RestModels\AvailabilityContract.cs" />
     <Compile Include="Models\RestModels\NewUser.cs" />
     <Compile Include="Models\RestModels\selectedItems.cs" />
     <Compile Include="Models\RestModels\TripConfirmationBody.cs" />

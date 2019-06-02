@@ -15,6 +15,8 @@ namespace pskRESTServer.Repository
         private List<Account> accounts = new List<Account>();
         private List<Office> offices = new List<Office>();
         private List<Trip> trips = new List<Trip>();
+        private List<Availability> availabilities = new List<Availability>();
+        private List<UserTrip> userTrips = new List<UserTrip>();
         private pskTravellingEntities entities = new pskTravellingEntities();
 
         public AzureDatabase()
@@ -23,6 +25,8 @@ namespace pskRESTServer.Repository
             accounts = entities.Accounts.ToList();
             offices = entities.Offices.ToList();
             trips = entities.Trips.ToList();
+            availabilities = entities.Availabilities.ToList();
+            userTrips = entities.UserTrips.ToList();
         }
 
         public List<User> GetUserList()
@@ -276,6 +280,44 @@ namespace pskRESTServer.Repository
             entities.SaveChanges();
             users.Add(user);
             return user.Id;
+        }
+
+        public List<Availability> GetAvailabilitiesById(int id)
+        {
+            return availabilities.FindAll(x => x.UserId == id);
+        }
+
+        public void AddAvailability(AvailabilityContract availabilityContract)
+        {
+            Availability availability = new Availability();
+            availability.Title = availabilityContract.Title;
+            availability.BusyFrom = availabilityContract.BusyFrom;
+            availability.BusyTo = availabilityContract.BusyTo;
+            availability.UserId = availabilityContract.UserId;
+
+            availabilities.Add(availability);
+            entities.Availabilities.Add(availability);
+            entities.SaveChanges();
+        }
+
+        public void AddAvailabilityTrip(int userTripId)
+        {
+            UserTrip userTrip = GetUserTripById(userTripId);
+            Trip trip = GetTripById(userTrip.TripId);
+            Availability availability = new Availability();
+            availability.Title = trip.TripName;
+            availability.BusyFrom = trip.TripStartDate;
+            availability.BusyTo = trip.TripEndDate;
+        }
+
+        public void DeleteAvailabilityTrip(int userTripId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public UserTrip GetUserTripById(int id)
+        {
+            return entities.UserTrips.FirstOrDefault(x => x.Id == id);
         }
     }
 }

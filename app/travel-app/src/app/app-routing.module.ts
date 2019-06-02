@@ -11,6 +11,7 @@ import { RegisterComponent } from './register/register.component';
 import { TripOrganizerViewComponent } from './trip-organizer-view/trip-organizer-view.component';
 import { TripOrganizerSingleComponent } from './trip-organizer-single/trip-organizer-single.component';
 import { AuthGuard } from './auth.guard';
+import { CalendarComponent } from './calendar/calendar.component';
 
 const routes: Routes = [
   { path: 'trips', component: MyTripsComponent, canActivate: [AuthGuard] },
@@ -22,7 +23,9 @@ const routes: Routes = [
   { path: "login", component: LoginComponent},
   { path: '',   redirectTo: '/login', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'register', component: RegisterComponent }
+  { path: 'register', component: RegisterComponent },
+  { path: 'calendar', component: CalendarComponent, canActivate: [AuthGuard]},
+  { path: 'calendar/:id', component: CalendarComponent, canActivate: [AuthGuard]}
 ]
 
 

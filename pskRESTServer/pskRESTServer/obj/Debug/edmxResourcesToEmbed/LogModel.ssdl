@@ -16,6 +16,7 @@
     <Property Name="UserId" Type="int" Nullable="false" />
     <Property Name="BusyFrom" Type="date" Nullable="false" />
     <Property Name="BusyTo" Type="date" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="InvocationLog">
     <Key>
@@ -42,10 +43,10 @@
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="TripName" Type="nvarchar(max)" />
-    <Property Name="TripStartDate" Type="datetime" />
+    <Property Name="TripStartDate" Type="datetime" Nullable="false" />
     <Property Name="ToOfficeId" Type="int" />
     <Property Name="FromOfficeId" Type="int" />
-    <Property Name="TripEndDate" Type="datetime" />
+    <Property Name="TripEndDate" Type="datetime" Nullable="false" />
     <Property Name="HasHotel" Type="bit" />
     <Property Name="RentCar" Type="bit" />
     <Property Name="TravelTickets" Type="bit" />
@@ -97,18 +98,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="UserId">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="UserTrip" Type="Self.UserTrip" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="UserTrip">
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="pskTravellingModelStoreContainer">
     <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Availability" EntityType="Self.Availability" Schema="dbo" store:Type="Tables" />
@@ -123,10 +112,6 @@
     </AssociationSet>
     <AssociationSet Name="TripId" Association="Self.TripId">
       <End Role="Trip" EntitySet="Trip" />
-      <End Role="UserTrip" EntitySet="UserTrip" />
-    </AssociationSet>
-    <AssociationSet Name="UserId" Association="Self.UserId">
-      <End Role="User" EntitySet="User" />
       <End Role="UserTrip" EntitySet="UserTrip" />
     </AssociationSet>
   </EntityContainer>

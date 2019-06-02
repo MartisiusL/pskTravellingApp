@@ -25,6 +25,20 @@ namespace pskRESTServer.Controllers
             return RepositoryGetter.getDatabase().GetUserById(id);
         }
 
+        [Route("api/username/{id}")]
+        public string GetUserName(int id)
+        {
+            try
+            {
+                return RepositoryGetter.getDatabase().GetUserById(id).Name;
+            }
+            catch
+            {
+                return "Not set";
+            }
+            
+        }
+
         // POST: api/User
         public AnswerForRegistration Post([FromBody]NewUser newUser)
         {            

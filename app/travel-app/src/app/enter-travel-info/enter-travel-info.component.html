@@ -72,7 +72,8 @@
                       [settings]="settings">
 					  <c-item (onItemClick)="onItemClick($event)">
 							<ng-template let-item="item">
-							  <label style="color: #333;min-width: 50px;" (onItemClick)="onItemClick($event)">{{item.itemName}}</label>
+								<label style="color: #333;min-width: 50px;" (onItemClick)="onItemClick($event)">{{item.itemName}}</label>
+								<input class="availabity-button" type="button" value="Availability" (click)="checkAvailability(item.id)"/>
 							</ng-template>
 					</c-item> 
 				</angular2-multiselect>

@@ -1,0 +1,25 @@
+h3 {
+    margin: 0 0 10px;
+  }
+  
+  pre {
+    background-color: #f5f5f5;
+    padding: 15px;
+  }
+
+  .table-responsive {
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+
+  .new-event {
+    background-color: rgba(0,0,0,.7);
+  }
+
+  .bottom-margin {
+    margin-bottom: 30%
+  }
+
+  label{
+    color: black;
+    align-content: center;
+  }

@@ -3,6 +3,8 @@ import { TripService } from '../trip.service';
 import { OfficeService } from '../office.service';
 import { UserService } from '../user.service';
 import { AuthService } from '../auth.service';
+import { AvailabilityService } from '../availability.service';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-enter-travel-info',
@@ -23,9 +25,16 @@ export class EnterTravelInfoComponent implements OnInit {
   
   @ViewChild('files') filesContainer: Object;
   @ViewChild('fileInput') fileInput: Object;
+
+  closeResult: string;
   
   
-  constructor(private tripService: TripService, private officeService: OfficeService, private userService: UserService,private authService: AuthService) {
+  constructor(private tripService: TripService,
+     private officeService: OfficeService,
+      private userService: UserService,
+      private availabilityService: AvailabilityService,
+      private modalService: NgbModal,
+	  private authService: AuthService) {
   }
   
 
@@ -43,6 +52,7 @@ export class EnterTravelInfoComponent implements OnInit {
   }
 
   getEmployees() {
+    console.log("started getting employees")
     this.userService.getUsers().subscribe(users => {
       this.users = users
       this.users.forEach(user => {
@@ -51,21 +61,33 @@ export class EnterTravelInfoComponent implements OnInit {
       console.log(this.usersDropDownList)  
     })
   }
+
+  checkAvailability(id: number) {
+    window.open("http://localhost:4200/calendar/" + id.toString());
+  }
   
   ngAfterViewInit(){
 	  console.log(this.tripInfo);
   }
-  
-  onUploadTicket(event){
-	  alert("Doing stuff with file (AKA nothing yet, you can TypeScript here)");
-	  console.log(this.fileInput);
-	  if(event.target.files && event.target.files.length > 0) {
-		  let file = event.target.files[0];
-		  //this.fileInput.nativeElement.value = null;
-		  //this.filesContainer.nativeElement.innerHTML += file.name + "<br>"
-	  }
-	  
+
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
   }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
+  }
+
   
   onRegisterTripClick() {
 	//this.tripInfo.OrganizerId = this.authService.getCurrentUserId();

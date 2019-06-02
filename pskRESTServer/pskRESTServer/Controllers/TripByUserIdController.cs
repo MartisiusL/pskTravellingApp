@@ -36,6 +36,14 @@ namespace pskRESTServer.Controllers
         public void Put(int id, [FromBody]TripConfirmationBody confirmed)
         {
             RepositoryGetter.getDatabase().PutUserTrip(id, confirmed.confirmed);
+            if(confirmed.confirmed)
+            {
+                RepositoryGetter.getDatabase().AddAvailabilityTrip(id);
+            }
+            else
+            {
+                RepositoryGetter.getDatabase().DeleteAvailabilityTrip(id);
+            }
         }
 
         // DELETE: api/TripByUserId/5

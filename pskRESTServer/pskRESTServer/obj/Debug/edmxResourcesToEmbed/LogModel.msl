@@ -13,6 +13,7 @@
     <EntitySetMapping Name="Availabilities">
       <EntityTypeMapping TypeName="pskTravellingModel.Availability">
         <MappingFragment StoreEntitySet="Availability">
+          <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="BusyFrom" ColumnName="BusyFrom" />

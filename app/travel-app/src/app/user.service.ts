@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 export class UserService {
 
   private userUrl = 'http://localhost:55155/api/user';
+  private userUrlName = 'http://localhost:55155/api/username'
 
   constructor(private http: HttpClient) { }
 
@@ -18,6 +19,10 @@ export class UserService {
 
   getUsers(): Observable<User[]>{
     return this.http.get<User[]>(this.userUrl);
+  }
+
+  getUserName(id: number) {
+    return this.http.get(this.userUrlName + "/" + id.toString())
   }
 }
 

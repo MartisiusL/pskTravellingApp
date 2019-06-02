@@ -17,6 +17,7 @@
     <Property Name="UserId" Type="Int32" Nullable="false" />
     <Property Name="BusyFrom" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="BusyTo" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="InvocationLog">
     <Key>
@@ -43,10 +44,10 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="TripName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="TripStartDate" Type="DateTime" Precision="3" />
+    <Property Name="TripStartDate" Type="DateTime" Precision="3" Nullable="false" />
     <Property Name="ToOfficeId" Type="Int32" />
     <Property Name="FromOfficeId" Type="Int32" />
-    <Property Name="TripEndDate" Type="DateTime" Precision="3" />
+    <Property Name="TripEndDate" Type="DateTime" Precision="3" Nullable="false" />
     <Property Name="HasHotel" Type="Boolean" />
     <Property Name="RentCar" Type="Boolean" />
     <Property Name="TravelTickets" Type="Boolean" />

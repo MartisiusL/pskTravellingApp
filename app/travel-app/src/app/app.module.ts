@@ -22,6 +22,12 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 import { TripOrganizerViewComponent } from './trip-organizer-view/trip-organizer-view.component';
 import { TripOrganizerSingleComponent } from './trip-organizer-single/trip-organizer-single.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { FlatpickrModule } from 'angularx-flatpickr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -37,16 +43,24 @@ import { TripOrganizerSingleComponent } from './trip-organizer-single/trip-organ
     RegisterComponent,
     TripOrganizerViewComponent,
     TripOrganizerSingleComponent,
+    CalendarComponent,
   ],
   imports: [
 	FormsModule,
 	ReactiveFormsModule,
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
+  BrowserModule,
+  AppRoutingModule,
+  HttpClientModule,
   NgbModule.forRoot(),
   NgMultiSelectDropDownModule.forRoot(),
-  AngularMultiSelectModule
+  AngularMultiSelectModule, 
+  NgbModalModule,
+  FlatpickrModule.forRoot(),   
+  CalendarModule.forRoot({
+    provide: DateAdapter,
+    useFactory: adapterFactory
+  }),
+  BrowserAnimationsModule
   ],
   providers: [AuthService, AuthGuard, HeaderComponent],
   bootstrap: [AppComponent]

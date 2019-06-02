@@ -28,13 +28,11 @@ export class MyTripsComponent implements OnInit {
   getTrips(): void {
     this.tripService.getTripsByUserId(this.authService.getCurrentUserId()).subscribe(trips => {
       this.trips = trips
-      console.log(trips)
     });
       
   }
 
   getTripStatus(trip) {
-    console.log(formatDate(trip.TripEndDate, 'yyyy/MM/dd', 'en') + " and " +  formatDate(new Date(), 'yyyy/MM/dd', 'en'))
     if(formatDate(trip.TripEndDate, 'yyyy/MM/dd', 'en') < formatDate(new Date(), 'yyyy/MM/dd', 'en')) {
       return "Trip ended"
     } else if(formatDate(trip.TripStartDate, 'yyyy/MM/dd', 'en') < formatDate(new Date(), 'yyyy/MM/dd', 'en')){
@@ -56,7 +54,6 @@ export class MyTripsComponent implements OnInit {
   confirm(trip){
 	  trip.confirmed = false;
 	  this.tripService.putUserTrip(trip);
-	  console.log(trip);
   }
   
   refuse(trip){
