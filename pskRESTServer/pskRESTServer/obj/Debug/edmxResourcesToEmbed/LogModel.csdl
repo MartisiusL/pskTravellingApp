@@ -9,6 +9,25 @@
     <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Users" Relationship="Self.AccountId" FromRole="Account" ToRole="User" />
   </EntityType>
+  <EntityType Name="Availability">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="BusyFrom" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="BusyTo" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="InvocationLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Controller" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Ip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Timestamp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
   <EntityType Name="Office">
     <Key>
       <PropertyRef Name="Id" />
@@ -24,26 +43,28 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="TripName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TripStartDate" Type="DateTime" Precision="3" />
     <Property Name="ToOfficeId" Type="Int32" />
     <Property Name="FromOfficeId" Type="Int32" />
-    <NavigationProperty Name="UserTrips" Relationship="Self.TripId" FromRole="Trip" ToRole="UserTrip" />
-    <Property Name="TripStartDate" Type="DateTime" Precision="3" />
     <Property Name="TripEndDate" Type="DateTime" Precision="3" />
     <Property Name="HasHotel" Type="Boolean" />
     <Property Name="RentCar" Type="Boolean" />
     <Property Name="TravelTickets" Type="Boolean" />
-    <Property Name="RowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
+    <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="OrganizerId" Type="Int32" />
+    <NavigationProperty Name="UserTrips" Relationship="Self.TripId" FromRole="Trip" ToRole="UserTrip" />
   </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
     <Property Name="AccountId" Type="Int32" Nullable="false" />
+    <Property Name="IsOrganizer" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Account" Relationship="Self.AccountId" FromRole="User" ToRole="Account" />
     <NavigationProperty Name="UserTrips" Relationship="Self.UserId" FromRole="User" ToRole="UserTrip" />
   </EntityType>
@@ -94,8 +115,10 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="pskTravellingEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Accounts" EntityType="Self.Account" />
+    <EntitySet Name="Availabilities" EntityType="Self.Availability" />
+    <EntitySet Name="InvocationLogs" EntityType="Self.InvocationLog" />
     <EntitySet Name="Offices" EntityType="Self.Office" />
     <EntitySet Name="Trips" EntityType="Self.Trip" />
     <EntitySet Name="Users" EntityType="Self.User" />
@@ -112,33 +135,5 @@
       <End Role="User" EntitySet="Users" />
       <End Role="UserTrip" EntitySet="UserTrips" />
     </AssociationSet>
-    <EntitySet Name="database_firewall_rules" EntityType="pskTravellingModel.database_firewall_rules" />
-    <EntitySet Name="InvocationLogs" EntityType="pskTravellingModel.InvocationLog" />
   </EntityContainer>
-  <EntityType Name="database_firewall_rules">
-    <Key>
-      <PropertyRef Name="id" />
-      <PropertyRef Name="name" />
-      <PropertyRef Name="start_ip_address" />
-      <PropertyRef Name="end_ip_address" />
-      <PropertyRef Name="create_date" />
-      <PropertyRef Name="modify_date" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="start_ip_address" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="end_ip_address" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
-  </EntityType>
-  <EntityType Name="InvocationLog">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Controller" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Action" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Ip" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Timestamp" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-  </EntityType>
 </Schema>

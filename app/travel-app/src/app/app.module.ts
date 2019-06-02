@@ -20,6 +20,8 @@ import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
+import { TripOrganizerViewComponent } from './trip-organizer-view/trip-organizer-view.component';
+import { TripOrganizerSingleComponent } from './trip-organizer-single/trip-organizer-single.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
     LoginComponent,
     HomeComponent,
     RegisterComponent,
+    TripOrganizerViewComponent,
+    TripOrganizerSingleComponent,
   ],
   imports: [
 	FormsModule,

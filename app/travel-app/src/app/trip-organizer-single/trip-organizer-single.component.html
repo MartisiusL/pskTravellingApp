@@ -1,0 +1,32 @@
+<div class="row">
+
+	<div class="col-sm"></div>
+	
+	<div class="col-sm-11 box">
+		
+		<h2>{{myTrip.TripName | uppercase}} Details</h2>
+		
+		<ul class="buttons">
+		  <li *ngFor="let usertrip of trip.UserTrips">
+			<div class="row pb-2">
+				<div class="col-sm-12 col-12">	
+					<div class="btn btn-primary btn-block text-left" style="pointer-events: none">
+						{{usertrip.User.Name}} {{usertrip.User.Surname}}
+						<div *ngIf="usertrip.Confirmed" class="green">
+							Confirmed
+						</div>
+						
+						<div *ngIf="!usertrip.Confirmed" class="red">
+							Refused
+						</div>
+					</div>
+				</div>
+			</div>
+		  </li>
+		</ul>
+		
+	</div>
+	
+	<div class="col-sm"></div>
+
+</div>

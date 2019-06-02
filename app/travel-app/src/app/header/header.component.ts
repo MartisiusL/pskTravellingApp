@@ -11,10 +11,15 @@ export class HeaderComponent implements OnInit {
 	
   isCollapsed = true
   isAdmin: boolean = false
+  isOrganizer: boolean = false
   authServ: AuthService
 
   setIsAdmin(value: boolean) {
     this.isAdmin = value
+  }
+  
+  setIsOrganizer(value: boolean) {
+    this.isOrganizer = value
   }
 
   constructor(private auth: AuthService, router: Router) {
@@ -24,6 +29,7 @@ export class HeaderComponent implements OnInit {
   }
   ngDoCheck(): void {
     this.isAdmin = this.authServ.IsAdmin
+	this.isOrganizer = this.authServ.IsOrganizer
   }
 
   logoutUser() {

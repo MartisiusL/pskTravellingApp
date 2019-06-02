@@ -46,6 +46,9 @@ namespace pskRESTServer.Repository
         List<Trip> GetTripsList();
         List<TripWithConfirmation> GetTripsListByUserId(int id);
 
+        List<Trip> GetTripsListByOrganizerId(int id);
+        Trip GetTripByIdForOrganizer(int id);
+
         User GetUserById(int id);
         User GetUserByAccountId(int accountId);
         Trip GetTripById(int id);
@@ -57,6 +60,7 @@ namespace pskRESTServer.Repository
         void AddTrip(Trip trip);
         void AddOffice(Office office);
         void AddUserTrip(UserTrip userTrip);
+
 
         void AddTripByContract(TripContract tripContract);
         int AddUserByContract(NewUser user);

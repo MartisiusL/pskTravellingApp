@@ -36,6 +36,9 @@ export class LoginComponent implements OnInit, OnDestroy {
         if(data.admin) {
           this.Auth.setIsAdmin(true)
         }
+		if(data.admin) {
+          this.Auth.setIsOrganizer(true)
+        }
         this.Auth.setLoggedIn(true)
         this.Auth.setCurrentUserId(data.userId)
         this.router.navigate(['home'])   

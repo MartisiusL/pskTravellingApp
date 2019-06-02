@@ -1,0 +1,28 @@
+<div class="row">
+	<div class="col-sm"></div>
+	
+	<div class="col-sm-11 box">
+		<h2>My trips</h2>
+		
+		<ul class="trips">
+		  <li *ngFor="let trip of trips">
+			<div class="row pb-2">
+				<div class="col-sm-12 col-12">
+					<button class="btn btn-primary btn-block text-left" routerLink="/organizerdetail/{{trip.Id}}">
+					  <span class="badge badge-secondary">{{trip.Id}}</span> 					  
+						{{trip.TripName}}
+					</button>
+				</div>
+					
+				
+			</div>
+		  </li>
+		</ul>
+		
+		
+		
+		
+	</div>
+	
+	<div class="col-sm"></div>
+</div>

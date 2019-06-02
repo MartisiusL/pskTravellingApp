@@ -335,6 +335,16 @@ namespace pskRESTServer.Repository
             return t;
         }
 
+        public List<Trip> GetTripsListByOrganizerId(int id)
+        {
+            return trips.Where(x => x.OrganizerId == id).ToList();
+        }
+
+        public Trip GetTripByIdForOrganizer(int id)
+        {
+            return trips.Where(x => x.Id == id).Select(x => new TripWithUserTrips(x)).First();
+        }
+
         public void AddUserTrip(UserTrip userTrip)
         {
             userTrips.Add(userTrip);
@@ -430,5 +440,7 @@ namespace pskRESTServer.Repository
             trips.FirstOrDefault(x => x.Id == tripContract.CurrentTripId).TripName = tripContract.TripName;
             return true;
         }
+
+        
     }
 }

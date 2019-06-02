@@ -9,6 +9,7 @@
 
 namespace pskRESTServer
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -19,6 +20,7 @@ namespace pskRESTServer
         public int TripId { get; set; }
         public bool Confirmed { get; set; }
     
+        [JsonIgnore]
         public virtual Trip Trip { get; set; }
         public virtual User User { get; set; }
     }

@@ -137,15 +137,16 @@
       <DependentUpon>LogModel.tt</DependentUpon>
     </Compile>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Availability.cs">
+      <DependentUpon>LogModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuthorizationController.cs" />
     <Compile Include="Controllers\OfficeController.cs" />
+    <Compile Include="Controllers\TripByOrganizerIdController.cs" />
     <Compile Include="Controllers\TripByUserIdController.cs" />
     <Compile Include="Controllers\TripController.cs" />
     <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="database_firewall_rules.cs">
-      <DependentUpon>LogModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Filters\LogInvocationsFilters.cs" />
     <Compile Include="InvocationLog.cs">
       <DependentUpon>LogModel.tt</DependentUpon>
@@ -175,6 +176,7 @@
     <Compile Include="Models\RestModels\TripContract.cs" />
     <Compile Include="Models\RestModels\UpdateTripNameContract.cs" />
     <Compile Include="Models\TripWithConfirmation.cs" />
+    <Compile Include="Models\TripWithUserTrips.cs" />
     <Compile Include="Office.cs">
       <DependentUpon>LogModel.tt</DependentUpon>
     </Compile>

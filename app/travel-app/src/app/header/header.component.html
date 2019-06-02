@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-light">
-  <a class="navbar-brand" href="#">Title</a>
+  <a class="navbar-brand">Travel</a>
   <button class="navbar-toggler btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"  aria-expanded="false" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navbarTogglerDemo02">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -14,6 +14,10 @@
 		<a class="nav-link" routerLink="../trips">My Trips</a>
 	  </li>
 	  
+	  <li class="nav-item" *ngIf="isOrganizer">
+		<a class="nav-link" routerLink="../organizer">Organized trips</a>
+	  </li>
+	  
 	  <li class="nav-item" *ngIf="isAdmin">
 		<a class="nav-link" routerLink="../travel">Register Trip</a>
 	  </li>
@@ -22,6 +26,5 @@
 		<a class="nav-link" href="#"  (click)="logoutUser()">Logout</a>
 	  </li>
     </ul>
-    <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
   </div>
 </nav>

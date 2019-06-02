@@ -16,6 +16,8 @@ export class TripService {
 
   private tripsUrl = 'http://localhost:55155/api/trip';
   private tripsByUserIdUrl = 'http://localhost:55155/api/tripbyuserid';
+  private tripsByOrganizerIdUrl = 'http://localhost:55155/api/tripbyorganizerid';
+  private tripsForOrganizerUrl = 'http://localhost:55155/api/TripForOrganizer';
   
   constructor(
   private http: HttpClient,
@@ -29,9 +31,19 @@ export class TripService {
     return this.http.get<Trip>(this.tripsUrl + "/" + id);
   }
   
+  getTripForOrganizer(id: number){
+	  return this.http.get<Trip>(this.tripsForOrganizerUrl + "/" + id);
+  }
+  
   getTripsByUserId(id: number){
 	  return this.http.get<Trip[]>(this.tripsByUserIdUrl + "/" + id);
   }
+  
+  getTripsByOrganizerId(id: number){
+	  return this.http.get<Trip[]>(this.tripsByOrganizerIdUrl + "/" + id);
+  }
+  
+  
   
   postTrip(trip: Trip){
 	  this.http.post(this.tripsUrl, trip, httpOptions).subscribe();

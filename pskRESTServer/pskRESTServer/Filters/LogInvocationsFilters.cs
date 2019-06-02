@@ -31,7 +31,7 @@ namespace pskRESTServer.Filters
                     //log.Id = 0;
                 }
                 entities.InvocationLogs.Add(log);
-                entities.SaveChanges();
+                //entities.SaveChanges();
             }
         }
     }

@@ -14,7 +14,6 @@ namespace pskRESTServer
     
     public partial class InvocationLog
     {
-
         public int Id { get; set; }
         public string Controller { get; set; }
         public string Action { get; set; }

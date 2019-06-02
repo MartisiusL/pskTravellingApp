@@ -303,3 +303,6 @@ C:\Users\Lukas\Documents\pskTravellingApp\pskRESTServer\pskRESTServer\bin\System
 C:\Users\Lukas\Documents\pskTravellingApp\pskRESTServer\pskRESTServer\bin\System.Web.WebPages.xml
 C:\Users\Lukas\Documents\pskTravellingApp\pskRESTServer\pskRESTServer\bin\System.Web.WebPages.Deployment.xml
 C:\Users\Lukas\Documents\pskTravellingApp\pskRESTServer\pskRESTServer\bin\System.Web.WebPages.Razor.xml
+C:\Users\Liutauras\Desktop\dev_env\public\pskTravellingApp\pskRESTServer\pskRESTServer\bin\Autofac.dll
+C:\Users\Liutauras\Desktop\dev_env\public\pskTravellingApp\pskRESTServer\pskRESTServer\bin\Autofac.pdb
+C:\Users\Liutauras\Desktop\dev_env\public\pskTravellingApp\pskRESTServer\pskRESTServer\bin\Autofac.xml

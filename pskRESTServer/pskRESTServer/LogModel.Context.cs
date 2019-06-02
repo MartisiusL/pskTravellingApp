@@ -26,12 +26,11 @@ namespace pskRESTServer
         }
     
         public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<Availability> Availabilities { get; set; }
+        public virtual DbSet<InvocationLog> InvocationLogs { get; set; }
         public virtual DbSet<Office> Offices { get; set; }
         public virtual DbSet<Trip> Trips { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<UserTrip> UserTrips { get; set; }
-
-        public virtual DbSet<InvocationLog> InvocationLogs { get; set; }
-        public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
     }
 }

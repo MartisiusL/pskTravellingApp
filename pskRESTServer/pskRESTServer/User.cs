@@ -9,6 +9,7 @@
 
 namespace pskRESTServer
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -26,9 +27,12 @@ namespace pskRESTServer
         public string PhoneNumber { get; set; }
         public bool IsAdmin { get; set; }
         public int AccountId { get; set; }
-    
+        public bool IsOrganizer { get; set; }
+
+        [JsonIgnore]
         public virtual Account Account { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<UserTrip> UserTrips { get; set; }
     }
 }

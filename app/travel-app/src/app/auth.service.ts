@@ -15,6 +15,7 @@ export class AuthService {
 
   private loggedInStatus = JSON.parse(localStorage.getItem('loggedInStatus') || 'false')
   private isAdmin = JSON.parse(localStorage.getItem('isAdmin') || 'false')
+  private isOrganizer = JSON.parse(localStorage.getItem('isOrganizer') || 'false')
   private currentUserId: number = JSON.parse(localStorage.getItem('currentUserId') || '-1')
 
   constructor(private http: HttpClient) { }
@@ -27,6 +28,7 @@ export class AuthService {
       localStorage.removeItem('loggedInStatus')
       localStorage.removeItem('currentUserId')
       localStorage.removeItem('isAdmin')
+	  localStorage.removeItem('isOrganizer')
     }  
   }
 
@@ -42,6 +44,15 @@ export class AuthService {
   setIsAdmin(value: boolean) {
     this.isAdmin = true
     localStorage.setItem('isAdmin', value.toString());
+  }
+  
+  setIsOrganizer(value: boolean){
+	this.isOrganizer = true;
+    localStorage.setItem('isOrganizer', value.toString());
+  }
+  
+  get IsOrganizer(){
+	  return this.isOrganizer;
   }
 
   get IsAdmin() {

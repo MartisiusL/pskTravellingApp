@@ -44,6 +44,7 @@ namespace pskRESTServer.Controllers
                     User user = RepositoryGetter.getDatabase().GetUserByAccountId(account.Id);
                     answer.userId = user.Id;
                     answer.admin = user.IsAdmin;
+                    answer.organizer = user.IsOrganizer;
                 }
                 return answer;
             }

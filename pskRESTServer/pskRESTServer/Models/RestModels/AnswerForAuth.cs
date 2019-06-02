@@ -9,6 +9,7 @@ namespace pskRESTServer.Models.RestModels
     {
         public bool success { get; set; }
         public bool admin { get; set; }
+        public bool organizer { get; set; }
         public int userId { get; set; }
         public string message { get; set; }
     }

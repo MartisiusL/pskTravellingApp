@@ -41,10 +41,24 @@ namespace pskRESTServer.Repository
             //return trips;
         }
 
-        public List<TripWithConfirmation> GetTripsListByUserId(int id) {
+        public List<TripWithConfirmation> GetTripsListByUserId(int id)
+        {
             return entities.Users.First(user => user.Id == id).
                 UserTrips.Select(ut => new TripWithConfirmation(ut.Trip)
-                    { confirmed = ut.Confirmed, UserTripId = ut.Id }).ToList();
+                { confirmed = ut.Confirmed, UserTripId = ut.Id }).ToList();
+        }
+
+        public List<Trip> GetTripsListByOrganizerId(int id)
+        {
+            return entities.Trips.Where(trip => trip.OrganizerId == id).ToList();
+        }
+
+        public Trip GetTripByIdForOrganizer(int id)
+        {
+            return entities.Trips.Where(x => x.Id == id).ToList()
+                .Select(x => new TripWithUserTrips(x) {
+                    UserTrips = entities.UserTrips.Where(y => y.TripId == id).ToList()
+                }).First();
         }
 
         public User GetUserById(int id)
