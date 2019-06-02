@@ -14,6 +14,7 @@ namespace pskRESTServer.Models.RestModels
         public string miscInfo { get; set; }
         public string name { get; set; }
         public bool planeTicket { get; set; }
+        public int organizerId { get; set; }
         public float price { get; set; }
         public DateTime startDate { get; set; }
         public int startLocationId { get; set; }

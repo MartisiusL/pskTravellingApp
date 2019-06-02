@@ -185,6 +185,7 @@ namespace pskRESTServer.Repository
             trip.TravelTickets = tripContract.planeTicket;
             trip.TripStartDate = tripContract.startDate;
             trip.TripEndDate = tripContract.endDate;
+            trip.OrganizerId = tripContract.organizerId;
             try
             {
                 trip.Id = entities.Trips.Max(record => record.Id) + 1;

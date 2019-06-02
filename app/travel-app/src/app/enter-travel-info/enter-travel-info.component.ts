@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { TripService } from '../trip.service';
 import { OfficeService } from '../office.service';
 import { UserService } from '../user.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-enter-travel-info',
@@ -24,7 +25,7 @@ export class EnterTravelInfoComponent implements OnInit {
   @ViewChild('fileInput') fileInput: Object;
   
   
-  constructor(private tripService: TripService, private officeService: OfficeService, private userService: UserService) {
+  constructor(private tripService: TripService, private officeService: OfficeService, private userService: UserService,private authService: AuthService) {
   }
   
 
@@ -67,6 +68,7 @@ export class EnterTravelInfoComponent implements OnInit {
   }
   
   onRegisterTripClick() {
+	this.tripInfo.OrganizerId = this.authService.getCurrentUserId();
     var tripContract = Object.assign(this.tripInfo, {"selectedItems" :this.selectedItems})
     this.tripService.registerTrip(tripContract).subscribe(data => {
       alert(data.message)
