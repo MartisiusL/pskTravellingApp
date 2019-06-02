@@ -45,26 +45,32 @@ namespace pskRESTServer.Repository
         List<Office> GetOfficeList();
         List<Trip> GetTripsList();
         List<TripWithConfirmation> GetTripsListByUserId(int id);
+        List<Availability> GetAvailabilitiesById(int id);
 
         User GetUserById(int id);
         User GetUserByAccountId(int accountId);
         Trip GetTripById(int id);
         Account GetAccountByEmail(string email);
         Office GetOfficeById(int id);
+        UserTrip GetUserTripById(int id);
 
         void AddUser(User user);
         void AddAccount(Account account);
         void AddTrip(Trip trip);
         void AddOffice(Office office);
         void AddUserTrip(UserTrip userTrip);
+        
 
         void AddTripByContract(TripContract tripContract);
+        void AddAvailability(AvailabilityContract availability);
         int AddUserByContract(NewUser user);
+        void AddAvailabilityTrip(int userTripId);
 
         void DeleteUserById(int id);
         void DeleteAccountById(int id);
         void DeleteTripById(int id);
         void DeleteOfficeById(int id);
+        void DeleteAvailabilityTrip(int userTripId);
 
         void PutTrip(int id, Trip trip);
         void PutUserTrip(int id, bool confirmed);

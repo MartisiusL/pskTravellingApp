@@ -15,6 +15,7 @@ namespace pskRESTServer.Repository
         private List<Trip> trips = new List<Trip>();
         private List<TripWithConfirmation> tripWithConfirmations = new List<TripWithConfirmation>();
         private List<UserTrip> userTrips = new List<UserTrip>();
+        private List<Availability> availabilities = new List<Availability>();
 
         public MockDatabase()
         {
@@ -429,6 +430,36 @@ namespace pskRESTServer.Repository
         {
             trips.FirstOrDefault(x => x.Id == tripContract.CurrentTripId).TripName = tripContract.TripName;
             return true;
+        }
+
+        public List<Availability> GetAvailabilitiesById(int id)
+        {
+            return availabilities.FindAll(x => x.UserId == id);
+        }
+
+        public void AddAvailability(AvailabilityContract availabilityContract)
+        {
+            Availability availability = new Availability();
+            availability.Title = availabilityContract.Title;
+            availability.BusyFrom = availabilityContract.BusyFrom;
+            availability.BusyTo = availabilityContract.BusyTo;
+
+            availabilities.Add(availability);
+        }
+
+        public UserTrip GetUserTripById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddAvailabilityTrip(int userTripId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteAvailabilityTrip(int userTripId)
+        {
+            throw new NotImplementedException();
         }
     }
 }

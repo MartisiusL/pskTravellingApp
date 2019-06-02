@@ -137,15 +137,16 @@
       <DependentUpon>LogModel.tt</DependentUpon>
     </Compile>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Availability.cs">
+      <DependentUpon>LogModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuthorizationController.cs" />
+    <Compile Include="Controllers\AvailabilityController.cs" />
     <Compile Include="Controllers\OfficeController.cs" />
     <Compile Include="Controllers\TripByUserIdController.cs" />
     <Compile Include="Controllers\TripController.cs" />
     <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="database_firewall_rules.cs">
-      <DependentUpon>LogModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Filters\LogInvocationsFilters.cs" />
     <Compile Include="InvocationLog.cs">
       <DependentUpon>LogModel.tt</DependentUpon>
@@ -166,9 +167,12 @@
       <DependentUpon>LogModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\RestModels\AnswerForAuth.cs" />
+    <Compile Include="Models\RestModels\AnswerForPostRequests.cs" />
     <Compile Include="Models\RestModels\AnswerForRegistration.cs" />
     <Compile Include="Models\RestModels\AnswerForTripRegistration.cs" />
     <Compile Include="Models\RestModels\AuthorizationBody.cs" />
+    <Compile Include="Models\RestModels\AnswerForAvailability.cs" />
+    <Compile Include="Models\RestModels\AvailabilityContract.cs" />
     <Compile Include="Models\RestModels\NewUser.cs" />
     <Compile Include="Models\RestModels\selectedItems.cs" />
     <Compile Include="Models\RestModels\TripConfirmationBody.cs" />

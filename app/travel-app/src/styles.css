@@ -2,6 +2,8 @@
 
 /* Bootstrap to distribute objects in a grid*/
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
+@import 'flatpickr/dist/flatpickr.css';
 
 
 
