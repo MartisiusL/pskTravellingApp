@@ -18,8 +18,12 @@
 		<a class="nav-link" routerLink="../organizer">Organized trips</a>
 	  </li>
 	  
-	  <li class="nav-item" *ngIf="isAdmin">
+	  <li class="nav-item" *ngIf="isOrganizer">
 		<a class="nav-link" routerLink="../travel">Register Trip</a>
+	  </li>
+	  
+	  <li class="nav-item" *ngIf="isAdmin">
+		<a class="nav-link" routerLink="../register">Register</a>
 	  </li>
 	  
 	  <li class="nav-item">

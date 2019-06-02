@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         if(data.admin) {
           this.Auth.setIsAdmin(true)
         }
-		if(data.admin) {
+		if(data.organizer) {
           this.Auth.setIsOrganizer(true)
         }
         this.Auth.setLoggedIn(true)

@@ -89,6 +89,7 @@ export interface TripContract{
   TripEndDate: Date;
   ToOfficeId: number;
   FromOfficeId: number;
+  OrganizerId: number;
   Hotel: boolean;
   Car: boolean;
   Travel: boolean;
@@ -103,6 +104,7 @@ export interface Trip{
 	TripName: string;
 	Id: number;
 	confirmed: boolean;
+  OrganizerId: number;
   UserTripId: number;
   RowVersion: any[];
 }

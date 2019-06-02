@@ -68,8 +68,8 @@ export class EnterTravelInfoComponent implements OnInit {
   }
   
   onRegisterTripClick() {
-	this.tripInfo.OrganizerId = this.authService.getCurrentUserId();
-    var tripContract = Object.assign(this.tripInfo, {"selectedItems" :this.selectedItems})
+	//this.tripInfo.OrganizerId = this.authService.getCurrentUserId();
+    var tripContract = Object.assign(this.tripInfo, {"selectedItems" :this.selectedItems, "OrganizerId" : this.authService.getCurrentUserId()});
     this.tripService.registerTrip(tripContract).subscribe(data => {
       alert(data.message)
       window.location.reload();

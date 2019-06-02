@@ -4,8 +4,9 @@ import { HttpClient } from '@angular/common/http'
 interface myData {
   success: boolean,
   admin: boolean,
-  userId: number, 
-  message: string
+  userId: number,
+  message: string,
+  organizer: boolean
 }
 
 @Injectable({
