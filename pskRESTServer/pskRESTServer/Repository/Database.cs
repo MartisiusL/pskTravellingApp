@@ -75,6 +75,7 @@ namespace pskRESTServer.Repository
         void DeleteTripById(int id);
         void DeleteOfficeById(int id);
         void DeleteAvailabilityTrip(int userTripId);
+        void DeleteAvailability(int availabilityId);
 
         void PutTrip(int id, Trip trip);
         void PutUserTrip(int id, bool confirmed);

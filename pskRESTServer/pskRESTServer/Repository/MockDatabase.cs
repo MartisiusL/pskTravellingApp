@@ -472,5 +472,10 @@ namespace pskRESTServer.Repository
         {
             throw new NotImplementedException();
         }
+
+        public void DeleteAvailability(int availabilityId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

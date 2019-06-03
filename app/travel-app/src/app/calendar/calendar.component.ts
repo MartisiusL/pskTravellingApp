@@ -105,7 +105,8 @@ export class CalendarComponent {
           {
             title: element.title,
             start: startOfDay(element.start),
-            end: endOfDay(element.end)
+            end: endOfDay(element.end),
+            id: element.availabilityId
           }
         ];
       });
@@ -123,7 +124,8 @@ export class CalendarComponent {
           {
             title: element.title,
             start: startOfDay(element.start),
-            end: endOfDay(element.end)
+            end: endOfDay(element.end),
+            id: element.availabilityId
           }
         ];
       });
@@ -228,6 +230,7 @@ export class CalendarComponent {
   }
 
   deleteEvent(eventToDelete: CalendarEvent) {
+    this.availabilityService.deleteAvailability(this.events[this.events.indexOf(eventToDelete)].id).subscribe()
     this.events = this.events.filter(event => event !== eventToDelete);
   }
 

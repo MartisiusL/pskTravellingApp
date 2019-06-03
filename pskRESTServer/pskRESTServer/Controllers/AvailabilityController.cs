@@ -28,6 +28,8 @@ namespace pskRESTServer.Controllers
                 a.title = availablility.Title;
                 a.start = availablility.BusyFrom;
                 a.end = availablility.BusyTo;
+                a.availabilityId = availablility.Id;
+
                 answer.Add(a);
             }
 
@@ -61,9 +63,10 @@ namespace pskRESTServer.Controllers
         {
         }
 
-        // DELETE: api/Availability/5
-        public void Delete(int id)
+        [Route("api/availabilityDelete/{id}")]
+        public void RemoveAvailability(int id)
         {
+            RepositoryGetter.getDatabase().DeleteAvailability(id);
         }
     }
 }

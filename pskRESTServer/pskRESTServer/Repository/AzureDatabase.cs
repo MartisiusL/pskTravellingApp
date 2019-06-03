@@ -308,16 +308,33 @@ namespace pskRESTServer.Repository
             availability.Title = trip.TripName;
             availability.BusyFrom = trip.TripStartDate;
             availability.BusyTo = trip.TripEndDate;
+            availability.UserId = GetUserTripById(userTripId).UserId;
+            availabilities.Add(availability);
+            entities.Availabilities.Add(availability);
+            entities.SaveChanges();
         }
 
         public void DeleteAvailabilityTrip(int userTripId)
         {
-            throw new NotImplementedException();
+            List<Availability> myAvailabilites = availabilities.FindAll(x => x.UserId == GetUserTripById(userTripId).UserId);
+            Trip trip = trips.FirstOrDefault(x => x.Id == GetUserTripById(userTripId).TripId);
+            Availability a = availabilities.FirstOrDefault(x => x.BusyFrom == trip.TripStartDate && x.BusyTo == trip.TripEndDate && x.Title == trip.TripName);
+            availabilities.Remove(a);
+            entities.Availabilities.Remove(a);
+            entities.SaveChanges();
         }
 
         public UserTrip GetUserTripById(int id)
         {
             return entities.UserTrips.FirstOrDefault(x => x.Id == id);
+        }
+
+        public void DeleteAvailability(int availabilityId)
+        {
+            Availability availability = availabilities.FirstOrDefault(x => x.Id == availabilityId);
+            availabilities.Remove(availability);
+            entities.Availabilities.Remove(availability);
+            entities.SaveChanges();
         }
     }
 }
