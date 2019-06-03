@@ -3,6 +3,7 @@ import { Identifiers } from '@angular/compiler';
 import { UserService } from '../user.service';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { OfficeService, Office } from '../office.service';
 
 @Component({
   selector: 'app-register',
@@ -12,23 +13,16 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
   userInfo = {}
+  offices = []
 
-  constructor(private userService: UserService, private auth: AuthService, private router: Router) { }
+  constructor(private userService: UserService, private auth: AuthService, private router: Router, private officeService: OfficeService) {
+		this.officeService.getOffices().subscribe(offices => {this.offices = offices});
+  }
 
   
   
-  onResgisterClick() {
-    this.userService.getUserDetails(this.userInfo).subscribe(data => {
-      if(data.success) {
-        this.auth.setLoggedIn(true)
-        this.auth.setCurrentUserId(data.userId)
-        alert("Successfully registered!")
-        this.router.navigate(['home']) 
-      }
-      else {
-        alert("Operation was not successful! Please try again.")
-      }
-    })
+  onRegisterClick() {
+    this.userService.getUserDetails(this.userInfo);
   }
 
   ngOnInit() {
@@ -43,4 +37,7 @@ export interface NewUser{
 	Name: string;
   Surname: string;
   Phone: string;
+  office: number;
+  IsAdmin: boolean;
+  IsOrganizer: boolean;
 }

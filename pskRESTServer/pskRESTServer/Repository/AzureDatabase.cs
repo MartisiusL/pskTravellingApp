@@ -266,6 +266,8 @@ namespace pskRESTServer.Repository
             user.Name = newUser.Name;
             user.Surname = newUser.Surname;
             user.PhoneNumber = newUser.Phone;
+            user.IsAdmin = newUser.isAdmin;
+            user.IsOrganizer = newUser.isOrganizer;
             user.AccountId = account.Id;
             try
             {
