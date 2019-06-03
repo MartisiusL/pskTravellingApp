@@ -15,6 +15,7 @@ const httpOptions = {
 export class TripService {
 
   private tripsUrl = 'http://localhost:55155/api/trip';
+  private tripsMergeUrl = 'http://localhost:55155/api/tripmerge';
   private tripsByUserIdUrl = 'http://localhost:55155/api/tripbyuserid';
   private tripsByOrganizerIdUrl = 'http://localhost:55155/api/tripbyorganizerid';
   private tripsForOrganizerUrl = 'http://localhost:55155/api/TripForOrganizer';
@@ -43,7 +44,9 @@ export class TripService {
 	  return this.http.get<Trip[]>(this.tripsByOrganizerIdUrl + "/" + id);
   }
   
-  
+  mergeTrips(mergeTripsContract: mergeTrips) {
+    return this.http.post<answerForRegistation>(this.tripsMergeUrl, mergeTripsContract, httpOptions)
+  }
   
   postTrip(trip: Trip){
 	  this.http.post(this.tripsUrl, trip, httpOptions).subscribe();
@@ -75,6 +78,11 @@ interface answerForRegistation {
 interface answerForNameUpdate {
   success: boolean,
   message: string
+}
+
+interface mergeTrips {
+  firstTripId: number;
+  secondTripId: number;
 }
 
 export interface UpdateTripContract {

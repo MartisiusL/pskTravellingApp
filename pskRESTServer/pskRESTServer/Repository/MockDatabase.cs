@@ -479,5 +479,10 @@ namespace pskRESTServer.Repository
         {
             throw new NotImplementedException();
         }
+
+        public void MergeTrips(int firstTripId, int secondTripId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

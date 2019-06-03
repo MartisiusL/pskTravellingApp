@@ -17,7 +17,7 @@
 		  <input [(ngModel)]="userInfo.Phone" type="text" name="user-phone" placeholder="Phone number">
 		  <p>Office</p>
 		  <select [(ngModel)]="userInfo.office" name="endLocationID">
-				<option *ngFor="let office of offices" [value]="office.Id">{{office.OfficeName}}</option>
+				<option class="option" *ngFor="let office of offices" [value]="office.Id">{{office.OfficeName}}</option>
 			</select>
 			<br>
 		  

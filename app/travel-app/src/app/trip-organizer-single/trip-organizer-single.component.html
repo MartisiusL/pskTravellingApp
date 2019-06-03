@@ -4,7 +4,7 @@
 	
 	<div class="col-sm-11 box">
 		
-		<h2>{{myTrip.TripName | uppercase}} Details</h2>
+		<h2>{{trip.TripName | uppercase}} Details</h2>
 		
 		<ul class="buttons">
 		  <li *ngFor="let usertrip of trip.UserTrips">
@@ -14,8 +14,7 @@
 						{{usertrip.User.Name}} {{usertrip.User.Surname}}
 						<div *ngIf="usertrip.Confirmed" class="green">
 							Confirmed
-						</div>
-						
+						</div>			
 						<div *ngIf="!usertrip.Confirmed" class="red">
 							Refused
 						</div>
@@ -25,7 +24,19 @@
 		  </li>
 		</ul>
 		
-	</div>
+		<div class="col-sm-11">
+				<p>Select trip to combine with:</p>
+				<select [(ngModel)]="tripToCombine" name="tripToCombine">
+					<option class="option" *ngFor="let tripSelect of trips" [value]="tripSelect.Id">{{tripSelect.TripName}}</option>
+				</select>
+				<br>
+				<button class="btn btn-primary" style="margin-bottom: 2%;" type="button" (click)="mergeTrips()">Confirm</button>
+		</div>
+		
+
+</div>
+
+
 	
 	<div class="col-sm"></div>
 

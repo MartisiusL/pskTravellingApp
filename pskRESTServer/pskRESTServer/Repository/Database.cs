@@ -62,8 +62,8 @@ namespace pskRESTServer.Repository
         void AddTrip(Trip trip);
         void AddOffice(Office office);
         void AddUserTrip(UserTrip userTrip);
-        
 
+        void MergeTrips(int firstTripId, int secondTripId);
 
         void AddTripByContract(TripContract tripContract);
         void AddAvailability(AvailabilityContract availability);

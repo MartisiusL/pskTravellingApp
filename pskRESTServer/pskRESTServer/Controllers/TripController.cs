@@ -46,6 +46,27 @@ namespace pskRESTServer.Controllers
             RepositoryGetter.getDatabase().PutTrip(id, trip);
         }
 
+        [Route("api/tripmerge")]
+        public AnswerForPostRequests Post([FromBody] MergeTripsContract mergeTripsContract)
+        {
+            AnswerForPostRequests answer = new AnswerForPostRequests();
+            
+            try
+            {
+                RepositoryGetter.getDatabase().MergeTrips(mergeTripsContract.firstTripId, mergeTripsContract.secondTripId);
+                answer.success = true;
+                answer.message = "Trips successfully merged!";
+            }
+            catch
+            {
+                answer.success = false;
+                answer.message = "Something went wrong!";
+            }
+            
+
+            return answer;
+        }
+
         public AnswerForTripRegistration Put([FromBody] UpdateTripNameContract tripContract)
         {
             AnswerForTripRegistration answer = new AnswerForTripRegistration();

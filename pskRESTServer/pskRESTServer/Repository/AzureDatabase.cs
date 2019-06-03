@@ -338,5 +338,46 @@ namespace pskRESTServer.Repository
             entities.Availabilities.Remove(availability);
             entities.SaveChanges();
         }
+
+        public void MergeTrips(int firstTripId, int secondTripId)
+        {
+            Trip firstTrip = GetTripById(firstTripId);
+            Trip secondTrip = GetTripById(secondTripId);
+
+            List<UserTrip> ut = userTrips.FindAll(x => x.TripId == secondTrip.Id);
+            List<UserTrip> fut = userTrips.FindAll(x => x.TripId == firstTrip.Id);
+            foreach (UserTrip u in ut)
+            {
+                entities.UserTrips.Attach(u);
+                entities.UserTrips.Remove(u);
+                userTrips.Remove(u);   
+            }
+            entities.SaveChanges();
+
+            foreach (UserTrip u in fut)
+            {
+                foreach (UserTrip q in ut)
+                {
+                    if (q.UserId == u.UserId)
+                    {
+                        ut.Remove(u);
+                        break;
+                    }
+                }
+                u.TripId = firstTrip.Id;
+            }
+
+            foreach (UserTrip u in ut)
+            {
+                entities.UserTrips.Add(u);
+                userTrips.Add(u);
+            }
+            entities.SaveChanges();
+
+            trips.Remove(secondTrip);
+            entities.Entry(this.GetTripById(secondTripId)).State = System.Data.Entity.EntityState.Deleted;
+
+            entities.SaveChanges();
+        }
     }
 }

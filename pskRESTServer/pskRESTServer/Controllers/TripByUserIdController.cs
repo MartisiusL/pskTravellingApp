@@ -24,7 +24,15 @@ namespace pskRESTServer.Controllers
         // GET: api/TripByUserId/5
         public List<TripWithConfirmation> Get(int id)
         {
-            return RepositoryGetter.getDatabase().GetTripsListByUserId(id);
+            try
+            {
+                return RepositoryGetter.getDatabase().GetTripsListByUserId(id);
+            }
+            catch
+            {
+                return null;
+            }
+            
         }
 
         // POST: api/TripByUserId
